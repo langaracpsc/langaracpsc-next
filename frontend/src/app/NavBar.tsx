@@ -65,9 +65,9 @@ export class NavBar extends Component<NavBarProps, NavBarState>
         if (this)
         
         
-        return <div className="flex flex-row row-start-1 row-span-1">
-                <div className="basis-1/4 shrink-0">
-                    <img src="LCS.png" alt="club-logo" className="ml-5 shrink-0 h-full select-none"/>
+        return <div className="flex flex-row max-[600px]:flex-col row-start-1 row-span-1 max-[600px]:justify-center">
+                <div className="basis-1/4 shrink-0 grow-0 max-[600px]:justify-center">
+                    <img src="LCS.png" alt="club-logo" className="ml-5 shrink-0 h-full max-[600px]:h-[30%] select-none"/>
                 </div>
                 <div className="basis-3/4 flex justify-end mr-8 h-full">
                     <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
@@ -81,3 +81,5 @@ export class NavBar extends Component<NavBarProps, NavBarState>
     } 
 }
 
+ 
+ 

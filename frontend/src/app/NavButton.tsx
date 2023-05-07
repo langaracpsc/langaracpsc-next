@@ -34,7 +34,7 @@ export class NavButton extends Component<NavButtonProps, NavButtonState>
     
     public render()
     {
-        return <button className={"bg-transparent max-[600px]:text-[10px] max-[600px]:h-5 max-[600px]:w-12 h-10 text-white font-semibold hover:text-white py-2 px-4 border border-lang-orange hover:border-white rounded select-none"}>
+        return <button className={"bg-transparent max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 text-white font-semibold hover:text-white py-2 px-4 border border-lang-orange hover:border-white rounded select-none"}>
             {this.props.Label}
         </button>
     }

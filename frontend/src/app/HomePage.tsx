@@ -2,6 +2,8 @@
 
 import {Component} from "react";
 import {Global, Vector2D} from "@/app/Global";
+import {SocialIcon} from "react-social-icons";
+import {SocialIcons} from "@/app/SocialIcons";
 import {ok} from "assert";
 
 let InstanceCount: number = 0;
@@ -24,6 +26,12 @@ export class HomePage extends Component<HomePageProps, HomePageState>
     public ID: number; 
     
     protected CSSMap: Map<string, Array<string>>;
+    
+    protected static Socials: Array<string> = [
+        "https://github.com/langaracpsc/",
+        "https://discord.gg/langara-computer-science-club-753037165050593300",
+        "https://www.instagram.com/langaracpsc/" 
+    ];
     
     public constructor()
     {
@@ -92,24 +100,26 @@ export class HomePage extends Component<HomePageProps, HomePageState>
     
     public render()
     {
-        let css: string = "", flexContainer: string = "flex flex-row ";
+        let css: string = "", flexContainer: string = "flex flex-row max-[600px]:justify-center max-[600px]:mx-0 ml-[10%]";
         
-        flexContainer += (Global.IsShrunkX) ? "justify-center" : " ml-[10%]";
+        // flexContainer += (Global.IsShrunkX) ? "justify-center" : " ml-[10%]";
         
         let size: number = 5;
-        css = "flex flex-row row-start-2 flex-col row-start-2 row-span-1 text-" + this.state.FontSize + "xl text-white-900 justify-center";        
-        console.log(css);
-        console.log("Shrunk: " + Global.IsShrunkX + ", " + Global.IsShrunkY);
        
         <div className={"text-3xl"}></div>;
         <div className={"text-2xl"}></div>;
         <div className={"flex-col-reverse"}></div>;
+       
+        let socialIconStack: Array<object> = new Array<object>();
+        for (let x: number = 0; x < HomePage.Socials.length; x++)
+            socialIconStack.push(<SocialIcon url={HomePage.Socials[x]}/>);
+        
         
         return <div className={"flex flex-row max-[600px]:flex-col-reverse bg-body-gray w-full h-full"}>
-            <div className={"grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full"}>
+            <div className={"grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full gap-3"}>
                 <div></div>
 
-               <div className={css}>
+               <div className={"flex flex-row row-start-2 flex-col row-start-2 row-span-1 text-7xl max-[850px]:text-4xl max-[600px]:text-3xl text-white-900 justify-center"}>
                    <div className={flexContainer}>   
                        <span className="shrink text-lang-orange">Langara</span> 
                    </div>
@@ -123,16 +133,22 @@ export class HomePage extends Component<HomePageProps, HomePageState>
                    </div>
                </div>
                 
-                <div></div>
-            </div>
-            <div className="grid grid-rows-[20%_60%_20%] w-full h-full">
-                <div className={"text-4xl"}></div>
-                <div className={"flex flex-row row-start-2 row-span-1 text-white-900 justify-center"}>
-                    <img className={"h-[100%] w-[100%] max-[600px]:h-[130%] max-[600px]:w-[100%]"} src={"code_snippet.png"}/>
+                <div className={"flex flex-row ml-[10%] gap-3 max-[600px]:mx-0 max-[600px]:justify-center"}>
+                        <SocialIcons/>
                 </div>
-                <div className={"text-7xl"}></div>
+            </div>
+            <div className="grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full">
+                {(this.state.Dimensions.X < 600) ? null : <div className={"text-4xl max-[600px]:invisible"}></div>}
+                <div className={"flex flex-row row-start-2 row-span-1 text-white-900 justify-center max-[600px]:mt-0"}>
+                    <img className={"max-[600px]:h-[130%] max-[600px]:w-[100%]"} src={"code_snippet.png"}/>
+                </div>
+                <div className={"text-7xl"}>
+                </div>
             </div>
         </div>
     }
 }
+
+ 
+
 
