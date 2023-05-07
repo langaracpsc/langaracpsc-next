@@ -6,7 +6,7 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    
+
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -19,7 +19,7 @@ module.exports = {
         "lang-orange": "#F15A22",
         "nav-bar-black": "#010101",
         "body-gray": "#171717"
-      }
+      },
     },
   },
   plugins: [],
