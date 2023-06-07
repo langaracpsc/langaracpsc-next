@@ -10,7 +10,12 @@ export class SocialIcons extends Component<any, any>
         "https://discord.gg/langara-computer-science-club-753037165050593300",
         "https://www.instagram.com/langaracpsc/"
     ];
-
+        
+    public AddSocial(url: string)
+    {
+        SocialIcons.Socials.push(url);
+    }
+        
     public render()
     {
         return SocialIcons.Socials.map((name, index) => {

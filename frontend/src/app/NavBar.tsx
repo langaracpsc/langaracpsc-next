@@ -34,7 +34,6 @@ export class NavBar extends Component<NavBarProps, NavBarState>
     {
         if (typeof(window) !== "undefined")
         {
-
             window.addEventListener("resize", () => {
                 this.setState({ ButtonGap: ((Global.IsShrunkX) ? 5 : 7), TopMargin: (Global.IsShrunkY) ? 4 : 5});
             });
@@ -62,20 +61,24 @@ export class NavBar extends Component<NavBarProps, NavBarState>
         <div className={"mt-4"}></div>;
         <div className={"mt-3"}></div>;
         
-        if (this)
         
-        
-        return <div className="flex flex-row max-[600px]:flex-col row-start-1 row-span-1 max-[600px]:justify-center">
-                <div className="basis-1/4 shrink-0 grow-0 max-[600px]:justify-center">
-                    <img src="LCS.png" alt="club-logo" className="ml-5 shrink-0 h-full max-[600px]:h-[30%] select-none"/>
+        return <div className="flex flex-row max-[600px]:grid max-[600px]:grid-rows-2  row-start-1 row-span-1 max-[600px]:justify-center">
+                <div className="min-[600px]:basis-1/4 max-[600px]:row-start-1 flex flex-row shrink-0 grow-0 max-[600px]:justify-center ">
+                    <div></div>
+                    <img src="LCS.png" alt="club-logo" className="ml-5 flex-start-2 max-[600px]:ml-8 shrink-0 grow-0 h-full  select-none"/>
+                    <div></div>
                 </div>
-                <div className="basis-3/4 flex justify-end mr-8 h-full">
-                    <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
-                        <NavButton Label={"Home"}></NavButton>
-                        <NavButton Label={"About"}></NavButton>
-                        <NavButton Label={"Events"}></NavButton>
-                        <NavButton Label={"Blog"}></NavButton>
-                </div>
+                <div className="min-[600px]:basis-3/4 max-[600px]:grid max-[600px]:grid-template-cols[5%_90%_5%] flex justify-end mr-8 h-full">
+                    <div></div>
+                    <div className={"col-start-2"}>
+                        <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
+                            <NavButton Label={"Home"}></NavButton>
+                            <NavButton Label={"About"}></NavButton>
+                            <NavButton Label={"Events"}></NavButton>
+                            <NavButton Label={"Blog"}></NavButton>
+                        </div>
+                    </div>
+                    <div></div>
             </div>
         </div>;
     } 

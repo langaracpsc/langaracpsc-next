@@ -57,12 +57,10 @@ export class HomePage extends Component<HomePageProps, HomePageState>
 
                 Global.IsShrunkX = (this.state.Dimensions.X < Global.ThresholdDimensions.X);
                 Global.IsShrunkY = (this.state.Dimensions.Y < Global.ThresholdDimensions.Y);
-
-                
                 
                 if (this.state.Dimensions.X < 850)
                     this.setState({Dimensions: new Vector2D(window.innerWidth, window.innerHeight), FontSize: 4});
-
+                    
                 else if (this.state.Dimensions.X < 600)
                     this.setState({Dimensions: new Vector2D(window.innerWidth, window.innerHeight), FontSize: 3});
                 else
@@ -102,24 +100,17 @@ export class HomePage extends Component<HomePageProps, HomePageState>
     {
         let css: string = "", flexContainer: string = "flex flex-row max-[600px]:justify-center max-[600px]:mx-0 ml-[10%]";
         
-        // flexContainer += (Global.IsShrunkX) ? "justify-center" : " ml-[10%]";
-        
         let size: number = 5;
        
         <div className={"text-3xl"}></div>;
         <div className={"text-2xl"}></div>;
         <div className={"flex-col-reverse"}></div>;
-       
-        let socialIconStack: Array<object> = new Array<object>();
-        for (let x: number = 0; x < HomePage.Socials.length; x++)
-            socialIconStack.push(<SocialIcon url={HomePage.Socials[x]}/>);
-        
-        
+            
         return <div className={"flex flex-row max-[600px]:flex-col-reverse bg-body-gray w-full h-full"}>
-            <div className={"grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full gap-3"}>
+            <div className={"grid grid-rows-[15%_60%_20%] max-[600px]:grid-rows-[5%_60%_20%] max-[600px]:grid-rows-1 w-full h-full gap-3"}>
                 <div></div>
 
-               <div className={"flex flex-row row-start-2 flex-col row-start-2 row-span-1 text-7xl max-[850px]:text-4xl max-[600px]:text-3xl text-white-900 justify-center"}>
+               <div className={"flex flex-row row-start-2 flex-col row-span-1 text-7xl max-[850px]:text-4xl max-[600px]:text-3xl text-white-900 justify-center"}>
                    <div className={flexContainer}>   
                        <span className="shrink text-lang-orange">Langara</span> 
                    </div>
@@ -137,13 +128,13 @@ export class HomePage extends Component<HomePageProps, HomePageState>
                         <SocialIcons/>
                 </div>
             </div>
-            <div className="grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full">
+            <div className="grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-[15%_60%_10%] max-[600px]:grid-rows-1 w-full h-full">
                 {(this.state.Dimensions.X < 600) ? null : <div className={"text-4xl max-[600px]:invisible"}></div>}
+                
                 <div className={"flex flex-row row-start-2 row-span-1 text-white-900 justify-center max-[600px]:mt-0"}>
-                    <img className={"max-[600px]:h-[130%] max-[600px]:w-[100%]"} src={"code_snippet.png"}/>
+                    <img className={"max-[600px]:h-[130%] max-[600px]:w-[100%] shrink-0"} src={"code_snippet.png"}/>
                 </div>
-                <div className={"text-7xl"}>
-                </div>
+                {(this.state.Dimensions.X < 600) ? null : <div className={"text-7xl max-[600px]:invisible"}></div>}
             </div>
         </div>
     }
