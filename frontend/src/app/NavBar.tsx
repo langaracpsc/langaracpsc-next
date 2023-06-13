@@ -65,7 +65,7 @@ export class NavBar extends Component<NavBarProps, NavBarState>
         return <div className="flex flex-row max-[600px]:grid max-[600px]:grid-rows-2  row-start-1 row-span-1 max-[600px]:justify-center">
                 <div className="min-[600px]:basis-1/4 max-[600px]:row-start-1 flex flex-row shrink-0 grow-0 max-[600px]:justify-center ">
                     <div></div>
-                    <img src="LCS.png" alt="club-logo" className="ml-5 flex-start-2 max-[600px]:ml-8 shrink-0 grow-0 h-full  select-none"/>
+                    <img src="LCS.png" alt="club-logo" className="ml-5 flex-start-2 max-[600px]:ml-8 shrink-0 grow-0 h-full select-none"/>
                     <div></div>
                 </div>
                 <div className="min-[600px]:basis-3/4 max-[600px]:grid max-[600px]:grid-template-cols[5%_90%_5%] flex justify-end mr-8 h-full">
