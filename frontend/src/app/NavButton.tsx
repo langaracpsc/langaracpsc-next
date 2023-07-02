@@ -2,10 +2,12 @@
 
 import {Component} from "react";
 import {Global} from "@/app/Global";
+import {redirect} from "next/navigation";
 
 interface NavButtonProps 
 {
-    Label?: string
+    Label: string,
+    Endpoint: string
 }
 
 interface NavButtonState
@@ -19,8 +21,9 @@ export class NavButton extends Component<NavButtonProps, NavButtonState>
     
     static InstanceCount: number = 0;
     
-    constructor() {
-        super({});
+    constructor(label: string, endpoint: string) 
+    {
+        super({Label: label, Endpoint: endpoint});
         
         this.state = { Activated: false };
         
@@ -30,11 +33,12 @@ export class NavButton extends Component<NavButtonProps, NavButtonState>
     public OnClick()
     {
         this.setState({Activated: true});
+        redirect(this.props.Endpoint.toString());
     }
     
     public render()
     {
-        return <button className={"bg-transparent max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 text-white font-semibold hover:text-white py-2 px-4 border border-lang-orange hover:border-white rounded select-none"}>
+        return <button className={"bg-transparent max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 text-white font-semibold hover:text-white py-2 px-4 border border-lang-orange hover:border-white rounded select-none"} onClick={this.OnClick}>
             {this.props.Label}
         </button>
     }

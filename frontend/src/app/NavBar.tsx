@@ -61,7 +61,6 @@ export class NavBar extends Component<NavBarProps, NavBarState>
         <div className={"mt-4"}></div>;
         <div className={"mt-3"}></div>;
         
-        
         return <div className="flex flex-row max-[600px]:grid max-[600px]:grid-rows-2  row-start-1 row-span-1 max-[600px]:justify-center">
                 <div className="min-[600px]:basis-1/4 max-[600px]:row-start-1 flex flex-row shrink-0 grow-0 max-[600px]:justify-center ">
                     <div></div>
@@ -72,10 +71,10 @@ export class NavBar extends Component<NavBarProps, NavBarState>
                     <div></div>
                     <div className={"col-start-2"}>
                         <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
-                            <NavButton Label={"Home"}></NavButton>
-                            <NavButton Label={"About"}></NavButton>
-                            <NavButton Label={"Events"}></NavButton>
-                            <NavButton Label={"Blog"}></NavButton>
+                            <NavButton Label={"Home"}  Endpoint={"/"}></NavButton>
+                            <NavButton Label={"About"} Endpoint={"/about "}></NavButton>
+                            <NavButton Label={"Events"} Endpoint={"/events"}></NavButton>
+                            <NavButton Label={"Blog"} Endpoint={"/blog"}></NavButton>
                         </div>
                     </div>
                     <div></div>

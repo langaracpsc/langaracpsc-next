@@ -48,7 +48,7 @@ export class HomePage extends Component<HomePageProps, HomePageState>
         if (typeof(window) !== "undefined")
         {
             this.setState({Dimensions: new Vector2D(window.innerWidth, window.innerHeight), FontSize: 7});
-
+            
             window.addEventListener("resize", ()=>{
                 this.setState({Dimensions: new Vector2D(window.innerWidth, window.innerHeight), FontSize: 7});
                 Global.WindowDimensions = this.state.Dimensions;
