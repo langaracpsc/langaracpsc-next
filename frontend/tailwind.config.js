@@ -18,8 +18,13 @@ module.exports = {
         current: 'currentColor',
         "lang-orange": "#F15A22",
         "nav-bar-black": "#010101",
-        "body-gray": "#171717"
+        "body-gray": "#171717",
+        "hacks-nav-black": "#202020",
+        "hacks-bg-black": "#1E1E1E"
       },
+      fontFamily: {
+        "audiowide": ["audiowide", "regular"]
+      }
     },
   },
   plugins: [],

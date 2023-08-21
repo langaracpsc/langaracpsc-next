@@ -12,7 +12,6 @@ export class Vector2D
     }
 }
 
-
 export class Global
 {
     public static WindowDimensions: Vector2D = new Vector2D(0, 0);

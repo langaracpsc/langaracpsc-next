@@ -2,7 +2,8 @@ import {Component} from "react";
 import {ExecProfile} from "@/app/ExecProfile";
 
 interface ExecProfilesState
-{}
+{
+}
 
 interface ExecProfilesProps
 {
@@ -34,15 +35,16 @@ export class ExecProfiles extends Component<ExecProfilesProps, ExecProfilesState
     public async componentDidMount() {
         let request = await fetch("http://localhost:5031/Exec/Profile/Active", {
             headers: {
-                "apikey" : "eerSS5qfGUi0H+XQr702DYouu7E+55RWSZ8mLp+iu4QH6fZdqH1NFsaVgFx/CvUpRXioIiq8B9NomnSD2ClFUA=="
+                "apikey" : ""
             }
         });
         
         let profileObjs: object[] = (await request.json())["Payload"];
         
-        for (let x = 0; x < profileObjs.length; x++) {
+        for (let x = 0; x < profileObjs.length; x++) 
+        {
             let profile: Profile = profileObjs[x] as Profile;
-                
+
             this.ExecProfiles.push(new Profile(profile.ID, profile.Name, profile.Position, profile.ImageID));
         }
     } 
@@ -56,8 +58,8 @@ export class ExecProfiles extends Component<ExecProfilesProps, ExecProfilesState
         );
     }
     
-    public constructor() {
-        super({});
+    public constructor(props: ExecProfilesProps) {
+        super(props);
         this.ExecProfiles = new Array<Profile>();
     }
 }

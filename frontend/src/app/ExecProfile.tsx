@@ -19,10 +19,9 @@ interface ExecProfileProps
 
 export class ExecProfile extends Component<ExecProfileProps, ExecProfileState>
 {   
-    public constructor(id: number, name: string, imageID: string, position: number)
+    public constructor(props: ExecProfileProps)
     {
-        super({ ID: id, Name: name, ImageID: imageID, Position: position});
-        this.setState({ImageBuffer: ""});
+        super(props);
     }
     
     public async componentDidMount()

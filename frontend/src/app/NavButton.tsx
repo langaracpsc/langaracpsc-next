@@ -21,9 +21,9 @@ export class NavButton extends Component<NavButtonProps, NavButtonState>
     
     static InstanceCount: number = 0;
     
-    constructor(label: string, endpoint: string) 
+    constructor(props: NavButtonProps) 
     {
-        super({Label: label, Endpoint: endpoint});
+        super(props);
         
         this.state = { Activated: false };
         

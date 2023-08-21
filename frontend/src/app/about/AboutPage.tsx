@@ -48,8 +48,7 @@ export class AboutPage extends Component<AboutPageProps, AboutPageState>
         );      
     }
     
-    public constructor() {
-        super({});
-        
+    public constructor(props: AboutPageProps) {
+        super(props);
     }
 }

@@ -19,8 +19,8 @@ export class NavBar extends Component<NavBarProps, NavBarState>
     
     static InstanceCount: number = 0;
     
-    constructor() {
-        super({})
+    constructor(props: NavBarProps) {
+        super(props)
         this.CurrentPage = 0;
        
         this.state = {ButtonGap: 7, TopMargin: 5};
