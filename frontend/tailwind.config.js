@@ -20,7 +20,7 @@ module.exports = {
         "nav-bar-black": "#010101",
         "body-gray": "#171717",
         "hacks-nav-black": "#202020",
-        "hacks-bg-black": "#1E1E1E"
+        "hacks-bg-black": "#212121"
       },
       fontFamily: {
         "audiowide": ["audiowide", "regular"]
