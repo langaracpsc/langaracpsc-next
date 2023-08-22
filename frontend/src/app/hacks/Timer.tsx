@@ -32,8 +32,6 @@ export class Timer extends Component<TimerProps, TimerState>
 {
     protected TimeDifference: number;
     
-    protected Days: number; 
-    
     public Tick(): void 
     {
         setInterval(()=> {
@@ -52,9 +50,8 @@ export class Timer extends Component<TimerProps, TimerState>
         this.setState({CurrentTimeStamp: new TimeStamp(days, hours, minutes, seconds)});
     }  
     
-    public componentWillMount() {
-        this.TimeDifference = Math.abs(this.props.EndTime - new Date()) / 1000;
-        this.setState({CurrentTime: this.TimeDifference, CurrentTimeStamp: new TimeStamp(0,0,0,0)});
+    public UNSAFE_componentWillMount() {
+        this.setState({CurrentTimeStamp: new TimeStamp(0,0,0,0)});
         this.Tick();
     }
 
@@ -68,5 +65,7 @@ export class Timer extends Component<TimerProps, TimerState>
     constructor(props: TimerProps)
     {
         super(props);
+
+        this.TimeDifference = Math.abs((this.props.EndTime.valueOf() - new Date().valueOf())) / 1000;
     }
 }
