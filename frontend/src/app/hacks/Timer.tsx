@@ -46,10 +46,10 @@ export class Timer extends Component<TimerProps, TimerState>
             minutes: number = Math.floor((this.TimeDifference % 3600) / 60),
             hours: number = Math.floor((this.TimeDifference % 86400) / 3600),
             days: number = Math.floor(this.TimeDifference / (3600 * 24));
-        
+
         this.setState({CurrentTimeStamp: new TimeStamp(days, hours, minutes, seconds)});
-    }  
-    
+    }
+
     public UNSAFE_componentWillMount() {
         this.setState({CurrentTimeStamp: new TimeStamp(0,0,0,0)});
         this.Tick();
@@ -57,7 +57,7 @@ export class Timer extends Component<TimerProps, TimerState>
 
     render()
     {
-        return <div className={"text-white text-3xl"}>
+        return <div className={"text-white text-6xl max-[850px]:text-3xl"}>
             {this.state.CurrentTimeStamp.Days}d {this.state.CurrentTimeStamp.Hours}h {this.state.CurrentTimeStamp.Minutes}m {this.state.CurrentTimeStamp.Seconds}s
         </div>       
     }
@@ -65,7 +65,7 @@ export class Timer extends Component<TimerProps, TimerState>
     constructor(props: TimerProps)
     {
         super(props);
-
+        
         this.TimeDifference = Math.abs((this.props.EndTime.valueOf() - new Date().valueOf())) / 1000;
     }
 }
