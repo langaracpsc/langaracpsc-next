@@ -9,7 +9,7 @@ export function Body()
             <div className={"flex flex-col items-start gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] ml-[15vw] max-w-[50vw]"}> 
                 <span className={"text-3xl max-[850px]:text-xl"}>What is a Hackathon?</span>
                 <span className="max-w-[40vw]">
-                    A hackathon is a competition where teams of students (generally 2 - 4) work together and use their software or hardware skills to build a project in a very short amount of time! Note: a hackathon usually doesn't involve hacking, and instead, the term is used to describe the spirit of the competition: building something in a short amount of time.
+                    A hackathon is a competition where teams of students (generally 2 - 4) work together and use their software or hardware skills to build a project in a very short amount of time! Note: a hackathon usually doesn&apos;t involve hacking, and instead, the term is used to describe the spirit of the competition: building something in a short amount of time.
                 </span>
             </div>
 
@@ -26,7 +26,7 @@ export function Body()
                 <div className="max-w-[70vw] space-y-4"> 
                     <div className="mb-4">
                         <b>Q: What should I do if I lack coding experience?</b>
-                        <p>A: If you're unfamiliar with coding, worry not! There will be multiple workshops throughout the day to provide you with the necessary skills. Even if coding isn't your strong suit, your participation is still highly encouraged. You can contribute to your team in various other capacities and learn from the experience!</p>
+                        <p>A: If you&apos;re unfamiliar with coding, worry not! There will be multiple workshops throughout the day to provide you with the necessary skills. Even if coding isn&apos;t your strong suit, your participation is still highly encouraged. You can contribute to your team in various other capacities and learn from the experience!</p>
                     </div>
 
                     <div className="mb-4">
@@ -47,12 +47,12 @@ export function Body()
 
                     <div className="mb-4">
                         <b>Q: Do I need to bring my own lunch?</b>
-                        <p>A: Lunch and dinner will be provided for all participants! However, if you have specific dietary preferences or additional snacks you'd like, feel free to bring those along.</p>
+                        <p>A: Lunch and dinner will be provided for all participants! However, if you have specific dietary preferences or additional snacks you&apos;d like, feel free to bring those along.</p>
                     </div>
                     
                     <div className="mb-4">
-                    <b>Q: What if I don't have a team upon registration?</b>
-                    <p>A: No need to fret. We have arrangements in place to help you form a team. Even if you don't currently have a team, you can still register for the hackathon. This is a great opportunity to meet fellow participants, share ideas, and form collaborative teams during the event. Your participation is valuable, regardless of your team status at registration.</p>
+                    <b>Q: What if I don&apos;t have a team upon registration?</b>
+                    <p>A: No need to fret. We have arrangements in place to help you form a team. Even if you don&apos;t currently have a team, you can still register for the hackathon. This is a great opportunity to meet fellow participants, share ideas, and form collaborative teams during the event. Your participation is valuable, regardless of your team status at registration.</p>
                     </div>
                     
                 </div>
