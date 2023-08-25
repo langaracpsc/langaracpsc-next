@@ -5,8 +5,8 @@ export function Body()
 {
     return <div className={"grid-rows-5 bg-hacks-bg-black"}> 
             <div className={"flex flex-col items-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh]"}>
+                <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/>
                 <span className={"text-3xl max-[850px]:text-xl"}>Registration opens soon!</span>
-                <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/> 
             </div>
 
             <div className={"flex flex-col items-center self-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] max-w-[100vw]"}>
