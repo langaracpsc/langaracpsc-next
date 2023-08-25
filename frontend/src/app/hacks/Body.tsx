@@ -36,8 +36,7 @@ export function Body()
                     
                     <div className="mb-4">
                         <b>Q: Who is organizing this hackathon?</b>
-
-                        <a>A: The hackathon is being organized by the Hackathon Task Force in collaboration with the Langara Computer Science Club.</a>
+                        <p>A: The hackathon is being organized by the Hackathon Task Force in collaboration with the Langara Computer Science Club.</p>
                     </div>
 
                     <div className="mb-4">
@@ -56,6 +55,7 @@ export function Body()
             <div className={"flex flex-col items-center gap-[5vh] max-[850px]:gap-[6vh] mt-[8vh] max-[850px]:mt-[9vh]"}> 
                 <span className={"text-3xl max-[850px]:text-xl"}> Sponsors: </span>
                 <span className={"max-[850px]:text-sm"}> Langara Department of Computer Science </span>
+                <span className={"max-[850px]:text-sm"}> Langara IT Department </span>
                 <span><a href="mailto:langaracompsciclub@gmail.com" className={"hover:text-lang-orange"}> Want to sponsor? Get in touch!</a></span>
             </div>
             
