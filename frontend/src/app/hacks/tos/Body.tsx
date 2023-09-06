@@ -5,7 +5,8 @@ export function Body()
 {
     return <div className={"grid-rows-6 bg-hacks-bg-black"}> 
             <div className={"flex flex-col items-center justify-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] max-w-[100vw]"}> 
-                <span className={"text-3xl max-[850px]:text-xl"}>Terms Of Service</span>
+            
+                <span className={"text-3xl max-[850px]:text-xl"}>Code of Conduct</span>
                 <div className={"max-w-[70vw] space-y-4 self-center"}>
                     <div className={"mb-4 text-lg"}>
                             <b>Welcome to Langara Hacks 2023!</b>
@@ -31,8 +32,9 @@ export function Body()
                     </div>
 
                     <div className={"mb-4 text-lg"}>
-                        <span className={"text-extrabold"}>Prohibited Behavior</span>
+                        <span className={"text-extrabold"}>Prohibited Behavior:</span>
                     </div>
+
                     <div className={"mb-4 text-lg"}>
                         <b>Harrasment</b>
                         <p className={"text-sm"}>Treat people the way you want to be treated.
@@ -58,26 +60,33 @@ export function Body()
                             Hackers shall not use any electronic device or electronic method of communication to engage in any illegal, lewd, offensive, indecent, sexual, or obscene act or expression (i.e. Facebook, Twitter, etc) that may lead to harassment, harassing or bullying.
                         </p>
                     </div>
+
                     <div className={"mb-4 text-lg"}>
-                        <b>Failure to comply with event rules may result in dismissal from the event, and prohibition from participating in any future club endeavors.</b>
-                        <p className={"text-sm"}>Your participation in the event releases the use of any images taken at the event with your presence in the picture to the club and college.</p>
+                        <span className={"text-extrabold"}>Other Conditions:</span>
+                    </div>
+
+                    <div className={"mb-4 text-lg"}>
+                        <b>Photo and Media Release</b>
+                        <p className={"text-sm"}>By participating in this event, you consent to any photographs or videos taken of you to be used by the Langara Computer Science Club and/or Langara College.</p>
                     </div>
                     <div className={"mb-4 text-lg"}>
-                        <b>All Non-Langara Attendees MUST sign a waiver and bring it to the event.</b>
-                        <p className={"text-sm"}>The waiver will be emailed out to all attendees a week before the event starts. There will be extra copies of the form at the event, but will heavily slow down check-in, so please fill it in beforehand!</p>
+                        <b>Attendees under 18 or from outside of Langara.</b>
+                        <p className={"text-sm"}>Attendees under 18 or from outside of Langara must sign a release waiver. The waiver will be emailed out to all attendees a week before the event starts. There will be extra copies of the form at the event, but that will heavily slow down check-in, so please fill it in beforehand!</p>
                     </div>
                     <div className={"mb-4 text-lg"}>
                         <b>Registration Rules</b>
-                        <p className={"text-sm"}>All teams must field at least 2 people and have a maximum of 5 people. At least half the people on the team must be from Langara College.
-                            For you solo warriors, please follow through the registration as follows and sign up without a team.
+                        <p className={"text-sm"}>Teams may have a maximum of 5 people (though we recomend 3 - 4). At least half of the people on the team must currently enrolled at Langara College.
                         </p>
+                        <b className={"text-sm"}>Note: Registration for this event does not guarantee your participation as we have an event cap of 120 people. Once we reach our registration limit, all further registrations will be placed on a waitlist. Participants will be chosen on a first come first serve basis.</b>
+
+
                     </div>
                     <div className={"mb-4 text-lg"}>
-                        <b>Failure to do so will prohibit your participation in the event</b>
-                        <p className={"text-sm"}>Special thanks to the Langara Computer Science Department and the Langara IT Department for making this event possible!</p>
+                        <b>Failure to comply with event rules may result in dismissal from the event, and prohibition from participating in any future club endeavors.</b>
+                        <b></b>
                     </div>
                     <div className={"mb-4 text-lg"}>
-                        <b><u>Note: Registration for this event does not guarantee your participation as we have an event cap of 120 people. We will choose participants on a first come, first serve exception, based on group leader registration time.</u></b>
+                        <b></b>
                     </div>
                 </div>
             </div>
