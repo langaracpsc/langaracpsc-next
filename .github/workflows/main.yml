@@ -29,5 +29,4 @@ jobs:
           file: frontend/Dockerfile
           platforms: linux/arm64
           push: true
-          tags: |
-            ghcr.io/langaracpsc/langaracpsc-next:latest
+          tags: ghcr.io/langaracpsc/langaracpsc-next:latest
