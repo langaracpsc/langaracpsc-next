@@ -7,13 +7,10 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -26,10 +23,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v3
         with:
-          context: frontend/
-          platforms: linux/amd64,linux/arm64
+          context: frontend
+          file: frontend/Dockerfile
+          platforms: linux/arm64
           push: true
-          tags: |
-            ghcr.io/langaracpsc/langaracpsc-next:latest
+          tags: ghcr.io/langaracpsc/langaracpsc-next:latest
