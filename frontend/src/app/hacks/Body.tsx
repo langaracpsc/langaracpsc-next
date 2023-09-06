@@ -3,7 +3,7 @@ import {SocialIcons} from "@/app/SocialIcons";
 
 export function Body()
 {
-    return <div className={"grid-rows-5 bg-hacks-bg-black"}> 
+    return <div className={"grid-rows-6 bg-hacks-bg-black"}> 
             <div className={"flex flex-col items-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh]"}>
                 <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/>
                 <div className={"text-xl max-[850px]:text-sm flex flex-col items-center"}>
@@ -54,15 +54,19 @@ export function Body()
                     
                 </div>
             </div>
-
-            <div className={"flex flex-col items-center gap-[5vh] max-[850px]:gap-[6vh] mt-[8vh] max-[850px]:mt-[9vh]"}> 
-                <span className={"text-3xl max-[850px]:text-xl"}> Sponsors: </span>
-                <span className={"max-[850px]:text-sm"}> Langara Department of Computer Science </span>
-                <span className={"max-[850px]:text-sm"}> Langara IT Department </span>
-                <span><a href="mailto:langaracompsciclub@gmail.com" className={"hover:text-lang-orange"}> Want to sponsor? Get in touch!</a></span>
+            <div className={"grid grid-rows-2"}>
+                <div className={"flex flex-col items-center gap-[5vh] max-[850px]:gap-[6vh] mt-[8vh] max-[850px]:mt-[9vh]"}> 
+                    <span className={"text-3xl max-[850px]:text-xl"}> Sponsors: </span>
+                    <span className={"max-[850px]:text-sm"}> Langara Department of Computer Science </span>
+                    <span className={"max-[850px]:text-sm"}> Langara IT Department </span>
+                    <a className={"max-[850px]:text-sm hover:text-lang-orange"} href ="https://www.microserve.ca/">MicroServe</a>
+                </div>
+                
+                <span className={"flex flex-col items-center justify-center"}>
+                    <a href="mailto:langaracompsciclub@gmail.com" className={"hover:text-lang-orange self-center"}> Want to sponsor? Get in touch! </a>
+                </span>
             </div>
-            
-            <div className={"flex flexr-ow justify-center h-max gap-5 mt-[15vh] max-[850px]:mt-[25vh]"}>
+            <div className={"flex flex-row justify-center h-max gap-5 mt-[15vh] max-[850px]:mt-[25vh]"}>
                 <SocialIcons/>
             </div>
         </div>
