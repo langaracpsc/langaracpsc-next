@@ -3,7 +3,7 @@ import {SocialIcons} from "@/app/SocialIcons";
 
 export function Body()
 {
-    return <div className={"grid-rows-6 bg-hacks-bg-black"}> 
+    return <div className={"grid-rows-6 bg-hacks-bg-black "}> 
             <div className={"flex flex-col items-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh]"}>
                 <div>
                     <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/>
@@ -18,7 +18,7 @@ export function Body()
             <div className={"flex flex-col items-center self-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] max-w-[100vw]"}>
                 <span className={"text-3xl max-[850px]:text-xl self-center"}>What is a Hackathon?</span>
                 <span className="max-w-[70vw] mb-4">
-                    A hackathon is a competition where teams of students (generally 2 - 4) work together and use their software or hardware skills to build a project in a very short amount of time! Note: a hackathon usually doesn&apos;t involve hacking, and instead, the term is used to describe the spirit of the competition: building something in a short amount of time.
+                    A hackathon is a competition where teams of students (generally 2 - 4) work together and use their software or hardware skills to build a project in a very short amount of time! No actual hacking is involved.
                 </span>
             </div>
 
@@ -68,9 +68,13 @@ export function Body()
                 <span className={"flex flex-col items-center justify-center"}>
                     <a href="mailto:langaracompsciclub@gmail.com" className={"hover:text-lang-orange self-center"}> Want to sponsor? Get in touch! </a>
                 </span>
+                
             </div>
+
+
             <div className={"flex flex-row justify-center h-max gap-5 mt-[15vh] max-[850px]:mt-[25vh]"}>
                 <SocialIcons/>
             </div>
+
         </div>
 }

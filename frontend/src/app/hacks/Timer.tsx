@@ -57,7 +57,7 @@ export class Timer extends Component<TimerProps, TimerState>
 
     render()
     {
-        return <div className={"text-white text-6xl max-[850px]:text-3xl"}>
+        return <div className={"text-white text-7xl max-[850px]:text-3xl"}>
             {this.state.CurrentTimeStamp.Days}d {this.state.CurrentTimeStamp.Hours}h {this.state.CurrentTimeStamp.Minutes}m {this.state.CurrentTimeStamp.Seconds}s
         </div>       
     }

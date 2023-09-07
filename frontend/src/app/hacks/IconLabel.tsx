@@ -4,6 +4,6 @@ export function IconLabel({iconSrc, label, height, width}: {iconSrc: string, lab
 {
     return <div className={"grid grid-cols-2"}>
         <Image src={iconSrc} alt={"Image"} height={height} width={width} className={"self-center justify-self-end"}></Image>
-        <span className={"text-lg max-[850px]:text-xs text-white self-center ml-2"}>{label}</span>
+        <span className={"text-lg max-[1200px]:text-xs text-white self-center ml-2"}>{label}</span>
     </div>; 
 }
