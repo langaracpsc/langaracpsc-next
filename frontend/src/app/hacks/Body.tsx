@@ -3,7 +3,7 @@ import {SocialIcons} from "@/app/SocialIcons";
 
 export function Body()
 {
-    return <div className={"grid-rows-6 bg-hacks-bg-black "}> 
+    return <div className={"grid-rows-6 bg-hacks-bg-black text-white"}> 
             <div className={"flex flex-col items-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh]"}>
                 <div>
                     <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/>
@@ -11,7 +11,7 @@ export function Body()
                 </div>
                 <div className={"text-xl max-[850px]:text-sm flex flex-col items-center"}>
                     <a href="https://forms.gle/TmBcsFRup5KfppYU6" target="_blank" rel="noopener noreferrer"
-                    className="text-5xl max-[850px]:text-xl inline-flex items-center m-5 justify-center px-6 py-6 border border-transparent leading-6 font-medium rounded-md text-white bg-lang-orange hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300 active:bg-orange-800 transition duration-150 ease-in-out">
+                    className="text-5xl max-[850px]:text-xl inline-flex items-center m-5 justify-center px-10 py-8 border border-transparent leading-6 font-medium rounded-md text-white bg-lang-orange hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300 active:bg-orange-800 transition duration-150 ease-in-out">
                         ✨Register Now!✨
                     </a>
                 </div>
