@@ -11,7 +11,7 @@ export function Header()
 
             <div className={"grid items-end h-full font-audiowide"}>
                 <div className={"flex flex-col gap-0"}>
-                    <div className={"text-9xl max-[1100px]:text-5xl  self-center"}> Langara <span className={"text-lang-orange"}>Hacks</span></div>
+                    <div className={"text-9xl max-[1100px]:text-4xl  self-center"}> Langara <span className={"text-lang-orange"}>Hacks</span></div>
                     <div className={"text max-[850px]:text-2s self-center"}> Collaborate, Create, Innovate </div>
                 </div>
             </div>
