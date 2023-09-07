@@ -10,8 +10,10 @@ export function Body()
                     <span className={"text-sm max-[850px]:text-sm flex flex-col items-center mt-0"}>left until the hackathon.</span>
                 </div>
                 <div className={"text-xl max-[850px]:text-sm flex flex-col items-center"}>
-                    <span>Registration opens </span>
-                    <span>Sept 6 @ 5 PM (Pacific Time).</span>
+                    <a href="https://forms.gle/TmBcsFRup5KfppYU6" target="_blank" rel="noopener noreferrer"
+                    className="text-5xl inline-flex items-center m-5 justify-center px-6 py-6 border border-transparent leading-6 font-medium rounded-md text-white bg-lang-orange hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300 active:bg-orange-800 transition duration-150 ease-in-out">
+                        ✨Register Now!✨
+                    </a>
                 </div>
             </div>
 
@@ -68,7 +70,7 @@ export function Body()
                 <span className={"flex flex-col items-center justify-center"}>
                     <a href="mailto:langaracompsciclub@gmail.com" className={"hover:text-lang-orange self-center"}> Want to sponsor? Get in touch! </a>
                 </span>
-                
+
             </div>
 
 
