@@ -4,7 +4,7 @@ import {SocialIcons} from "@/app/SocialIcons";
 export function Body()
 {
     return <div className={"grid-rows-6 bg-hacks-bg-black"}> 
-            <div className={"flex flex-col items-center justify-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] max-w-[100vw]"}> 
+            <div className={"flex flex-col items-center justify-center gap-[7vh] max-[850px]:gap-[8vh] mt-[4vh] max-[850px]:mt-[9vh] max-w-[100vw]"}> 
             
                 <span className={"text-3xl max-[850px]:text-xl"}>Code of Conduct</span>
                 <div className={"max-w-[70vw] space-y-4 self-center"}>

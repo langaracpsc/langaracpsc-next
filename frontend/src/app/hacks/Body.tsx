@@ -11,7 +11,7 @@ export function Body()
                 </div>
                 <div className={"text-xl max-[850px]:text-sm flex flex-col items-center"}>
                     <a href="https://forms.gle/TmBcsFRup5KfppYU6" target="_blank" rel="noopener noreferrer"
-                    className="text-5xl inline-flex items-center m-5 justify-center px-6 py-6 border border-transparent leading-6 font-medium rounded-md text-white bg-lang-orange hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300 active:bg-orange-800 transition duration-150 ease-in-out">
+                    className="text-5xl max-[850px]:text-3xl inline-flex items-center m-5 justify-center px-6 py-6 border border-transparent leading-6 font-medium rounded-md text-white bg-lang-orange hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300 active:bg-orange-800 transition duration-150 ease-in-out">
                         ✨Register Now!✨
                     </a>
                 </div>
@@ -20,7 +20,7 @@ export function Body()
             <div className={"flex flex-col items-center self-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] max-w-[100vw]"}>
                 <span className={"text-3xl max-[850px]:text-xl self-center"}>What is a Hackathon?</span>
                 <span className="max-w-[70vw] mb-4">
-                    A hackathon is a competition where teams of students (generally 2 - 4) work together and use their software or hardware skills to build a project in a very short amount of time! No actual hacking is involved.
+                    A hackathon is a competition where teams of students (generally 2 - 4) work together and use their software or hardware skills to build a project in a very short amount of time! No actual hacking is involved. A hackathon is a great way to make new bonds, develop skills outside of the classroom, create a portfolio project, gain experience on project management, and so much more!
                 </span>
             </div>
 
@@ -48,34 +48,32 @@ export function Body()
                     </div>
 
                     <div className="mb-4">
-                        <b>Q: Do I need to bring my own lunch?</b>
-                        <p>A: Lunch and dinner will be provided for all participants! However, if you have specific dietary preferences or additional snacks you&apos;d like, feel free to bring those along.</p>
+                        <b>Q: Do I need to bring my own food?</b>
+                        <p>A: Lunch and dinner will be provided for all participants! Please let us know your dietary restrictions when you register. You are also welcome to bring your own food or snacks! </p>
                     </div>
                     
                     <div className="mb-4">
                     <b>Q: What if I don&apos;t have a team upon registration?</b>
-                    <p>A: No need to fret. We have arrangements in place to help you form a team. Even if you don&apos;t currently have a team, you can still register for the hackathon. This is a great opportunity to meet fellow participants, share ideas, and form collaborative teams during the event. Your participation is valuable, regardless of your team status at registration.</p>
+                    <p>A: Don't worry! Even if you don&apos;t currently have a team, you can still register for the hackathon. We will have team building events in the days leading up to the hackathon! Although a team isn't mandatory, we highly, highly reccomend you to form a team of 3 - 4 people!</p>
                     </div>
                     
                 </div>
             </div>
-            <div className={"grid grid-rows-2"}>
+
+            <div className={""}>
                 <div className={"flex flex-col items-center gap-[5vh] max-[850px]:gap-[6vh] mt-[8vh] max-[850px]:mt-[9vh]"}> 
                     <span className={"text-3xl max-[850px]:text-xl"}> Sponsors: </span>
                     <span className={"max-[850px]:text-sm"}> Langara Department of Computer Science </span>
                     <span className={"max-[850px]:text-sm"}> Langara IT Department </span>
                     <a className={"max-[850px]:text-sm hover:text-lang-orange"} href ="https://www.microserve.ca/">MicroServe</a>
-                </div>
-                
-                <span className={"flex flex-col items-center justify-center"}>
+                    <br></br>
                     <a href="mailto:langaracompsciclub@gmail.com" className={"hover:text-lang-orange self-center"}> Want to sponsor? Get in touch! </a>
-                </span>
+                </div>
+    
 
-            </div>
-
-
-            <div className={"flex flex-row justify-center h-max gap-5 mt-[15vh] max-[850px]:mt-[25vh]"}>
-                <SocialIcons/>
+                <div className={"flex flex-row justify-center h-max gap-5 mb-[20px]"}>
+                    <SocialIcons/>
+                </div>
             </div>
 
         </div>
