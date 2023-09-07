@@ -36,7 +36,7 @@ export function Body()
                     </div>
 
                     <div className={"mb-4 text-lg"}>
-                        <b>Harrasment</b>
+                        <b>Harassment</b>
                         <p className={"text-sm"}>Treat people the way you want to be treated.
                             Harassment is defined as a course of comments or actions that are known, or ought reasonably to be known, to be unwelcome. Whether it is involving words or actions that are known or should be known to be offensive, embarrassing, humiliating, demeaning, or unwelcome; based on one or more incidents under the ground of discrimination identified by this policy.</p>
                     </div>

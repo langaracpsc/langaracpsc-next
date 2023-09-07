@@ -54,7 +54,7 @@ export function Body()
                     
                     <div className="mb-4">
                     <b>Q: What if I don&apos;t have a team upon registration?</b>
-                    <p>A: Don&apos;t worry! Even if you don&apos;t currently have a team, you can still register for the hackathon. We will have team building events in the days leading up to the hackathon! Although a team isn&apos;t mandatory, we highly, highly reccomend you to form a team of 3 - 4 people!</p>
+                    <p>A: Don&apos;t worry! Even if you don&apos;t currently have a team, you can still register for the hackathon. We will have team building events in the days leading up to the hackathon! Although a team isn&apos;t mandatory, we highly, highly recommend you to form a team of 3 - 4 people!</p>
                     </div>
                     
                 </div>
