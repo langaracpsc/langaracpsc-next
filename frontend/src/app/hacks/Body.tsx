@@ -3,7 +3,7 @@ import {SocialIcons} from "@/app/SocialIcons";
 
 export function Body()
 {
-    return <div className={"grid-rows-6 bg-hacks-bg-black text-white"}> 
+    return <div className={"grid-rows-5 bg-hacks-bg-black text-white"}> 
             <div className={"flex flex-col items-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] font-audiowide"}>
                 <div>
                     <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/>
@@ -14,6 +14,15 @@ export function Body()
                     className="text-3xl max-[850px]:text-xl inline-flex itembs-center m-5 justify-center px-10 py-8 border border-transparent leading-6 font-medium rounded-md text-white bg-lang-orange hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300 active:bg-orange-800 transition duration-150 ease-in-out">
                         ✨Register Now!✨
                     </a>
+                </div>
+            </div>
+            
+            <div className={"flex flex-col items-center self-center gap-[5vh] max-[850px]:gap-[6vh] mt-[10vh] max-[850px]:mt-[40vh] max-w-[100vw]"}>
+                <span className={"text-3xl max-[850px]:text-xl self-center text-bold"}>Prizes</span>
+                <div className="max-w-[70vw] mb-4 flex flex-col items-center gap-3 text-lg">
+                    <span>First Place: $250</span>
+                    <span>Second Place: $100</span>
+                    <span> Third Place: $100</span>
                 </div>
             </div>
 
