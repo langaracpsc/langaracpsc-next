@@ -38,7 +38,7 @@ export function Body()
                 <div className={"max-w-[70vw] space-y-4 self-center"}> 
                     <div className="mb-4">
                             <b>Q: What should I do if I lack coding experience?</b>
-                            <p>A: If you&apos;re unfamiliar with coding, worry not! There will be multiple workshops throughout the day to provide you with the necessary skills. Even if coding isn&apos;t your strong suit, your participation is still highly encouraged. You can contribute to your team in various other capacities and learn from the experience!</p>
+                            <p>A: If you&apos;re unfamiliar with coding, worry not! We will have multiple workshops to prepare you for the hackathon! Even if coding isn&apos;t your strong suit, your participation is still highly encouraged. You can contribute to your team in various other capacities and learn from the experience!</p>
                     </div>
 
                     <div className={"mb-4"}>
@@ -63,7 +63,7 @@ export function Body()
                     
                     <div className="mb-4">
                     <b>Q: What if I don&apos;t have a team upon registration?</b>
-                    <p>A: Don&apos;t worry! Even if you don&apos;t currently have a team, you can still register for the hackathon. We will have team building events in the days leading up to the hackathon! Although a team isn&apos;t mandatory, we highly, highly reccomend you to form a team of 3 - 4 people!</p>
+                    <p>A: Don&apos;t worry! Even if you don&apos;t currently have a team, you can still register for the hackathon. We will have team building events in the days leading up to the hackathon! Although a team isn&apos;t mandatory, we highly, highly recommend you to form a team of 3 - 4 people!</p>
                     </div>
                     
                 </div>
