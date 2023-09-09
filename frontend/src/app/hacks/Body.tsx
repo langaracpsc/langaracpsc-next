@@ -1,5 +1,7 @@
 import {Timer} from "@/app/hacks/Timer";
 import {SocialIcons} from "@/app/SocialIcons";
+import {IconLabel} from "@/app/hacks/IconLabel";
+import Image from "next/image";
 
 export function Body()
 {
@@ -75,7 +77,7 @@ export function Body()
                     <span className={"text-3xl max-[850px]:text-xl"}> Sponsors: </span>
                     <span className={"max-[850px]:text-sm"}> Langara Department of Computer Science </span>
                     <span className={"max-[850px]:text-sm"}> Langara IT Department </span>
-                    <a className={"max-[850px]:text-sm hover:text-lang-orange"} href ="https://www.microserve.ca/">MicroServe</a>
+                    <a className={"max-[850px]:text-sm hover:text-lang-orange"} href ="https://www.microserve.ca/"><Image src={"https://www.microserve.ca/wp-content/uploads/2022/05/microserve-logo-svg.svg"} alt={"Microserve"} height={100} width={150}/></a>
                     <a href="mailto:langaracompsciclub@gmail.com" className={"hover:text-lang-orange self-center"}> Want to sponsor? Get in touch! </a>
                 </div>
 
