@@ -7,7 +7,7 @@ export function Body()
             <div className={"flex flex-col items-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] font-audiowide"}>
                 <div>
                     <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/>
-                    <span className={"text-sm max-[850px]:text-sm flex flex-col items-center mt-0"}>left until the hackathon.</span>
+                    <span className={"text-sm max-[850px]:text-sm flex flex-col items-center mt-0"}>left until the hackathon</span>
                 </div>
                 <div className={"text-xl max-[850px]:text-sm flex flex-col items-center"}>
                     <a href="https://forms.gle/TmBcsFRup5KfppYU6" target="_lank" rel="noopener noreferrer"
@@ -15,6 +15,7 @@ export function Body()
                         ✨Register Now!✨
                     </a>
                 </div>
+                <span className={"text-sm"}> Registration ends Sept 16th </span>
             </div>
             
             <div className={"flex flex-col items-center self-center gap-[5vh] max-[850px]:gap-[6vh] mt-[10vh] max-[850px]:mt-[40vh] max-w-[100vw]"}>
