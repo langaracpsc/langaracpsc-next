@@ -24,8 +24,8 @@ export function Body()
                 <span className={"text-3xl max-[850px]:text-xl self-center text-bold"}>Prizes</span>
                 <div className="max-w-[70vw] mb-4 flex flex-col items-center gap-3 text-lg">
                     <span>First Place: $250</span>
-                    <span>Second Place: $100</span>
-                    <span> Third Place: $100</span>
+                    <span>Second Place: $150</span>
+                    <span> Audience Favourite: $100</span>
                 </div>
             </div>
 
