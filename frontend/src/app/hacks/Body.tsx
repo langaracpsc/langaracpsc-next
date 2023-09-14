@@ -16,8 +16,12 @@ export function Body()
                     className="text-3xl max-[850px]:text-xl inline-flex itembs-center m-5 justify-center px-10 py-8 border border-transparent leading-6 font-medium rounded-md text-white bg-lang-orange hover:bg-orange-700 focus:outline-none focus:ring focus:ring-orange-300 active:bg-orange-800 transition duration-150 ease-in-out">
                         ✨Register Now!✨
                     </a>
+
+                    
                 </div>
                 <span className={"text-sm"}> Registration ends Sept 16th </span>
+
+                <span className={"text-sm"}> <a href="https://forms.gle/EGfbXcaTa5ucs4yS9">We are also looking for Mentors: Register now!</a></span>
             </div>
             
             <div className={"flex flex-col items-center self-center gap-[5vh] max-[850px]:gap-[6vh] mt-[10vh] max-[850px]:mt-[40vh] max-w-[100vw]"}>
