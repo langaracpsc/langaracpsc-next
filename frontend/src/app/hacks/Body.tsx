@@ -72,6 +72,7 @@ export function Body()
                 </div>
             </div>
 
+       
             <div className={""}>
                 <div className={"flex flex-col items-center gap-[2vh] max-[850px]:gap-[2vh] mt-[8vh] max-[850px]:mt-[9vh]"}> 
                     <span className={"text-3xl max-[850px]:text-xl"}> Sponsors: </span>
