@@ -8,7 +8,7 @@ export function Body()
     return <div className={"grid-rows-5 bg-hacks-bg-black text-white"}> 
             <div className={"flex flex-col items-center gap-[7vh] max-[850px]:gap-[8vh] mt-[8vh] max-[850px]:mt-[9vh] font-audiowide"}>
                 <div>
-                    <Timer EndTime={new Date(2023, 8, 23, 8, 0, 0)}/>
+                    <Timer EndTime={new Date(2023, 8, 22, 8, 0, 0)}/>
                     <span className={"text-sm max-[850px]:text-sm flex flex-col items-center mt-0"}>left until the hackathon</span>
                 </div>
                 
