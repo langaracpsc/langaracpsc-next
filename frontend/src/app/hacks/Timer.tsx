@@ -33,7 +33,9 @@ export class Timer extends Component<TimerProps, TimerState>
     protected TimeDifference: number;
     
     public Tick(): void 
-    {
+    {   
+        this.UpdateTimeStamp()
+
         setInterval(()=> {
             this.UpdateTimeStamp();
             if(this.TimeDifference > 0)
@@ -46,8 +48,8 @@ export class Timer extends Component<TimerProps, TimerState>
             minutes: number = Math.floor((this.TimeDifference % 3600) / 60),
             hours: number = Math.floor((this.TimeDifference % 86400) / 3600),
             days: number = Math.floor(this.TimeDifference / (3600 * 24));
-
-        this.setState({CurrentTimeStamp: new TimeStamp(days, hours, minutes, seconds)});
+        
+        this.setState({CurrentTimeStamp: new TimeStamp(days, hours, minutes, seconds)} );
     }
 
     public UNSAFE_componentWillMount() {
@@ -57,15 +59,20 @@ export class Timer extends Component<TimerProps, TimerState>
 
     render()
     {
-        return <div className={"text-white text-7xl max-[850px]:text-3xl"}>
-            {this.state.CurrentTimeStamp.Days}d {this.state.CurrentTimeStamp.Hours}h {this.state.CurrentTimeStamp.Minutes}m {this.state.CurrentTimeStamp.Seconds}s
+        return <div className={"text-white text-7xl max-[850px]:text-3xl"} suppressHydrationWarning>
+            {this.state.CurrentTimeStamp.Days}d {this.state.CurrentTimeStamp.Hours}h {this.state.CurrentTimeStamp.Minutes}m {this.state.CurrentTimeStamp.Seconds}s 
         </div>       
     }
     
     constructor(props: TimerProps)
     {
         super(props);
+
+        // I can't figure out how to fix the server time right now, SORRY RISHIT
+        let date = new Date();
+        date.setHours(date.getHours()-7); 
         
-        this.TimeDifference = Math.abs((this.props.EndTime.valueOf() - new Date().valueOf())) / 1000;
+        this.TimeDifference = Math.abs((this.props.EndTime.valueOf() - date.valueOf())) / 1000;
+        //this.TimeDifference = Math.abs((this.props.EndTime.valueOf() - new Date().valueOf())) / 1000;
     }
 }

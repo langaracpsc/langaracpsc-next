@@ -20,8 +20,6 @@ export function Body()
                 </div>
                 
                 <span className={"text-sm"}> Registration is closed! </span>
-
-                <span className={"text-sm"}> <a href="https://forms.gle/EGfbXcaTa5ucs4yS9">We are still looking for Mentors: register now!</a></span>
             </div>
             
             <div className={"flex flex-col items-center self-center gap-[5vh] max-[850px]:gap-[6vh] mt-[10vh] max-[850px]:mt-[40vh] max-w-[100vw]"}>
