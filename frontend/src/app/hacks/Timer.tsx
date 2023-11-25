@@ -60,7 +60,7 @@ export class Timer extends Component<TimerProps, TimerState>
     render()
     {
         return <div className={"text-white text-7xl max-[850px]:text-3xl"} suppressHydrationWarning>
-            {this.state.CurrentTimeStamp.Days}d {this.state.CurrentTimeStamp.Hours}h {this.state.CurrentTimeStamp.Minutes}m {this.state.CurrentTimeStamp.Seconds}s 
+            It&apos;s time to Hack!
         </div>       
     }
     
