@@ -72,8 +72,9 @@ export class NavBar extends Component<NavBarProps, NavBarState>
                     <div></div>
                     <div className={"col-start-2"}>
                         <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
-                            <NavButton Label={"Transfer Resources"} Endpoint={"/resources"}></NavButton>
-                            <NavButton Label={"Langara Hacks"} Endpoint={"/hacks"}></NavButton>
+                            {/* <NavButton Label={"Transfer Resources"} Endpoint={"/resources"}></NavButton>
+                            <NavButton Label={"Langara Hacks"} Endpoint={"/hacks"}></NavButton> */}
+                            
                             {/* <NavButton Label={"Home"}  Endpoint={"/"}></NavButton>
                             <NavButton Label={"About"} Endpoint={"/about "}></NavButton>
                             <NavButton Label={"Events"} Endpoint={"/events"}></NavButton>
