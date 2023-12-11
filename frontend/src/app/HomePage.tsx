@@ -101,6 +101,8 @@ export class HomePage extends Component<HomePageProps, HomePageState>
         let css: string = "", flexContainer: string = "flex flex-row max-[600px]:justify-center max-[600px]:mx-0 ml-[10%]";
         
         let size: number = 5;
+
+        <script defer data-domain="langaracs.tech" src="https://analytics.langaracs.tech/js/script.js"></script>;
        
         <div className={"text-3xl"}></div>;
         <div className={"text-2xl"}></div>;
