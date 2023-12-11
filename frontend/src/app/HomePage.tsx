@@ -107,7 +107,7 @@ export class HomePage extends Component<HomePageProps, HomePageState>
         <div className={"flex-col-reverse"}></div>;
             
         return <div className={"flex flex-row max-[600px]:flex-col-reverse bg-body-gray w-full h-full"}>
-            <script defer data-domain="langaracs.tech" src="https://analytics.langaracs.tech/js/script.js"></script>
+            <script defer data-domain="langaracs.tech" src="https://a.langaracs.tech/js/script.js"></script>
             <div className={"grid grid-rows-[15%_60%_20%] max-[600px]:grid-rows-[5%_60%_20%] max-[600px]:grid-rows-1 w-full h-full gap-3"}>
                 <div></div>
 
