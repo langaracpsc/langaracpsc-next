@@ -1,8 +1,10 @@
+"use client";
+
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import {NavBar} from "@/app/NavBar";
+import NavBar from './NavBar';
 import {Component} from "react";
-import {HomePage} from "@/app/HomePage";
+import HomePage from './HomePage';
 import {Global} from "@/app/Global";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,11 +14,13 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
     return (
-        <main className="grid grid-rows-[10vh_100vh] max-[600px]:grid-rows-[20vh_100vh] overflow-hidden">
+        <main className="grid grid-rows-[10vh_1fr] max-[600px]:grid-rows-[20vh_100vh] overflow-hidden">
             <NavBar></NavBar>
             <HomePage></HomePage>
         </main>
     );
 }
+
+ 
 
  

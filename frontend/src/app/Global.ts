@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 export class Vector2D
 {
     public X: number;

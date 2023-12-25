@@ -1,5 +1,7 @@
+"use client";
+
 import {AboutPage} from "@/app/about/AboutPage";
-import {NavBar} from "@/app/NavBar";
+import NavBar from "../NavBar";
 export default function Page()
 {
     return (

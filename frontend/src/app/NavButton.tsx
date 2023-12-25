@@ -6,41 +6,21 @@ import {redirect} from "next/navigation";
 
 interface NavButtonProps 
 {
-    Label: string,
-    Endpoint: string
-}
+    Label: string;
 
-interface NavButtonState
-{
+    EndPoint: string;
+
     Activated: boolean;
+
+    OnClick: (url: string) => void;
 }
     
-export class NavButton extends Component<NavButtonProps, NavButtonState>
+export default function NavButton({ Label, EndPoint, Activated, OnClick } : NavButtonProps) 
 {
-    InstanceID: number;
-    
-    static InstanceCount: number = 0;
-    
-    constructor(props: NavButtonProps) 
-    {
-        super(props);
-        
-        this.state = { Activated: false };
-        
-        this.InstanceID =  NavButton.InstanceCount++;
-    }
-   
-    public OnClick()
-    {
-        // this.setState({Activated: true});
-        redirect(this.props.Endpoint.toString());
-    }
-    
-    public render()
-    {
-        return <button className={"bg-transparent max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 text-white font-semibold hover:text-white py-2 px-4 border border-lang-orange hover:border-white rounded select-none"}>
-            {this.props.Label}
-        </button>
-    }
+    return <button 
+        className={`bg-transparent max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 text-white font-semibold hover:text-white py-2 px-4 border border-${(Activated) ? "white" : "langara-orange"} hover:border-white rounded select-none`}
+        onClick={() => {OnClick(EndPoint)}}>
+        {Label}
+    </button>
 }
     
