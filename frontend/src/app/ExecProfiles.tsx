@@ -1,5 +1,6 @@
-import {Component} from "react";
-import {ExecProfile} from "@/app/ExecProfile";
+import {Component, useEffect, useState} from "react";
+import ExecProfile from "./ExecProfile";
+import { exec } from "child_process";
 
 interface ExecProfilesState
 {
@@ -28,38 +29,32 @@ class Profile
     }
 }
 
-export class ExecProfiles extends Component<ExecProfilesProps, ExecProfilesState>
+export default function ExecProfiles({} : ExecProfilesProps)
 {
-    ExecProfiles: Profile[];
-        
-    public async componentDidMount() {
-        let request = await fetch("http://localhost:5031/Exec/Profile/Active", {
-            headers: {
-                "apikey" : ""
-            }
-        });
-        
-        let profileObjs: object[] = (await request.json())["Payload"];
-        
-        for (let x = 0; x < profileObjs.length; x++) 
-        {
-            let profile: Profile = profileObjs[x] as Profile;
-
-            this.ExecProfiles.push(new Profile(profile.ID, profile.Name, profile.Position, profile.ImageID));
-        }
-    } 
+    const [profiles, setProfiles] = useState([]);
     
-    public render()
-    {
-        return this.ExecProfiles.map((profile, index, array)=> {
-                console.log("Rendering" + profile);
-                return <ExecProfile key={index} Position={profile.Position} ID={profile.ID} Name={profile.Name} ImageID={profile.ImageID}/>;
+    useEffect(() => {
+        
+        (async () => {
+            const response = await (await fetch(`http://${process.env.APIURL}/Exec/Profile/Active?image=true&complete=true`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey" : `${process.env.APIKEY}`
+                }
+            })).json();
+        
+            setProfiles(response["Payload"]);
+       })();
+    }, [profiles]);
+// ${profile.Name.FirstName} ${profile.Name.LastName}
+    return (
+        <>
+            {
+            profiles.map((profile: any, index: any) => {
+                return <ExecProfile key={index} Position={profile.Position} ID={profile.ID} Name={`placeholder`} ImageBuffer={`data:image/png;base64, ${profile.Image}`}/>;
+                })
             }
-        );
-    }
-    
-    public constructor(props: ExecProfilesProps) {
-        super(props);
-        this.ExecProfiles = new Array<Profile>();
-    }
+        </>
+    );
 }
