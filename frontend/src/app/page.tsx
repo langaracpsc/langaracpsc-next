@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
     return (
-        <main className="grid grid-rows-[10vh_1fr] max-[600px]:grid-rows-[20vh_100vh] overflow-hidden">
+        <main className="grid grid-rows-[10vh_1fr] max-[600px]:grid-rows-[10vh_1fr] overflow-hidden">
             <NavBar></NavBar>
             <HomePage></HomePage>
         </main>
