@@ -32,8 +32,8 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
         <div className={"flex items-start"}>
             <div className="box-border bg-[#262626]  p-4 rounded">
                 <div className={"flex flex-row gap-3"}>
-                    <div className={"relative border-box h-100 w-10 rounded basis-1/7 max-[600px]:basis-1/4 shrink-0"}>
-                        <Image src={ImageBuffer} width={200} height={200} alt={Name} className={"aspect-square object-contain h-[100px] w-[100px] max-[600px]:w-[200px] max-[600px]:h-[200px]"}/>
+                    <div className={"relative border-box h-100 w-10 rounded basis-1/6 max-[600px]:basis-1/4 shrink-0"}>
+                        <Image src={ImageBuffer} width={200} height={200} alt={Name} className={"aspect-square object-contain h-[200px] w-[200px]"}/>
                     </div>
                     <div className="flex flex-col gap-3 max-[600px]:items-center">
                         <div className="flex flex-row ">
