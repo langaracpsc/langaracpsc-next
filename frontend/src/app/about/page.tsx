@@ -5,7 +5,7 @@ import NavBar from "../NavBar";
 export default function Page()
 {
     return (
-        <main className="grid grid-rows-[10vh_1fr] max-[600px]:grid-rows-[20vh_100vh] overflow-hidden">
+        <main className="grid grid-rows-[10vh_1fr] max-[600px]:grid-rows-[20vh_1fr] overflow-hidden">
             <NavBar></NavBar>
             <AboutPage></AboutPage>
         </main>    

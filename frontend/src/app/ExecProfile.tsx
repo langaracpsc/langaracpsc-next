@@ -10,6 +10,8 @@ interface ExecProfileProps
     ImageBuffer: string;
     
     Position: number;
+
+    Description: string;
 }
 
 const PositionStrings: string[] = [
@@ -22,20 +24,26 @@ const PositionStrings: string[] = [
     "Director of Events"
 ];
 
-export default function ExecProfile({ID, Name, ImageBuffer, Position} : ExecProfileProps)
+export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
 { 
     console.log(`Position: ${Position}`);
     
     return (
         <div className={"flex items-start"}>
-            <div className="box-border bg-[#262626] h-32 w-[80vh] p-4 rounded">
-                <div className={"flex flex-row"}>
-                    <div className={"relative border-box bg-lang-orange h-[10vh] w-20 rounded"}>
-                        <Image src={ImageBuffer} width={100} height={100} alt={Name}/>
+            <div className="box-border bg-[#262626]  p-4 rounded">
+                <div className={"flex flex-row gap-3"}>
+                    <div className={"relative border-box h-100 w-10 rounded basis-1/7 max-[600px]:basis-1/4 shrink-0"}>
+                        <Image src={ImageBuffer} width={200} height={200} alt={Name} className={"aspect-square object-contain h-[100px] w-[100px] max-[600px]:w-[200px] max-[600px]:h-[200px]"}/>
                     </div>
-                    <div className="flex flex-row">
-                        <span>{Name} |</span>
-                        <span>{PositionStrings[Position]}</span>
+                    <div className="flex flex-col gap-3 max-[600px]:items-center">
+                        <div className="flex flex-row ">
+                            <span className={"font-bold"}>{Name}</span>
+                            <span>&nbsp;.&nbsp;</span>
+                            <span> {PositionStrings[Position]}</span>
+                        </div>
+                        <div className="flex text-s max-[600px]:text-xs">
+                            {Description} 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,4 +51,5 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position} : ExecProf
     );
 }
 
+ 
  

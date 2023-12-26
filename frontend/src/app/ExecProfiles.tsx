@@ -47,12 +47,16 @@ export default function ExecProfiles({} : ExecProfilesProps)
             setProfiles(response["Payload"]);
        })();
     }, [profiles]);
-// ${profile.Name.FirstName} ${profile.Name.LastName}
     return (
         <>
             {
             profiles.map((profile: any, index: any) => {
-                return <ExecProfile key={index} Position={profile.Position} ID={profile.ID} Name={`placeholder`} ImageBuffer={`data:image/png;base64, ${profile.Image}`}/>;
+                return <ExecProfile key={index} 
+                                    Position={profile.Position} 
+                                    ID={profile.ID} 
+                                    Name={`${profile.Name.FirstName} ${profile.Name.LastName}`} 
+                                    ImageBuffer={`data:image/png;base64, ${profile.Image}`} 
+                                    Description={profile.Description}/>;
                 })
             }
         </>
