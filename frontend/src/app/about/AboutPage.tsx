@@ -1,7 +1,12 @@
 "use client";
 
-import {Component} from "react";
+import {Component, useEffect} from "react";
 import ExecProfiles from "../ExecProfiles";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { AddExecProfile, ExecProfileObject, selectProfile } from "../slices/execProfileSlice";
+import { loadProfilesAsync } from "../thunks/ProfileThunks";
+import { AppDispatch } from "../stores/store";
+import { UnknownAction } from "@reduxjs/toolkit";
 interface AboutPageProps
 {}
 
@@ -10,6 +15,23 @@ interface AboutPageState
 
 export function AboutPage({} : AboutPageProps)
 {
+    const execProfiles = useAppSelector(selectProfile);
+
+    const mainDispatch = useAppDispatch();
+    
+    useEffect(() => {
+        (async () => {
+            if (execProfiles.length < 1)
+            {
+                const promise: UnknownAction = (mainDispatch(loadProfilesAsync() as AppDispatch));
+
+                ((await promise) as unknown as ExecProfileObject[]).forEach((element: ExecProfileObject) => {
+                    mainDispatch(AddExecProfile(element)); 
+                });
+            }
+        })();
+    });
+    
     return (<div className={"flex flex-col gap-5 bg-body-gray grow"}>
                 <div className={"flex flex-col  gap-3 ml-5 mr-5 mt-10 items-center"}>
                     <div className={"text-[36px] font-bold flex items-center"}>

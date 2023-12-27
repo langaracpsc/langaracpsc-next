@@ -35,26 +35,7 @@ class Profile
 
 export default function ExecProfiles({} : ExecProfilesProps)
 {
-    // const [profiles, setProfiles] = useState([]);
-
     const profiles = useAppSelector(selectProfile);
-    
-    // useEffect(() => {
-        
-    //     (async () => {
-    //         const response = await (await fetch(`http://${process.env.APIURL}/Exec/Profile/Active?image=true&complete=true`, {
-    //             method: "GET",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //                 "apikey" : `${process.env.APIKEY}`
-    //             }
-    //         })).json();
-        
-    //         setProfiles(response["Payload"]);
-    //    })();
-    // }, [profiles]);
-
-    console.log(profiles); 
 
     return (
         <>
@@ -63,8 +44,8 @@ export default function ExecProfiles({} : ExecProfilesProps)
                 return <ExecProfile key={index} 
                                     Position={profile.Position} 
                                     ID={profile.ID} 
-                                    Name={profile.FirstName} 
-                                    ImageBuffer={`data:image/png;base64, ${profile.Image}`} 
+                                    Name={profile.Name} 
+                                    ImageBuffer={`data:image/png;base64, ${profile.ImageBuffer}`} 
                                     Description={profile.Description}/>;
                 })
             }
