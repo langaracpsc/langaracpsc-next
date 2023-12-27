@@ -1,9 +1,13 @@
 "use client";
 
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useState } from "react";
 import NavButton from "./NavButton";
 import {Global, Vector2D} from "@/app/Global";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "./hooks/hooks";
+import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
+import { useSelector } from "react-redux";
+import { AppDispatch } from "./stores/store";
 
 interface NavBarProps
 {}
@@ -26,8 +30,17 @@ export default function NavBar({} : NavBarProps)
 
     const router = useRouter();
 
+    const mainDispatch = useAppDispatch();
+
+    const currentPage = useSelector(selectCurrentPage);
+
+    const [page, setPage] = useState(currentPage); 
+
     const onClickHandler  = (url: string) => {
-        router.push(url);
+        router.push(url);    
+        mainDispatch(SetCurrentPage(url));
+        setPage(currentPage);
+
     };
 
     return (
@@ -41,9 +54,9 @@ export default function NavBar({} : NavBarProps)
                 <div></div>
                 <div className={"col-start-2"}>
                     <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
-                        <NavButton Label={"Home"} Activated={false} EndPoint={"/"} OnClick={onClickHandler}/>
-                        <NavButton Label={"About"} Activated={false} EndPoint={"/about"}  OnClick={onClickHandler}/>
-                        <NavButton Label={"Events"} Activated={false} EndPoint={"/events"}  OnClick={onClickHandler}/>
+                        <NavButton Label={"Home"} Activated={currentPage == "/"} EndPoint={"/"} OnClick={onClickHandler}/>
+                        <NavButton Label={"About"} Activated={currentPage == "/about"} EndPoint={"/about"}  OnClick={onClickHandler}/>
+                        <NavButton Label={"Events"} Activated={currentPage == "/events"} EndPoint={"/events"}  OnClick={onClickHandler}/>
                     </div>
                 </div>
                 <div></div>

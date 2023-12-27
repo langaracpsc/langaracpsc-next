@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import execProfileReducer from "../slices/execProfileSlice"
+import pageReducer from "../slices/pageSlice";
 
 export const store = configureStore({
     reducer: {
-        execProfiles: execProfileReducer
+        execProfiles: execProfileReducer,
+        pages: pageReducer
     }
 });
 
