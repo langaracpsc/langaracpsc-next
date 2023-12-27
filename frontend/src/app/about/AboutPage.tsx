@@ -15,7 +15,7 @@ export function AboutPage({} : AboutPageProps)
                     <div className={"text-[36px] font-bold flex items-center"}>
                         ABOUT US
                     </div>
-                    <div className={"text-s font-light items-center"}>
+                    <div className={"text-lg max-[600px]:text-s font-light items-center"}>
                         The Langara Computer Science Club is officially back! We are a student-run club dedicated to providing a space for students interested in computer science at Langara to learn, network, help each other out, and have fun! This year, we plan to host workshops, programming competitions, and meetups.                    
                     </div>
                 </div>
@@ -23,7 +23,7 @@ export function AboutPage({} : AboutPageProps)
                     <div className={"text-[36px] font-bold flex max-[500px]:items-end max-[600px]: mt-10"}>
                         OUR EXECS
                     </div>
-                    <div className={"text-s font-light items-center"}>
+                    <div className={"text-lg max-[600px]:text-s font-light items-center"}>
                         We’re a team of enthusiasts who strive to make this club a fun place.
                     </div>
                 </div>

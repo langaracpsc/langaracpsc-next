@@ -1,6 +1,10 @@
 import {Component, useEffect, useState} from "react";
 import ExecProfile from "./ExecProfile";
 import { exec } from "child_process";
+import { AppDispatch, RootState } from './stores/store';
+import { AddExecProfile, selectProfile } from './slices/execProfileSlice';
+import { useAppDispatch, useAppSelector } from './hooks/hooks';
+
 
 interface ExecProfilesState
 {
@@ -31,22 +35,27 @@ class Profile
 
 export default function ExecProfiles({} : ExecProfilesProps)
 {
-    const [profiles, setProfiles] = useState([]);
+    // const [profiles, setProfiles] = useState([]);
+
+    const profiles = useAppSelector(selectProfile);
     
-    useEffect(() => {
+    // useEffect(() => {
         
-        (async () => {
-            const response = await (await fetch(`http://${process.env.APIURL}/Exec/Profile/Active?image=true&complete=true`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "apikey" : `${process.env.APIKEY}`
-                }
-            })).json();
+    //     (async () => {
+    //         const response = await (await fetch(`http://${process.env.APIURL}/Exec/Profile/Active?image=true&complete=true`, {
+    //             method: "GET",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //                 "apikey" : `${process.env.APIKEY}`
+    //             }
+    //         })).json();
         
-            setProfiles(response["Payload"]);
-       })();
-    }, [profiles]);
+    //         setProfiles(response["Payload"]);
+    //    })();
+    // }, [profiles]);
+
+    console.log(profiles); 
+
     return (
         <>
             {
@@ -54,7 +63,7 @@ export default function ExecProfiles({} : ExecProfilesProps)
                 return <ExecProfile key={index} 
                                     Position={profile.Position} 
                                     ID={profile.ID} 
-                                    Name={`${profile.Name.FirstName} ${profile.Name.LastName}`} 
+                                    Name={profile.FirstName} 
                                     ImageBuffer={`data:image/png;base64, ${profile.Image}`} 
                                     Description={profile.Description}/>;
                 })
