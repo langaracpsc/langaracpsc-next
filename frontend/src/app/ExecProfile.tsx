@@ -27,7 +27,7 @@ const PositionStrings: string[] = [
 export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
 { 
     return (
-        <div className={"flex items-start"}>
+        <div className={"flex items-start ml-10 mr-10"}>
             <div className="box-border bg-[#262626]  p-4 rounded">
                 <div className={"flex flex-row gap-3  text-lg max-[600px]:text-xs items-start"}>
                     <div className={"relative border-box h-100 w-10 rounded basis-1/6 max-[600px]:basis-1/4 shrink-0 "}>

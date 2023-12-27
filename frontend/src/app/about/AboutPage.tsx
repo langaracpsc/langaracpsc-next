@@ -19,6 +19,7 @@ export function AboutPage({} : AboutPageProps)
 
     const mainDispatch = useAppDispatch();
     
+    // fetch the profiles if not done already 
     useEffect(() => {
         (async () => {
             if (execProfiles.length < 1)
