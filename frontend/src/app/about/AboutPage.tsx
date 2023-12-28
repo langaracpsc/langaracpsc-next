@@ -39,15 +39,15 @@ export default function AboutPage({} : AboutPageProps)
                         ABOUT US
                     </div>
                     <div className={"text-lg max-[600px]:text-s font-light items-center"}>
-                        The Langara Computer Science Club is officially back! We are a student-run club dedicated to providing a space for students interested in computer science at Langara to learn, network, help each other out, and have fun! This year, we plan to host workshops, programming competitions, and meetups.                    
+                        The Langara Computer Science Club is a student-led club dedicated to  providing a space for students interested in computer science. We provide a space to learn, create, network, and to have fun! We hold workshops, programming competitions, and other meetups.
                     </div>
                 </div>
                 <div className={"flex flex-col m-5 items-center"}>
                     <div className={"text-[36px] font-bold flex max-[500px]:items-end max-[600px]: mt-10"}>
-                        OUR EXECS
+                        EXECUTIVES
                     </div>
                     <div className={"text-lg max-[600px]:text-s font-light items-center"}>
-                        We’re a team of enthusiasts who strive to make this club a fun place.
+                        The Langara Computer Science club is run by a team of dedicated Langara students. We strive to create awesome opportunities and events and to represent the interests of the diverse student body.
                     </div>
                 </div>
                 <div className={"profileContainer"}>
