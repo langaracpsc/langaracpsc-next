@@ -52,8 +52,8 @@ export default function HomePage({} : HomePageProps)
     <div className={"text-2xl"}></div>;
     <div className={"flex-col-reverse"}></div>;
         
-    return <div className={"flex flex-row max-[600px]:flex-col-reverse bg-body-gray w-full h-full"}>
-        <div className={"grid grid-rows-[15%_60%_20%] max-[600px]:grid-rows-[5%_60%_20%] max-[600px]:grid-rows-1 w-full h-full gap-3"}>
+    return (<div className={"flex flex-row max-[600px]:flex-col-reverse bg-body-gray w-full h-full"}>
+        <div className={"grid grid-rows-[15%_60%_20%] max-[600px]:grid-rows-[5%_60%_20%] w-full h-full gap-3"}>
             <div></div>
 
             <div className={"flex flex-row row-start-2 flex-col row-span-1 text-7xl max-[850px]:text-4xl max-[600px]:text-3xl text-white-900 justify-center"}>
@@ -83,5 +83,6 @@ export default function HomePage({} : HomePageProps)
             {/* {(this.state.Dimensions.X < 600) ? null : <div className={"text-7xl max-[600px]:invisible"}></div>} */}
         </div>
     </div>
+    );
 }
  
