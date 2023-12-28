@@ -17,11 +17,11 @@ export default function Home() {
     return (
         <Provider store={store}>
         <main className="grid grid-rows-[10vh_1fr] max-[600px]:grid-rows-[10vh_1fr] overflow-hidden">
-            <NavBar Pages={[
+            <NavBar Pages={new Map<string, string>([
                 ["Home", "/"],
                 ["About", "/about"],
                 ["Events", "/events"]
-            ]}></NavBar>
+            ])}/>
             <HomePage></HomePage>
         </main>
         </Provider>

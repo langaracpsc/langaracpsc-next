@@ -45,7 +45,7 @@ export default function NavBar({ Pages } : NavBarProps)
         setPage(currentPage);
     };
 
-    const navButtons: Array<typeof NavButton> = new Array<typeof NavButton>();
+    const navButtons: Array<JSX.Element> = new Array<JSX.Element>();
     
     Pages.forEach((value, key, pageMap) => {
         console.log(currentPage == value[1]);

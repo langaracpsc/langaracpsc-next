@@ -1,5 +1,5 @@
 import {Timer} from "@/app/hacks/Timer";
-import {SocialIcons} from "@/app/SocialIcons";
+import SocialIcons from "@/app/SocialIcons";
 import {IconLabel} from "@/app/hacks/IconLabel";
 import Image from "next/image";
 

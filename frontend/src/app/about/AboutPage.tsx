@@ -13,7 +13,7 @@ interface AboutPageProps
 interface AboutPageState
 {}
 
-export function AboutPage({} : AboutPageProps)
+export default function AboutPage({} : AboutPageProps)
 {
     const execProfiles = useAppSelector(selectProfile);
 
