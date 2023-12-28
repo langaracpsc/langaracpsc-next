@@ -1,9 +1,6 @@
 # langaracpsc-next
 Langara Computer Science Club website.
 
-# LangaraCPSC.WebAPI
-Web API for langaracpsc-next
-
 ## Deployment
 
 ### Dependencies
