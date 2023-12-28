@@ -7,6 +7,7 @@ import { AddExecProfile, ExecProfileObject, selectProfile } from "../slices/exec
 import { loadProfilesAsync } from "../thunks/ProfileThunks";
 import { AppDispatch } from "../stores/store";
 import { UnknownAction } from "@reduxjs/toolkit";
+import { SetCurrentPage } from "../slices/pageSlice";
 interface AboutPageProps
 {}
 
@@ -18,13 +19,15 @@ export default function AboutPage({} : AboutPageProps)
     const execProfiles = useAppSelector(selectProfile);
 
     const mainDispatch = useAppDispatch();
-    
+   
+    mainDispatch(SetCurrentPage("/about"));
+
     // fetch the profiles if not done already 
     useEffect(() => {
         (async () => {
             if (execProfiles.length < 1)
             {
-                const promise: UnknownAction = (mainDispatch(loadProfilesAsync() as AppDispatch));
+                const promise: UnknownAction = mainDispatch(loadProfilesAsync() as AppDispatch);
 
                 ((await promise) as unknown as ExecProfileObject[]).forEach((element: ExecProfileObject) => {
                     mainDispatch(AddExecProfile(element)); 
