@@ -16,7 +16,12 @@ git clone https://github.com/langaracpsc/LangaraCPSC.WebAPI.git
 ```
 
 ### Configuration
-The .env.local should contain valid `APIURL` and `APIKEY` variables for the webapp to use. They must be set before building the image. 
+The `.env.local` should contain valid `APIURL` and `APIKEY` variables for the webapp to use. They must be set before building the image. An example of the configuration is shown below.
+```bash
+# filename: .env.local
+APIURL="YOUR_API_URL"
+APIKEY="YOUR_API_KEY"
+```
 
 ### Building the image
 ```
