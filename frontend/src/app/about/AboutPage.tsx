@@ -1,6 +1,6 @@
 "use client";
 
-import {Component, useEffect} from "react";
+import {Component, useEffect, useState} from "react";
 import ExecProfiles from "../ExecProfiles";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { AddExecProfile, ExecProfileObject, selectProfile } from "../slices/execProfileSlice";
@@ -20,6 +20,8 @@ export default function AboutPage({} : AboutPageProps)
 
     const mainDispatch = useAppDispatch();
    
+    const [loading, setLoading] = useState(true); 
+    
     mainDispatch(SetCurrentPage("/about"));
 
     // fetch the profiles if not done already 
@@ -33,6 +35,8 @@ export default function AboutPage({} : AboutPageProps)
                     mainDispatch(AddExecProfile(element)); 
                 });
             }
+
+            setLoading(false);
         })();
     });
     
@@ -55,6 +59,9 @@ export default function AboutPage({} : AboutPageProps)
                 </div>
                 <div className={"profileContainer"}>
                     <div className={"flex flex-col ml-5 mr-5 gap-3 items-center"}>
+                        {
+                            ((): JSX.Element => { return (loading) ? <div>Loading</div> : <></>; })()
+                        }  
                         <ExecProfiles/> 
                     </div>
                 </div>

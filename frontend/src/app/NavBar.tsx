@@ -48,7 +48,6 @@ export default function NavBar({ Pages } : NavBarProps)
     const navButtons: Array<JSX.Element> = new Array<JSX.Element>();
     
     Pages.forEach((value, key, pageMap) => {
-        console.log(currentPage == value);
         navButtons.push(<NavButton Label={key} Activated={currentPage == value} EndPoint={value} OnClick={onClickHandler}/>);
     }); 
 
