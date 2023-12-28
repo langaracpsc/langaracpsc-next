@@ -8,6 +8,7 @@ import { loadProfilesAsync } from "../thunks/ProfileThunks";
 import { AppDispatch } from "../stores/store";
 import { UnknownAction } from "@reduxjs/toolkit";
 import { SetCurrentPage } from "../slices/pageSlice";
+import Conditional from "../Conditional";
 interface AboutPageProps
 {}
 
@@ -59,9 +60,7 @@ export default function AboutPage({} : AboutPageProps)
                 </div>
                 <div className={"profileContainer"}>
                     <div className={"flex flex-col ml-5 mr-5 gap-3 items-center"}>
-                        {
-                            ((): JSX.Element => { return (loading) ? <div>Loading</div> : <></>; })()
-                        }  
+                        <Conditional Condition={loading}>Loading</Conditional>
                         <ExecProfiles/> 
                     </div>
                 </div>
