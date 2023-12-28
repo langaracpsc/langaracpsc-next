@@ -15,7 +15,7 @@ import { store } from './stores/store';
 export default function Home() {
     return (
         <Provider store={store}>
-        <main className="grid grid-rows-[10vh_1fr]  h-full w-full overflow-hidden">
+        <main className="grid grid-rows-[10vh_1fr]  max-[600px]:grid-rows-[20vh_1fr] h-full w-full overflow-hidden">
             <NavBar Pages={new Map<string, string>([
                 ["Home", "/"],
                 ["About", "/about"],
