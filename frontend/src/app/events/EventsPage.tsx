@@ -17,7 +17,6 @@ export default function EventsPage()
     useEffect(() => {
         (async () => {
             setEvents((await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[]); 
-            console.log(events);
         })();
     }); 
 
