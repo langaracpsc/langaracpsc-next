@@ -2,23 +2,23 @@ import { CalendarEvent } from "../slices/eventSlice";
 import { AppDispatch, RootState } from "../stores/store";
 
 export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDispatch) => {
-    const response = await (await (fetch(`https://${process.env.CALENDAR_BASE_URL}/calendars/${process.env.CALENDER_ID}&key=${process.env.CALENDAR_API_KEY}`, 
+    const response = await (await (fetch(`http://${process.env.APIURL}/Event/ListAll`, 
                                             {
                                                 method: "GET",
                                                 headers: {
-                                                    "Authorization": `Bearer ${process.env.CALENDAR_OAUTH_TOKEN}`
+                                                    "apikey": `${process.env.APIKEY}`
                                                 } 
                                             }))).json();
 
     console.log(response);
 
-    return response["items"].map((item: any) => { 
+    return response["Payload"].map((item: any) => { 
         return {
-            Title: item.summary,
-            Start: new Date(item.start.dateTime),
-            End: new Date(item.end.dateTime),
-            Description: item.summary,
-            Location: "T001",
+            Title: item.Title,
+            Start: new Date(item.Start),
+            End: new Date(item.End),
+            Description: item.Description,
+            Location: item.Location,
             Image: "https://langaracpsc.github.io/assets/social.png" 
         } as CalendarEvent;
      });
