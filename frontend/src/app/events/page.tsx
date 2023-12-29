@@ -3,6 +3,7 @@
 import { Provider } from "react-redux";
 import NavBar from "../NavBar";
 import { store } from "../stores/store";
+import EventsPage from "./EventsPage";
 
 export default function Page()
 {
@@ -14,6 +15,7 @@ export default function Page()
                     ["About", "/about"],
                     ["Events", "/events"]
                 ])}/>
+                <EventsPage/>
             </main>    
         </Provider>
     </>); 

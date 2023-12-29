@@ -1,5 +1,6 @@
-import { RootState } from "../stores/store";
+import { AppDispatch, RootState } from "../stores/store";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { CalendarEvent } from "./eventSlice";
 
 export interface ExecProfileObject
 {
@@ -21,6 +22,13 @@ export interface ExecProfileState
 
 const initialState: ExecProfileState = {
     Profiles: []
+};
+
+
+const fetchEvents = () => async (state: RootState, dipatch: AppDispatch) => {
+    const response = await fetch("", {
+        method: "GET"
+    });
 };
 
 export const execProfileSlice = createSlice(

@@ -6,6 +6,15 @@ const nextConfig = {
   env: {
     APIURL: process.env.APIURL,
     APIKEY: process.env.APIKEY
+  }, 
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "langaracpsc.github.io",
+        pathname: "/assets"
+      }
+    ]
   }
 }
 
