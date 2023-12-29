@@ -22,7 +22,7 @@ export default function EventsPage()
     }); 
 
     return (<>
-        <div className={"flex flex-col h-[100vh] max-[600px]: h-[90vh] bg-body-gray items-center grow"}>
+        <div className={"flex flex-col bg-body-gray items-center grow"}>
             <div className="flex flex-col mt-10">
                 <div className={"text-[36px] font-bold"}>EVENTS</div>
             </div>
