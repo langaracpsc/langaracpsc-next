@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "../hooks/hooks";
 import { SetCurrentPage } from "../slices/pageSlice";
 import Events from "./Events";
+import { fetchEventsAsync } from "../thunks/EventThunks";
+import { AppDispatch } from "../stores/store";
+import { CalendarEvent } from "../slices/eventSlice";
 
 export default function EventsPage()
 {
@@ -8,12 +12,21 @@ export default function EventsPage()
 
     mainDispatch(SetCurrentPage("/events"));
 
+    const [events, setEvents] = useState(new Array<CalendarEvent>()); 
+
+    useEffect(() => {
+        (async () => {
+            setEvents((await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[]); 
+            console.log(events);
+        })();
+    }); 
+
     return (<>
         <div className={"flex flex-col h-[100vh] max-[600px]: h-[90vh] bg-body-gray items-center grow"}>
             <div className="flex flex-col mt-10">
                 <div className={"text-[36px] font-bold"}>EVENTS</div>
             </div>
-            <div className="mt-10"><Events/></div>
+            <div className="mt-10"><Events Events={events}/></div>
         </div>
     </>);
 } 

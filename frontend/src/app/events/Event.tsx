@@ -7,7 +7,6 @@ interface EventProps
     Event: CalendarEvent;
 }
 
-
 export default function EventInstance({Event} : EventProps)
 {
     const getTimeStamp = (time: Date) => time.toTimeString().split(' ')[0];
@@ -15,7 +14,7 @@ export default function EventInstance({Event} : EventProps)
     return (<>
         <div className="flex flex-row bg-[#272626] h-[20vh] w-[50vw] max-[600px]:w-[90vw] rounded-lg items-center">
             <div className={"basis-1/6 self-center m-5"}>
-                <Image loader={({ src } ) => Event.Image} src={Event.Image} height={100} width={130} className={"rounded"}/>
+                <Image alt={"event-image"} loader={({ src } ) => Event.Image} src={Event.Image} height={100} width={130} className={"rounded"}/>
             </div>
             <div className={"flex flex-col self-start mt-2 gap-3"}>
                 <div className={"text-xl font-bold"}>{Event.Title}</div>
