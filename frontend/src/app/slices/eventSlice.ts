@@ -19,10 +19,13 @@ export interface CalendarEvent
 export interface CalendarEventState
 {
     Events: CalendarEvent[];
+
+    FetchIntervalStarted: boolean;
 }
 
 const initialState: CalendarEventState = {
-    Events: []
+    Events: [], 
+    FetchIntervalStarted: false
 };
 
 const eventSlice = createSlice({  
@@ -34,12 +37,16 @@ const eventSlice = createSlice({
             },
 
         SetCalendarEvents: (state, action: PayloadAction<CalendarEvent[]>) => {
-            return {Events: action.payload};            
+            return {...state, Events: action.payload};            
+        },
+
+        SetFetchIntervalStarted: (state, action: PayloadAction<boolean>) => {
+            return {...state, FetchIntervalStarted: action.payload};
         }
     }
 });
 
-export const {AddCalenderEvent, SetCalendarEvents} = eventSlice.actions;
-export const selectEvents = (state: RootState) => state.events.Events;
+export const {AddCalenderEvent, SetCalendarEvents, SetFetchIntervalStarted} = eventSlice.actions;
+export const selectEvent = (state: RootState) => state.events;
 export default eventSlice.reducer;
 

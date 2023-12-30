@@ -8,7 +8,7 @@ import { AddExecProfile, ExecProfileObject, selectProfile } from "./slices/execP
 import { AppDispatch, RootState } from "./stores/store";
 import { loadProfilesAsync } from "./thunks/ProfileThunks";
 import { UnknownAction } from "@reduxjs/toolkit";
-import { CalendarEvent, SetCalendarEvents, selectEvents } from "./slices/eventSlice";
+import { CalendarEvent, SetCalendarEvents, selectEvent } from "./slices/eventSlice";
 import { fetchEventsAsync } from "./thunks/EventThunks";
 
 let InstanceCount: number = 0;
@@ -30,7 +30,7 @@ export default function HomePage({} : HomePageProps)
 {
     const execProfiles = useAppSelector(selectProfile);
 
-    const events = useAppSelector(selectEvents);
+    const event = useAppSelector(selectEvent);
 
     const mainDispatch = useAppDispatch();
    
@@ -51,7 +51,7 @@ export default function HomePage({} : HomePageProps)
 
     useEffect(() => {
         (async () => {
-            if (events.length < 1) 
+            if (event.Events.length < 1) 
             {
                 const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
 
