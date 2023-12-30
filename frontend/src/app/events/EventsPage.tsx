@@ -5,6 +5,7 @@ import Events from "./Events";
 import { fetchEventsAsync } from "../thunks/EventThunks";
 import { AppDispatch } from "../stores/store";
 import { CalendarEvent, SetCalendarEvents, selectEvents } from "../slices/eventSlice";
+import { Timer } from "../hacks/Timer";
 
 export default function EventsPage()
 {
@@ -15,15 +16,16 @@ export default function EventsPage()
     mainDispatch(SetCurrentPage("/events"));
 
     useEffect(() => {
-        (async () => {
-            if (events.length < 1) 
-            {
-                const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
+        const interval = setInterval(async () =>{
+            const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
 
-                mainDispatch(SetCalendarEvents(fetchedEvents));
-            }
-        })();
-    });
+            mainDispatch(SetCalendarEvents(fetchedEvents));
+        }, 10000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [events]);
 
     return (<>
         <div className={"flex flex-col bg-body-gray items-center grow"}>
@@ -34,4 +36,5 @@ export default function EventsPage()
         </div>
     </>);
 } 
+
 
