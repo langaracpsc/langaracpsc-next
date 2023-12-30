@@ -14,7 +14,6 @@ export default function EventsPage()
 
     const [events, setEvents] = useState(new Array<CalendarEvent>()); 
 
-
     useEffect(() => {
         (async () => {
             setEvents((await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[]); 

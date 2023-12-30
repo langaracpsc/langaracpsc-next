@@ -10,8 +10,6 @@ export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDisp
                                                 } 
                                             }))).json();
 
-    console.log(response);
-
     return response["Payload"].map((item: any) => { 
         return {
             Title: item.Title,
@@ -19,7 +17,7 @@ export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDisp
             End: new Date(item.End),
             Description: item.Description,
             Location: item.Location,
-            Image: "https://langaracpsc.github.io/assets/social.png" 
+            Image: (item.Image != null) ? `data:image/png;base64, ${item.Image}` : ""
         } as CalendarEvent;
      });
-};  
+}; 
