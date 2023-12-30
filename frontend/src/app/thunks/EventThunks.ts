@@ -1,7 +1,7 @@
 import { CalendarEvent } from "../slices/eventSlice";
 import { AppDispatch, RootState } from "../stores/store";
 
-export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDispatch) => {
+export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDispatch): Promise<CalendarEvent[]> => {
     const response = await (await (fetch(`http://${process.env.APIURL}/Event/ListAll`, 
                                             {
                                                 method: "GET",
@@ -17,7 +17,7 @@ export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDisp
             End: new Date(item.End),
             Description: item.Description,
             Location: item.Location,
-            Image: (item.Image != null) ? `data:image/png;base64, ${item.Image}` : ""
+            Image: (item.Image != null) ? `data:image/png;base64, ${item.Image}` : "https://via.placeholder.com/800x800"
         } as CalendarEvent;
      });
 }; 

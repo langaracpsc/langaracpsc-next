@@ -31,11 +31,15 @@ const eventSlice = createSlice({
     reducers: {
         AddCalenderEvent: (state, action: PayloadAction<CalendarEvent>) => { 
                 return {...state, Events: [...state.Events, action.payload]};
-            }
+            },
+
+        SetCalendarEvents: (state, action: PayloadAction<CalendarEvent[]>) => {
+            return {Events: action.payload};            
+        }
     }
 });
 
-export const {AddCalenderEvent} = eventSlice.actions;
-export const selectCurrentPage = (state: RootState) => state.events.Events;
+export const {AddCalenderEvent, SetCalendarEvents} = eventSlice.actions;
+export const selectEvents = (state: RootState) => state.events.Events;
 export default eventSlice.reducer;
 

@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "langaracpsc.github.io",
         pathname: "/assets"
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com"
       }
     ]
   }

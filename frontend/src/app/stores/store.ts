@@ -8,7 +8,10 @@ export const store = configureStore({
         execProfiles: execProfileReducer,
         pages: pageReducer,
         events: eventsReducer
-    }
+    },
+    middleware: (getDefaultMiddlware) => getDefaultMiddlware({
+        serializableCheck: false // Allows putting date types in the store
+      })
 });
 
 export type RootState = ReturnType<typeof store.getState>;
