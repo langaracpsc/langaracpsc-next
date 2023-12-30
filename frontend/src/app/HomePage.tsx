@@ -10,6 +10,7 @@ import { loadProfilesAsync } from "./thunks/ProfileThunks";
 import { UnknownAction } from "@reduxjs/toolkit";
 import { CalendarEvent, SetCalendarEvents, selectEvent } from "./slices/eventSlice";
 import { fetchEventsAsync } from "./thunks/EventThunks";
+import { SetCurrentPage } from "./slices/pageSlice";
 
 let InstanceCount: number = 0;
 
@@ -34,7 +35,7 @@ export default function HomePage({} : HomePageProps)
 
     const mainDispatch = useAppDispatch();
    
-    
+    mainDispatch(SetCurrentPage("/"));
 
     useEffect(() => {
         (async () => {
