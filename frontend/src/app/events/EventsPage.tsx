@@ -43,6 +43,8 @@ export default function EventsPage()
 
     const [loading, setLoading] = useState(event.Events.length < 1);
 
+    const [currentEvent, setCurrentEvent] = useState("");
+
     const fetch = async () => {
         const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
         mainDispatch(SetCalendarEvents(fetchedEvents));
@@ -60,7 +62,6 @@ export default function EventsPage()
                 }, 10000);
 
                 mainDispatch(SetFetchIntervalStarted(true));
-
             }
         })();
     }, [event.Events]);
@@ -68,8 +69,6 @@ export default function EventsPage()
     const getYearsSince = (year: number) => {
         return new Range(year, new Date().getFullYear() + 1).ToArray();  
     }
-
-    console.log(currentYear); 
  
     return (<>
     <div className="bg-body-gray h-[90vh] max-[600px]:h-[80vh]">

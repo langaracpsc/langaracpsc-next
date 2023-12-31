@@ -1,6 +1,9 @@
 import Image from "next/image";
-import { CalendarEvent } from "../slices/eventSlice";
+import { CalendarEvent, SetCurrentEvent, selectEvent } from "../slices/eventSlice";
 import IconLabel from "../IconLabel";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../hooks/hooks";
+import { useState } from "react";
 
 interface EventProps
 {
@@ -11,13 +14,19 @@ export default function EventInstance({Event} : EventProps)
 {
     const getTimeStamp = (time: Date) => time.toTimeString().split(' ')[0];
 
+    const event = useSelector(selectEvent);
+
+    const mainDispatch = useAppDispatch();
+
+    const [clicked, setClicked] = useState(true);
+
     return (<>
         <div className="flex flex-row bg-[#272626] h-[20vh] w-[50vw] max-[600px]:w-[90vw] rounded-lg items-center">
             <div className={"basis-1/6 self-center m-5"}>
                 <Image alt={"event-image"} src={Event.Image} height={100} width={130} className={"rounded"}/>
             </div>
             <div className={"flex flex-col self-start mt-2 gap-3"}>
-                <div className={"text-xl font-bold"}>{Event.Title}</div>
+                <a className={"text-xl font-bold hover:text-lang-orange"} onClick={() => { mainDispatch(SetCurrentEvent(Event)); setClicked(true); }}>{Event.Title}</a>
                 <IconLabel Label={Event.Start.toDateString()}>
                     <svg fill="#ffffff" width="32px" height="32px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M19,4H17V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V12H20Zm0-9H4V7A1,1,0,0,1,5,6H7V7A1,1,0,0,0,9,7V6h6V7a1,1,0,0,0,2,0V6h2a1,1,0,0,1,1,1Z"></path></g></svg>
                 </IconLabel>
