@@ -21,11 +21,23 @@ export interface CalendarEventState
     Events: CalendarEvent[];
 
     FetchIntervalStarted: boolean;
+
+    CurrentEvent: CalendarEvent;
 }
+
+export const DefaultCalendarEvent: CalendarEvent= {
+    Title: "",
+    Start: new Date(0),
+    End: new Date(0),
+    Description: "",
+    Location: "",
+    Image: ""
+} ;
 
 const initialState: CalendarEventState = {
     Events: [], 
-    FetchIntervalStarted: false
+    FetchIntervalStarted: false,
+    CurrentEvent: DefaultCalendarEvent 
 };
 
 const eventSlice = createSlice({  
@@ -33,20 +45,24 @@ const eventSlice = createSlice({
     initialState, 
     reducers: {
         AddCalenderEvent: (state, action: PayloadAction<CalendarEvent>) => { 
-                return {...state, Events: [...state.Events, action.payload]};
+                return { ...state, Events: [...state.Events, action.payload] };
             },
 
         SetCalendarEvents: (state, action: PayloadAction<CalendarEvent[]>) => {
-            return {...state, Events: action.payload};            
+            return { ...state, Events: action.payload };            
         },
 
         SetFetchIntervalStarted: (state, action: PayloadAction<boolean>) => {
-            return {...state, FetchIntervalStarted: action.payload};
+            return { ...state, FetchIntervalStarted: action.payload };
+        },
+
+        SetCurrentEvent: (state, action: PayloadAction<CalendarEvent>) => {
+            return { ...state, CurrentEvent: action.payload };           
         }
     }
 });
 
-export const {AddCalenderEvent, SetCalendarEvents, SetFetchIntervalStarted} = eventSlice.actions;
+export const {AddCalenderEvent, SetCalendarEvents, SetFetchIntervalStarted, SetCurrentEvent} = eventSlice.actions;
 export const selectEvent = (state: RootState) => state.events;
 export default eventSlice.reducer;
 

@@ -17,6 +17,5 @@ export function Body()
         <div className={"flex flex-row justify-center h-max gap-5 mb-[20px]"}>
             <SocialIcons/>
         </div>
-        
     </div>;
 }
