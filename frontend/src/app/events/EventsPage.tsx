@@ -97,7 +97,7 @@ export default function EventsPage()
                 <div className={"text-[36px] font-bold"}>EVENTS</div>
             </div>
 
-            <Modal isOpen={event.CurrentEvent != DefaultCalendarEvent} onOpenChange={onOpenChange} className={"dark"}>
+            <Modal isOpen={event.CurrentEvent != DefaultCalendarEvent} onOpenChange={onOpenChange} className={"dark"} isDismissable={false}> 
                 <ModalContent>
                     {(onClose) => (
                         <>
