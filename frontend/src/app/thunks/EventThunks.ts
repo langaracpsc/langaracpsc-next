@@ -17,7 +17,8 @@ export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDisp
             End: new Date(item.End),
             Description: item.Description,
             Location: item.Location,
-            Image: (item.Image != null) ? `data:image/png;base64, ${item.Image}` : "https://via.placeholder.com/800x800"
+            Image: (item.Image != null) ? `data:image/png;base64, ${item.Image}` : "https://via.placeholder.com/800x800",
+            Link: item.Link
         } as CalendarEvent;
      });
 }; 

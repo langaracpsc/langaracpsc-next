@@ -9,6 +9,7 @@ import { Timer } from "../hacks/Timer";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
 import Conditional from "../Conditional";
 import IconLabel from "../IconLabel";
+import { useRouter } from "next/navigation";
 
 export class Range {
     Start: number;
@@ -34,6 +35,7 @@ export class Range {
 
 export default function EventsPage()
 {
+    const router = useRouter();
     const mainDispatch = useAppDispatch();
 
     const event = useAppSelector(selectEvent); 
@@ -127,6 +129,7 @@ export default function EventsPage()
                                 </div>
                             </ModalBody>
                             <ModalFooter>
+                                <Button onClick={() => { router.push(event.CurrentEvent.Link); }} href={event.CurrentEvent.Link}>Add to Calendar</Button>
                                 <Button onClick={() => { onClose(); mainDispatch(SetCurrentEvent(DefaultCalendarEvent)); }}>Close</Button>
                             </ModalFooter>
                         </>
