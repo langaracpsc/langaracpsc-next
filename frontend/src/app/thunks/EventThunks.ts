@@ -2,7 +2,7 @@ import { CalendarEvent } from "../slices/eventSlice";
 import { AppDispatch, RootState } from "../stores/store";
 
 export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDispatch): Promise<CalendarEvent[]> => {
-    const response = await (await (fetch(`http://${process.env.APIURL}/Event/ListAll`, 
+    const response = await (await (fetch(`https://${process.env.APIURL}/Event/ListAll`, 
                                             {
                                                 method: "GET",
                                                 headers: {

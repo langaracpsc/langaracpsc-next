@@ -12,9 +12,6 @@ import Conditional from "../Conditional";
 interface AboutPageProps
 {}
 
-interface AboutPageState
-{}
-
 export default function AboutPage({} : AboutPageProps)
 {
     const execProfiles = useAppSelector(selectProfile);
