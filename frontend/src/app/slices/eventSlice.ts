@@ -15,7 +15,10 @@ export interface CalendarEvent
 
     Image: string;
     
-    Link: string;
+    Link: {
+        Google: string,
+        Apple: string
+    };
 }
 
 
@@ -35,7 +38,10 @@ export const DefaultCalendarEvent: CalendarEvent= {
     Description: "",
     Location: "",
     Image: "",
-    Link: ""
+    Link: {
+        Google: "",
+        Apple: ""
+    }
 } ;
 
 const initialState: CalendarEventState = {

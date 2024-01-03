@@ -14,4 +14,4 @@ export default function Events({Events} : EventsProps)
                         .map(event => <EventInstance key={event.Title} Event={event}/>)}
         </div>
     );
-}
+} 

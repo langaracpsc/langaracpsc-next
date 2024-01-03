@@ -11,14 +11,15 @@ import Conditional from "../Conditional";
 import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
 
-export class Range {
+export class Range 
+{
     Start: number;
     
     End: number;
 
     ToArray(): number[] 
     {
-        const array: number[] = [];
+        const array: number[] = new Array<number>();
 
         for (let x = this.Start; x < this.End; x++)
             array.push(x); 
@@ -62,10 +63,9 @@ export default function EventsPage()
             if (!event.FetchIntervalStarted)
             {
                 await fetch();
-                setInterval(async () =>{
-                    await fetch();
-                }, 10000);
-
+                // setInterval(async () =>{
+                //     await fetch();
+                // }, 10000);
                 mainDispatch(SetFetchIntervalStarted(true));
             }
         })();
@@ -129,7 +129,7 @@ export default function EventsPage()
                                 </div>
                             </ModalBody>
                             <ModalFooter>
-                                <Button onClick={() => { router.push(event.CurrentEvent.Link); }} href={event.CurrentEvent.Link}>Add to Calendar</Button>
+                                <Button onClick={() => { router.push(event.CurrentEvent.Link.Apple); }}>Add to Calendar</Button>
                                 <Button onClick={() => { onClose(); mainDispatch(SetCurrentEvent(DefaultCalendarEvent)); }}>Close</Button>
                             </ModalFooter>
                         </>

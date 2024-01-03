@@ -20,13 +20,6 @@ interface HomePageProps
 {
 }
 
-interface HomePageState
-{
-    Dimensions: Vector2D;
-    
-    FontSize: number; 
-}
-
 export default function HomePage({} : HomePageProps) 
 {
     const execProfiles = useAppSelector(selectProfile);
@@ -60,7 +53,6 @@ export default function HomePage({} : HomePageProps)
             }
         })();
     });
-
 
     let css: string = "", flexContainer: string = "flex flex-row max-[600px]:justify-center max-[600px]:mx-0 ml-[10%]";
     
