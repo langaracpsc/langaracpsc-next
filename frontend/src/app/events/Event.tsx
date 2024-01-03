@@ -34,7 +34,7 @@ export default function EventInstance({Event} : EventProps)
     const mainDispatch = useAppDispatch();
 
     const [clicked, setClicked] = useState(true);
-
+    
     return (<>
         <div className="flex flex-row bg-[#272626] h-[20vh] w-[50vw] max-[600px]:w-[90vw] rounded-lg items-center" onClick={() => { mainDispatch(SetCurrentEvent(Event)); setClicked(true); }}>
             <div className={"basis-1/6 self-center m-5"}>
@@ -47,7 +47,7 @@ export default function EventInstance({Event} : EventProps)
                 </IconLabel>
                 
                 <IconLabel Label={`${getTimeStamp(Event.Start)} - ${getTimeStamp(Event.End)}`}>
-                    <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg> 
+                        <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg> 
                 </IconLabel>
                 
                 <IconLabel Label={(Event.Location != null) ? Event.Location : "TBD"}>
