@@ -17,11 +17,16 @@ interface ExecProfileProps
 const PositionStrings: string[] = [
     "President",
     "Vice Presdent",
+    "Vice Presdent Internal",
+    "Vice Presdent External",
     "Tech Lead",
+    "Assitant Tech Lead",
     "General Representative",
     "Director of Public Relations",
     "Director of Finance",
-    "Director of Events"
+    "Director of Events",
+    "Secratory",
+    "Directory of Media"
 ];
 
 export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
