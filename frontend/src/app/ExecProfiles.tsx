@@ -2,7 +2,7 @@ import {Component, useEffect, useState} from "react";
 import ExecProfile from "./ExecProfile";
 import { exec } from "child_process";
 import { AppDispatch, RootState } from './stores/store';
-import { AddExecProfile, selectProfile } from './slices/execProfileSlice';
+import { AddExecProfile, ExecProfileObject, selectProfile } from './slices/execProfileSlice';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
 
 
@@ -40,7 +40,7 @@ export default function ExecProfiles({} : ExecProfilesProps)
     return (
         <>
             {
-            profiles.map((profile: any, index: any) => {
+            [...profiles].sort((a, b) => (a.Position - b.Position)).map((profile: any, index: any) => {
                 return <ExecProfile key={index} 
                                     Position={profile.Position} 
                                     ID={profile.ID} 

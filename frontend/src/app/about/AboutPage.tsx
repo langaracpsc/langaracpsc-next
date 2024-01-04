@@ -56,7 +56,7 @@ export default function AboutPage({} : AboutPageProps)
                     </div>
                 </div>
                 <div className={"profileContainer"}>
-                    <div className={"flex flex-col ml-5 mr-5 gap-3 items-center"}>
+                    <div className={"flex flex-col ml-5 mr-5 max-[600px]:mx-0 gap-3 items-center"}>
                         <Conditional Condition={loading}>Loading</Conditional>
                         <ExecProfiles/> 
                     </div>

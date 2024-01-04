@@ -20,7 +20,7 @@ const PositionStrings: string[] = [
     "Vice Presdent Internal",
     "Vice Presdent External",
     "Tech Lead",
-    "Assitant Tech Lead",
+    "Assistant Tech Lead",
     "General Representative",
     "Director of Public Relations",
     "Director of Finance",
@@ -35,7 +35,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
         <div className={"flex items-start ml-10 mr-10"}>
             <div className="box-border bg-[#262626]  p-4 rounded">
                 <div className={"flex flex-row gap-3  text-lg max-[600px]:text-xs items-start"}>
-                    <div className={"relative border-box h-100 w-10 rounded basis-1/6 max-[600px]:basis-1/4 shrink-0 "}>
+                    <div className={"flex flex-col items-start relative border-box h-100 w-10 rounded basis-1/6 max-[600px]:basis-1/4 shrink-0 "}>
                         <Image src={ImageBuffer} width={200} height={200} alt={Name} className={"self-start aspect-square object-contain h-[300px] w-[300px]"}/>
                     </div>
                             <span className={"font-bold"}>{Name}</span>
