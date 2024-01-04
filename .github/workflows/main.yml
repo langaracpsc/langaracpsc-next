@@ -27,6 +27,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
+          build-args: |
+            APIURL=${{ secrets.APIURL }}
+            APIKEY=${{ secrets.APIKEY }}
           context: frontend
           file: frontend/Dockerfile
           platforms: linux/arm64
