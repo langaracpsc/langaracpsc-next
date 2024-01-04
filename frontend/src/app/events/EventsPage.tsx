@@ -124,12 +124,12 @@ export default function EventsPage()
                                     </div>
                                     <div className={"flex flex-col items-center gap-3"}>
                                         <span className="text-lg font-bold self-center">Description</span>
-                                        <div className={""}>{(event.CurrentEvent.Description != null) ? event.CurrentEvent.Description : "No description."}</div>
+                                        <div className={"text-sm"}>{(event.CurrentEvent.Description != null) ? event.CurrentEvent.Description : "No description."}</div>
                                     </div>
                                 </div>
                             </ModalBody>
                             <ModalFooter>
-                                <Button onClick={() => { router.push(event.CurrentEvent.Link.Apple); }}>Add to Calendar</Button>
+                                <Button onClick={() => { router.push(event.CurrentEvent.Link.Google); }}>Add to Calendar</Button>
                                 <Button onClick={() => { onClose(); mainDispatch(SetCurrentEvent(DefaultCalendarEvent)); }}>Close</Button>
                             </ModalFooter>
                         </>
