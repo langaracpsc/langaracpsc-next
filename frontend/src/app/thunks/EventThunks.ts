@@ -17,7 +17,7 @@ export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDisp
             End: new Date(item.End),
             Description: item.Description,
             Location: item.Location,
-            Image: (item.Image != null) ? `https://${process.env.APIURL}/Images/${item.Image}` : "https://via.placeholder.com/800x800",
+            Image: (item.Image != null) ? `https://${process.env.APIURL}/${item.Image}` : "https://via.placeholder.com/800x800",
             Link: { Google: item.Link.Google, Apple: item.Link.Apple }
         } as CalendarEvent;
      });
