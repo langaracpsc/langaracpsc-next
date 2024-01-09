@@ -9,6 +9,8 @@ import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
 import { useSelector } from "react-redux";
 import { AppDispatch } from "./stores/store";
 import { waitForDebugger } from "inspector";
+import { Button } from "@nextui-org/react";
+import Conditional from "./Conditional";
 
 interface NavBarProps
 {
@@ -39,6 +41,8 @@ export default function NavBar({ Pages } : NavBarProps)
 
     const [page, setPage] = useState(currentPage); 
 
+    const formURL = "https://forms.gle/gPdqMB5ijafDMRAY8";
+
     const onClickHandler  = (url: string) => {
         router.push(url);    
         mainDispatch(SetCurrentPage(url));
@@ -63,6 +67,9 @@ export default function NavBar({ Pages } : NavBarProps)
                 <div className={"col-start-2"}>
                     <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
                         {navButtons}
+                        <Conditional Condition={currentPage == "/"}>
+                            <Button onClick={() => router.push(formURL) } className="bg-lang-orange rounded text-white max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10">Register</Button>
+                        </Conditional>
                     </div>
                 </div>
                 <div></div>
@@ -70,4 +77,5 @@ export default function NavBar({ Pages } : NavBarProps)
         </div>
     );
 }
+
 
