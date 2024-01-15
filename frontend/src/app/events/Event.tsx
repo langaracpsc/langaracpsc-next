@@ -12,7 +12,7 @@ interface EventProps
 
 export default function EventInstance({Event} : EventProps)
 {
-    const getTimeStamp = (time: Date) => { 
+    const getTimeStamp = (time: Date) => {
         const split = time.toTimeString().split(' ')[0];
 
         let [hour, minute] = split.substring(0, split.length - 3).split(":");
