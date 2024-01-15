@@ -15,7 +15,7 @@ export default function SocialIcons({} : SocialIconsProps): JSX.Element
     ];
         
     return (<>{Socials.map((name, index) => {
-        return <SocialIcon key={index} url={name} fgColor={"black"} bgColor={"#F15A22"}/>;
+        return <SocialIcon key={index} url={name} fgColor={"black"} bgColor={"#F15A22"} style={{height: 40, width: 40}}/>;
     })}</>); 
 }
 

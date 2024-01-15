@@ -80,7 +80,7 @@ export default function HomePage({} : HomePageProps)
                 </div>
             </div>
             
-            <div className={"flex flex-row ml-[10%] gap-3 max-[600px]:mx-0 max-[600px]:justify-center"}>
+            <div className={"flex flex-row ml-[10%] gap-3 mb-5 max-[600px]:mx-0 max-[600px]:justify-center"}>
                 <SocialIcons/>
             </div>
         </div>
