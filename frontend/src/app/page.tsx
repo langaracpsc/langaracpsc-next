@@ -13,6 +13,9 @@ import { NextUIProvider } from '@nextui-org/react';
 export default function Home() {
     return (
         <Provider store={store}>
+
+            <script defer data-domain="langaracs.tech" src="https://plausible.langaracs.tech/js/script.js"></script>
+
             <main className="grid grid-rows-[10vh_1fr] dark max-[600px]:grid-rows-[20vh_1fr] h-full w-full overflow-hidden">
                 <NavBar Pages={new Map<string, string>([
                     ["Home", "/"],
