@@ -17,17 +17,15 @@ interface NavButtonProps
     OnClick: (url: string) => void;
 }
     
-export default function NavButton({ Label, EndPoint, Activated, OnClick } : NavButtonProps): JSX.Element 
-{
-    const color: string = (Activated) ? "white" : "lang-orange";
-    <div className="border-lang-orange"></div> // cache
+export default function NavButton({ Label, EndPoint, Activated, OnClick } : NavButtonProps): JSX.Element {
+    const color: string = Activated ? "white" : "lang-orange";
 
-    return (<>
-            <button 
-                className={`bg-transparent max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 text-white font-semibold hover:text-white px-4 border border-${color} hover:border-white rounded select-none`}
-                onClick={() => {OnClick(EndPoint);}}>
-                {Label}
-            </button>
-        </>);
+    return (
+        <button 
+            className={`bg-transparent max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 text-white font-semibold hover:text-white px-4 border border-${color} hover:border-white rounded select-none transition duration-300 transform hover:scale-110`}
+            onClick={() => {OnClick(EndPoint);}}>
+            {Label}
+        </button>
+    );
 }
     
