@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { experimental_useEffectEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { SetCurrentPage } from "../slices/pageSlice";
 import Events from "./Events";
@@ -51,15 +51,20 @@ export default function EventsPage()
 
     const {isOpen, onOpen, onClose: closeModal, onOpenChange} = useDisclosure();
 
-    const fetch = async () => {
-        const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
-        mainDispatch(SetCalendarEvents(fetchedEvents));
-
-        setLoading(false);
-    }; 
-
     useEffect(() => {
-        
+        (async () => {
+            console.log("Fetching events.");
+            if (event.Events.length < 1) 
+            {
+                const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
+
+                mainDispatch(SetCalendarEvents(fetchedEvents));
+                setLoading(false); 
+            }
+        })();
+    });
+    
+    useEffect(() => {
         if (event.CurrentEvent !== DefaultCalendarEvent) { 
             onOpen();
         }
