@@ -57,7 +57,7 @@ export default function EventsPage()
             if (event.Events.length < 1) 
             {
                 const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
-
+                
                 mainDispatch(SetCalendarEvents(fetchedEvents));
                 setLoading(false); 
             }
