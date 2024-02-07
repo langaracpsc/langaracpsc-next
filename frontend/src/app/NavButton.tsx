@@ -20,7 +20,6 @@ interface NavButtonProps
 export default function NavButton({ Label, EndPoint, Activated, OnClick } : NavButtonProps): JSX.Element {
     const color: string = Activated ? "white" : "lang-orange";
 
-    
     <span className="border-lang-orange"></span>;
     return (
         <>
