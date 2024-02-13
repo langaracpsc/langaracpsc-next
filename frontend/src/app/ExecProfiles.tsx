@@ -45,7 +45,7 @@ export default function ExecProfiles({} : ExecProfilesProps)
                                     Position={profile.Position} 
                                     ID={profile.ID} 
                                     Name={profile.Name} 
-                                    ImageBuffer={`https://${process.env.APIURL}/Images/${profile.ImageBuffer}`} 
+                                    ImageBuffer={`https://${process.env.APIURL}/${profile.ImageBuffer}`} 
                                     Description={profile.Description}/>;
                 })
             }
