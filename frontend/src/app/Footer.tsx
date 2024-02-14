@@ -8,7 +8,7 @@ export default function Footer()
 {
     const forms = {
         feedback: "https://forms.gle/jaYbdo6KWbGFvJJG8",
-        register: "row max-[600px]:flex-col"
+        register: "https://forms.gle/gPdqMB5ijafDMRAY8"
     };
 
     const resourcesMap = new Map<string, string>([
