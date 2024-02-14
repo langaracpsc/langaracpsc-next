@@ -1,7 +1,8 @@
 import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SocialIcons from "./SocialIcons";
+import { setServers } from "dns";
 
 export default function Footer()
 {
@@ -23,25 +24,38 @@ export default function Footer()
         ["Events", "/events"], 
         ["Rules", "/"]
     ]);
-
-    const resources: Array<React.ReactNode> = [];
     
-    const links: Array<React.ReactNode> = [];
+    const [resources, setResources] = useState<React.ReactNode[]>([]);
+    
+    const [links, setLinks] = useState<React.ReactNode[]>([]);
 
     const router = useRouter(); 
     
+    useEffect(() => {
+        const resourcesTemp: Array<React.ReactNode> = [];
+        const linksTemp: Array<React.ReactNode> = [];
 
-    resourcesMap.forEach((value: string, key: string) => {
-        resources.push(<>
-            <a href={value} className="hover:text-lang-orange">{key}</a>
-        </>);
-    });
-    
-    linksMap.forEach((value: string, key: string) => {
-        links.push(<>
-            <a href={value} className="hover:text-lang-orange">{key}</a>
-        </>);
-    });
+        if (resources.length < 1)
+        {
+            resourcesMap.forEach((value: string, key: string) => {
+                resourcesTemp.push(<>
+                    <a href={value} className="hover:text-lang-orange">{key}</a>
+                </>);
+            });
+
+            setResources(resourcesTemp);
+        }
+
+        if (links.length < 1) {
+            linksMap.forEach((value: string, key: string) => {
+                linksTemp.push(<>
+                    <a href={value} className="hover:text-lang-orange">{key}</a>
+                </>);
+            });
+
+            setLinks(linksTemp);
+        }
+    }, [resourcesMap, linksMap]);
 
     return (<>
         <div className="grid grid-cols-3 bg-[#1E1E1E] p-2 justify-center">
