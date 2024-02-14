@@ -4,6 +4,7 @@ import AboutPage from "@/app/about/AboutPage";
 import NavBar from "../NavBar";
 import { Provider } from "react-redux";
 import { store } from "../stores/store";
+import Footer from "../Footer";
 export default function Page()
 {
     return (
@@ -15,7 +16,8 @@ export default function Page()
                 ["Events", "/events"]
             ])}/>
             <AboutPage></AboutPage>
-        </main>    
+            <Footer/>
+         </main>    
         </Provider>
     );
 }

@@ -11,6 +11,7 @@ import { UnknownAction } from "@reduxjs/toolkit";
 import { CalendarEvent, SetCalendarEvents, selectEvent } from "./slices/eventSlice";
 import { fetchEventsAsync } from "./thunks/EventThunks";
 import { SetCurrentPage } from "./slices/pageSlice";
+import Footer from "./Footer";
 
 let InstanceCount: number = 0;
 
@@ -60,6 +61,7 @@ export default function HomePage({} : HomePageProps)
     <div className={"flex-col-reverse"}></div>;
         
     return (
+        <>
         <div className={"flex flex-row max-[600px]:flex-col-reverse bg-body-gray w-full h-full"}>
             <div className={"grid grid-rows-[15%_60%_20%] max-[600px]:grid-rows-1 w-full h-full gap-3 max-[600px]: gap-1 max-[900px]:basis-1/3"}>
                 <div></div>
@@ -88,6 +90,7 @@ export default function HomePage({} : HomePageProps)
                 </div>
             </div>
         </div>
+        </>
 );
 }
  

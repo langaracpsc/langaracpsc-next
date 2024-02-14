@@ -5,6 +5,7 @@ import NavBar from "../NavBar";
 import { store } from "../stores/store";
 import EventsPage from "./EventsPage";
 import { NextUIProvider } from "@nextui-org/react";
+import Footer from "../Footer";
 
 export default function Page()
 {
@@ -17,8 +18,10 @@ export default function Page()
                         ["About", "/about"],
                         ["Events", "/events"]
                     ])}/>
+                    
                     <EventsPage/>
-                </main>    
+                    <Footer/>
+                </main>   
             </Provider>
         </NextUIProvider>
     </>); 
