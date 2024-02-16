@@ -58,7 +58,7 @@ export default function Footer()
     }, [resourcesMap, linksMap]);
 
     return (<>
-        <div className="grid grid-cols-3 bg-[#1E1E1E] p-2 justify-center">
+        <div className="grid grid-cols-3 bg-[#1E1E1E] p-4 justify-center">
             <div className="flex flex-col">
                 <div className="ml-[12vh] max-[800px]:ml-0">
                     <div className={"font-bold"}>Resources</div>
