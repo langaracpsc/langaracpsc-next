@@ -58,20 +58,23 @@ export default function Footer()
     }, [resourcesMap, linksMap]);
 
     return (<>
-        <div className="grid grid-cols-3 bg-[#1E1E1E] p-4 justify-center">
-            <div className="flex flex-col">
-                <div className="ml-[12vh] max-[800px]:ml-0">
-                    <div className={"font-bold"}>Resources</div>
-                    <div className={"flex flex-col text-sm gap-3 mt-3"}>
-                        {resources}
+        <div className="grid grid-cols-2 bg-[#1E1E1E] p-6 justify-center">
+            <div className="flex flex-row">
+
+                <div className="flex flex-col">
+                    <div className="ml-[8vh] max-[800px]:ml-0">
+                        <div className={"font-bold"}>Resources</div>
+                        <div className={"flex flex-col text-sm gap-3 mt-3"}>
+                            {resources}
+                        </div>
                     </div>
+                    <div className="mt-6 ml-5 text-xs">Copyright © {new Date(Date.now()).getFullYear()} Langara Computer Science Club</div>
                 </div>
-                <div className="mt-6 ml-5 text-xs">Copyright © {new Date(Date.now()).getFullYear()} Langara Computer Science Club</div>
-            </div>
-            <div className="flex flex-col max-[800px]:items-center">
-                <div className={"font-bold"}>Links</div>
-                <div className={"flex flex-col gap-1 mt-1 "}>
-                    {links}
+                <div className="flex flex-col max-[800px]:items-center">
+                    <div className={"font-bold"}>Links</div>
+                    <div className={"flex flex-col gap-1 mt-1 "}>
+                        {links}
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col items-end max-[600px]:items-center max-[600px]:mr-0 mr-10">
@@ -87,9 +90,8 @@ export default function Footer()
                         <div>
                         Connect
                         </div> 
-                        <div className="gap-3">
-                            <SocialIcons height={25} width={25}/>
-                        </div>
+                        
+                        <SocialIcons height={25} width={25} gap={2}/>
                     </div>
                     <div className={"flex flex-row max-[600px]:flex-col gap-3 hover:text-lang-orange"}>
                         <div>
