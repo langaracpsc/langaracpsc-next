@@ -35,3 +35,15 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: ghcr.io/langaracpsc/langaracpsc-next:latest
+
+  deployment: 
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy docker package on LCSC server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://watchtower.langaracs.tech/v1/update'
+          method: 'GET'
+          bearerToken: ${{ secrets.WATCHTOWER_HTTP_API_TOKEN }}
+          timeout: 20000
