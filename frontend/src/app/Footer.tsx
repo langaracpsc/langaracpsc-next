@@ -1,6 +1,6 @@
 import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import SocialIcons from "./SocialIcons";
 import { setServers } from "dns";
 
@@ -10,6 +10,8 @@ export default function Footer()
         feedback: "https://forms.gle/jaYbdo6KWbGFvJJG8",
         register: "https://forms.gle/gPdqMB5ijafDMRAY8"
     };
+
+    // const year = useMemo(() =>  , []);
 
     const resourcesMap = new Map<string, string>([
         ["Course Planner", "https://planner.langaracs.tech/" ],
@@ -30,11 +32,10 @@ export default function Footer()
     const [links, setLinks] = useState<React.ReactNode[]>([]);
 
     const router = useRouter(); 
-    
-    useEffect(() => {
+  
+    const resourcesMemo = useMemo(() => {
         const resourcesTemp: Array<React.ReactNode> = [];
-        const linksTemp: Array<React.ReactNode> = [];
-
+        
         if (resources.length < 1)
         {
             resourcesMap.forEach((value: string, key: string) => {
@@ -42,21 +43,24 @@ export default function Footer()
                     <a href={value} className="hover:text-lang-orange">{key}</a>
                 </>);
             });
-
-            setResources(resourcesTemp);
         }
 
-        if (links.length < 1) {
+        return resourcesTemp;
+    }, [resourcesMap]);
+
+    const linksMemo = useMemo(() => {
+        const linksTemp: Array<React.ReactNode> = [];
+        
+        if (links.length < 1)
             linksMap.forEach((value: string, key: string) => {
                 linksTemp.push(<>
                     <a href={value} className="hover:text-lang-orange">{key}</a>
                 </>);
             });
 
-            setLinks(linksTemp);
-        }
-    }, [resourcesMap, linksMap]);
-
+        return linksTemp;
+    }, [linksMap]);
+        
     return (<>
         <div className="grid grid-cols-2 bg-[#1E1E1E] p-6 justify-center">
             <div className="flex flex-row">
@@ -65,7 +69,7 @@ export default function Footer()
                     <div className="ml-[8vh] max-[800px]:ml-0">
                         <div className={"font-bold"}>Resources</div>
                         <div className={"flex flex-col text-sm gap-3 mt-3"}>
-                            {resources}
+                            {resourcesMemo}
                         </div>
                     </div>
                     <div className="mt-6 ml-5 text-xs">Copyright © {new Date(Date.now()).getFullYear()} Langara Computer Science Club</div>
@@ -73,7 +77,7 @@ export default function Footer()
                 <div className="flex flex-col max-[800px]:items-center">
                     <div className={"font-bold"}>Links</div>
                     <div className={"flex flex-col gap-1 mt-1 "}>
-                        {links}
+                        {linksMemo}
                     </div>
                 </div>
             </div>
@@ -88,7 +92,7 @@ export default function Footer()
                     </div>
                     <div className={"font-bold flex flex-row max-[600px]:flex-col gap-3 items-center"}>
                         <div>
-                        Connect
+                            Connect
                         </div> 
                         
                         <SocialIcons height={25} width={25} gap={2}/>
