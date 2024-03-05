@@ -1,7 +1,6 @@
-# Langara Computer Science Club Website Deployment Instructions
+# Langara Computer Science Club Website
 
-These instructions describe how to deploy the Langara Computer Science Club website using Docker and Docker Compose. Before starting, make sure you have the following prerequisites installed on your system:
-
+Prerequisites:
 -   **Docker:** Version 20.10.17 or higher
 -   **Docker Compose:** Version 2.5.0 or higher
 
