@@ -81,7 +81,7 @@ export default function HomePage({} : HomePageProps)
                 </div>
                 
                 <div className={"flex flex-row ml-[10%] gap-3 mb-5 max-[600px]:mx-0 max-[600px]:justify-center"}>
-                    <SocialIcons/>
+                    <SocialIcons gap={3}/>
                 </div>
             </div>
             <div className="grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full">

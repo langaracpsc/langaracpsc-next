@@ -10,9 +10,9 @@ interface IconLabelProps
 export default function IconLabel({Label, children} : IconLabelProps)
 {
     return (<>
-            <div className={"flex flex-row"}>
+            <div className={"flex flex-row w-[20vh] items-center"}>
                 {children}
-                <div className={"self-center ml-2"}>{Label}</div>
+                <div className={"ml-2"}>{Label}</div>
             </div>
     </>);  
 }
