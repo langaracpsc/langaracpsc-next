@@ -46,4 +46,4 @@ jobs:
           url: 'https://watchtower.langaracs.tech/v1/update'
           method: 'GET'
           bearerToken: ${{ secrets.WATCHTOWER_HTTP_API_TOKEN }}
-          timeout: 60000
+          timeout: 180000
