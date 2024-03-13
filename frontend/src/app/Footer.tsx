@@ -17,7 +17,7 @@ export default function Footer()
         ["Course Planner", "https://planner.langaracs.tech/" ],
         ["Transfer Guides", "https://drive.google.com/drive/folders/19b_LSWvUddlm4c6Huh5XWbnOHZct7m5B?usp=sharing"],
         ["Feedback", forms.feedback],
-        ["More", "/resources"]
+        ["Resources", "/resources"]
     ]);
     
     const linksMap = new Map<string, string>([
@@ -61,49 +61,51 @@ export default function Footer()
         return linksTemp;
     }, [linksMap]);
         
-    return (<>
-        <div className="grid grid-cols-2 bg-[#1E1E1E] p-6 justify-center">
-            <div className="flex flex-row">
-
-                <div className="flex flex-col">
-                    <div className="ml-[8vh] max-[800px]:ml-0">
-                        <div className={"font-bold"}>Resources</div>
+    return (
+    <>
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-[#1E1E1E] p-5">
+            <div className="flex flex-row mt-3 ml-3 justify-evenly md:justify-normal">
+                <div className="flex flex-col ">
+                    <div className="flex flex-col">
+                        <div className={"font-bold text-3xl"}>Resources</div>
                         <div className={"flex flex-col text-sm gap-3 mt-3"}>
                             {resourcesMemo}
                         </div>
+                        <div className="opacity-0 md:opacity-100 mt-10 text-xs">Copyright © {new Date(Date.now()).getFullYear()} Langara Computer Science Club</div>
                     </div>
-                    <div className="mt-6 ml-5 text-xs">Copyright © {new Date(Date.now()).getFullYear()} Langara Computer Science Club</div>
                 </div>
-                <div className="flex flex-col max-[800px]:items-center">
-                    <div className={"font-bold"}>Links</div>
-                    <div className={"flex flex-col gap-1 mt-1 "}>
-                        {linksMemo}
+                <div className="flex flex-row">
+                    <div className="flex flex-col">
+                        <div className={"font-bold text-3xl"}>Links</div>
+                        <div className={"flex flex-col text-sm gap-3 mt-3"}>
+                            {linksMemo}
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col items-end max-[600px]:items-center max-[600px]:mr-0 mr-10">
-                <div className={"flex flex-col gap-6"}>
-                    <div className={"font-bold flex flex-row max-[600px]:flex-col gap-3 items-center"}>
-                        <div>
+            <div className="flex flex-row md:flex-col justify-evenly">
+                <div className={"flex flex-col gap-2 items-center md:items-end md:mt-3 md:mr-3"}>
+                    <div className={"font-bold flex flex-row gap-3 items-center"}>
+                        <div className="font-bold text-3xl">
                             Join Us
                         </div>
 
-                        <Button onClick={() => router.push(forms.register) } className="bg-lang-orange rounded text-white max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 font-bold">Register</Button>
+                        <Button onClick={() => router.push(forms.register) } className="bg-lang-orange rounded text-white h-10 font-bold">Register</Button>
                     </div>
-                    <div className={"font-bold flex flex-row max-[600px]:flex-col gap-3 items-center"}>
+                    <div className={"font-bold flex flex-row gap-3 items-center text-2xl"}>
                         <div>
-                            Connect
+                            Contacts
                         </div> 
                         
                         <SocialIcons height={25} width={25} gap={2}/>
                     </div>
-                    <div className={"flex flex-row max-[600px]:flex-col gap-3 hover:text-lang-orange"}>
-                        <div>
-                            <a href="#top">Go to top</a>
-                        </div> 
-                    </div>
+                    <div className="underline text-xl">
+                        <a href="#top">Go to top of the website</a>
+                    </div> 
                 </div>
+                <div className="alignment_div opacity-0">I am not here</div>
             </div>
         </div>
-    </>);
+    </>
+    );
 }

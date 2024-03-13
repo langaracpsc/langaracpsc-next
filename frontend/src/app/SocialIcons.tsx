@@ -25,12 +25,12 @@ export default function SocialIcons({height, width, gap}: SocialIconsProps): JSX
                 <SocialIcon 
                     key={index} 
                     url={name} 
-                    fgColor={"#FFFFFF"} 
-                    bgColor={"#F15A22"} 
+                    fgColor={"black"} 
+                    bgColor={"white"} 
                     style={{ height: (height === undefined) ? 50 : height, width: (width === undefined) ? 50 : width }}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="transition duration-1000 transform hover:scale-110"
+                    className="transition duration-3000 transform hover:scale-110"
                 />
             ))}
         </div>

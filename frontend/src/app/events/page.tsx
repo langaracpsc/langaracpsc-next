@@ -18,7 +18,6 @@ export default function Page()
                         ["About", "/about"],
                         ["Events", "/events"]
                     ])}/>
-                    
                     <EventsPage/>
                     <Footer/>
                 </main>   
