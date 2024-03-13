@@ -12,7 +12,7 @@ import { waitForDebugger } from "inspector";
 import { Button } from "@nextui-org/react";
 import Conditional from "./Conditional";
 import SocialIcons from "./SocialIcons";
-import Dropdown from "./Dropdown";
+import Menu from "./Menu";
 
 interface NavBarProps
 {
@@ -75,7 +75,7 @@ export default function NavBar({ Pages } : NavBarProps)
                         </div>
                     </div>
                     <div className="dropdown lg:hidden">
-                        <Dropdown Buttons={navButtons}/>
+                        <Menu Buttons={navButtons}/>
                     </div>
                 </div>
             </nav>

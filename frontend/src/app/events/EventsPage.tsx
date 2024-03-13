@@ -98,7 +98,6 @@ export default function EventsPage()
 
     return (
         <>
-            
             <div className="bg-body-gray h-[90vh] max-[600px]:h-[80vh]">
                 <div className={"flex flex-col bg-body-gray items-center"}>
                     <div className="flex flex-col mt-10">
