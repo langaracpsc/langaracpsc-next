@@ -44,16 +44,16 @@ export default function AboutPage({} : AboutPageProps)
                         ABOUT US
                     </div>
                     <div className={"text-lg max-[600px]:text-s font-light items-center"}>
-                        The Langara Computer Science Club is a student-led club dedicated to  providing a space for students interested in computer science. We provide a space to learn, create, network, and to have fun! We hold workshops, programming competitions, and other meetups.
+                        {"Welcome to the Langara Computer Science Club! We're all about diving deep into the world of computer science, fostering a community of enthusiastic learners, creators, and problem-solvers. Join us for exciting workshops, thrilling programming competitions, and engaging meetups where you can sharpen your skills, expand your network, and, most importantly, have a blast! Whether you're a seasoned coder or just starting out, there's something for everyone here. Come be a part of our dynamic community and let's embark on this incredible journey together!"}
                     </div>
                 </div>
                 <div className={"flex flex-col m-5 items-center"}>
                     <div className={"text-[36px] font-bold flex max-[500px]:items-end max-[600px]: mt-10"}>
                         EXECUTIVES
                     </div>
-                    <div className={"text-lg max-[600px]:text-s font-light items-center"}>
-                        The Langara Computer Science club is run by a team of dedicated Langara students. We strive to create awesome opportunities and events and to represent the interests of the diverse student body.
-                    </div>
+                <div className={"text-lg max-[600px]:text-s font-light items-center"}>
+                    {"Run by a team of dedicated Langara students, we're all about crafting exciting opportunities and events that cater to the diverse interests of our student body."}
+                </div>
                 </div>
                 <div className={"profileContainer mb-10"}>
                     <div className={"flex flex-col ml-5 mr-5 max-[600px]:mx-0 gap-3 items-center"}>

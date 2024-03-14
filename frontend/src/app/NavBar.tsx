@@ -66,8 +66,8 @@ export default function NavBar({ Pages } : NavBarProps)
                     <div className="register_socialicons lg:flex hidden justify-end items-center h-full">
                         <div className="flex items-center gap-x-7">
                             <div className="flex items-center">
-                                <div className="text-3xl whitespace-nowrap shrink-0">Join Us:</div>
-                                <Button onClick={() => router.push(formURL)} className="text-lang-orange bg-transparent text-3xl font-bold hover:scale-110 transition duration-300 ease-in-out">Register</Button>
+                                <div className="text-2xl whitespace-nowrap shrink-0">Join Us:</div>
+                                <Button onClick={() => router.push(formURL)} className="text-lang-orange bg-transparent text-2xl font-bold hover:scale-110 transition duration-300 ease-in-out">Register</Button>
                             </div>
                             <div className="flex items-center">
                                 <SocialIcons gap={3} />
@@ -81,6 +81,5 @@ export default function NavBar({ Pages } : NavBarProps)
             </nav>
         </div>
     );
-    
-    
+   
 }
