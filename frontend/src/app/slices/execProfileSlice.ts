@@ -1,6 +1,12 @@
 import { AppDispatch, RootState } from "../stores/store";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CalendarEvent } from "./eventSlice";
+interface ExecPosition 
+{
+    ID: number;
+
+    Title: string;
+}
 
 export interface ExecProfileObject
 {
@@ -10,7 +16,7 @@ export interface ExecProfileObject
 
     ImageBuffer: string;
 
-    Position: number;
+    Position: ExecPosition; 
 
     Description: string;
 } 

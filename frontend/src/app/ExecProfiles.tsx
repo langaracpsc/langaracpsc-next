@@ -5,7 +5,6 @@ import { AppDispatch, RootState } from './stores/store';
 import { AddExecProfile, ExecProfileObject, selectProfile } from './slices/execProfileSlice';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
 
-
 interface ExecProfilesState
 {
 }
@@ -13,26 +12,6 @@ interface ExecProfilesState
 interface ExecProfilesProps
 {
 }
-
-class Profile
-{
-    public ID: number;
-    
-    public Name: string;
-    
-    public Position: number;
-    
-    public ImageID: string;
-    
-    public constructor(id: number, name: string, position: number, imageID: string)
-    {
-        this.ID = id;
-        this.Name = name;
-        this.Position = position;
-        this.ImageID = imageID;
-    }
-}
-
 export default function ExecProfiles({} : ExecProfilesProps)
 {
     const profiles = useAppSelector(selectProfile);
@@ -40,9 +19,9 @@ export default function ExecProfiles({} : ExecProfilesProps)
     return (
         <>
             {
-            [...profiles].sort((a, b) => (a.Position - b.Position)).map((profile: any, index: any) => {
+            [...profiles].sort((a, b) => (a.Position.ID - b.Position.ID)).map((profile: any, index: any) => {
                 return <ExecProfile key={index} 
-                                    Position={profile.Position} 
+                                    Position={profile.Position.Title} 
                                     ID={profile.ID} 
                                     Name={profile.Name} 
                                     ImageBuffer={`https://${process.env.APIURL}/${profile.ImageBuffer}`} 

@@ -38,7 +38,8 @@ export default function NavBar({ Pages } : NavBarProps)
     const router = useRouter();
     const mainDispatch = useAppDispatch();
     const currentPage = useSelector(selectCurrentPage);
-    const [page, setPage] = useState(currentPage); 
+    const [page, setPage] = useState(currentPage);
+
     const formURL = "https://forms.gle/gPdqMB5ijafDMRAY8";
 
     const onClickHandler  = (url: string) => {
