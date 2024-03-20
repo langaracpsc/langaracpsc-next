@@ -15,16 +15,16 @@ export default function Footer()
 
     const resourcesMap = new Map<string, string>([
         ["Course Planner", "https://planner.langaracs.tech/" ],
-        ["Transfer Guides", "https://drive.google.com/drive/folders/19b_LSWvUddlm4c6Huh5XWbnOHZct7m5B?usp=sharing"],
+        ["Transfer Guides", "https://langaracs.notion.site/Transfer-Information-a0548da4b3084681868381310c604c34"],
         ["Feedback", forms.feedback],
-        ["Resources", "/resources"]
+        // ["Resources", "/resources"]
     ]);
     
     const linksMap = new Map<string, string>([
         ["Home", "/" ],
         ["About", "/about"],
         ["Events", "/events"], 
-        ["Rules", "/"]
+        ["Rules", "https://langaracs.notion.site/LCSC-Rules-393da1457d784fa19c98d1d3c32ae829?pvs=4"]
     ]);
     
     const [resources, setResources] = useState<React.ReactNode[]>([]);
