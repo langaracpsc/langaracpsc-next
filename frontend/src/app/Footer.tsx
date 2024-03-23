@@ -63,7 +63,7 @@ export default function Footer()
         
     return (
     <>
-        <div className="grid grid-cols-1 md:grid-cols-2 bg-[#1E1E1E] p-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-[#1E1E1E] p-6">
             <div className="flex flex-row mt-3 ml-3 justify-evenly md:justify-normal">
                 <div className="flex flex-col ">
                     <div className="flex flex-col">
@@ -83,28 +83,28 @@ export default function Footer()
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row md:flex-col justify-evenly">
-                <div className={"flex flex-col gap-2 items-center md:items-end md:mt-3 md:mr-3"}>
-                    <div className={"font-bold flex flex-row gap-3 items-center"}>
-                        <div className="font-bold text-3xl">
+            <div className="flex flex-col md:flex-row md:justify-end">
+                <div className="flex flex-col gap-3 md:gap-3 md:items-center">
+                    <div className="flex flex-col items-center md:flex-row md:items-center ml-4">
+                        <div className="text-3xl text-center md:text-left">
                             Join Us
                         </div>
-
-                        <Button onClick={() => router.push(forms.register) } className="bg-lang-orange rounded text-white h-10 font-bold">Register</Button>
+                        <Button onClick={() => router.push(forms.register)} className="bg-transparent font-bold text-lang-orange text-2xl hover:scale-110">Register</Button>
                     </div>
-                    <div className={"font-bold flex flex-row gap-3 items-center text-2xl"}>
-                        <div>
+                    <div className="flex flex-row gap-3 items-center justify-center">
+                        <div className="text-2xl">
                             Contacts
-                        </div> 
-                        
+                        </div>
                         <SocialIcons height={25} width={25} gap={2}/>
                     </div>
-                    <div className="underline text-xl">
+                    <div className="underline text-xl text-center md:text-start">
                         <a href="#top">Go to top of the website</a>
-                    </div> 
+                    </div>
                 </div>
-                <div className="alignment_div opacity-0">I am not here</div>
             </div>
+
+
+
         </div>
     </>
     );
