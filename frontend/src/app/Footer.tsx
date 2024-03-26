@@ -54,7 +54,7 @@ export default function Footer()
         if (links.length < 1)
             linksMap.forEach((value: string, key: string) => {
                 linksTemp.push(<>
-                    <a href={value} className="hover:text-lang-orange">{key}</a>
+                    <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
                 </>);
             });
 

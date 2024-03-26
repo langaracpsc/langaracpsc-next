@@ -15,8 +15,6 @@ import Footer from "./Footer";
 
 let InstanceCount: number = 0;
 
-// Global.SetupWindow();
-
 interface HomePageProps
 {
 }
