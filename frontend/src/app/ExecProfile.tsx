@@ -1,15 +1,16 @@
 import {Component} from "react";
 import Image from "next/image";
+import {useState, useEffect} from "react";
 
 interface ExecProfileProps
 {
-    ID: number;
+    ID: string;
     
     Name: string;
     
     ImageBuffer: string;
     
-    Position: number;
+    Position: string;
 
     Description: string;
 }
@@ -28,31 +29,32 @@ const PositionStrings: string[] = [
     "Secratory",
     "Directory of Media"
 ];
-
+ 
 export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
 { 
+    const [imageWidth, setImageWidth] = useState<number>(window.innerWidth <= 800 ?  100 : 200);
+    
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 800)
+                setImageWidth(100);
+            else
+                setImageWidth(200);
+        };
+    
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('load', handleResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+    
     return (
-        <div className={"flex items-start ml-10 mr-10"}>
-            <div className="box-border bg-[#262626] rounded p-1">
-                <div className={"flex flex-row gap-3  text-lg max-[600px]:text-xs items-start"}>
-                    <div className={"flex flex-col items-start relative border-box h-100 w-10 rounded basis-44 max-[600px]:basis-1/4 shrink-0 p-0"}>
-                        <Image src={ImageBuffer} width={200} height={200} alt={Name} 
-                                style={{borderRadius: "100%"}} 
-                                className={"mt-0 self-start aspect-square rounded-2xl  h-[200px] w-[200px] "}/>
-                    </div>
-                            <span className={"font-bold"}>{Name}</span>
-                    <div className="flex flex-col gap-3 max-[600px]:items-center">
-                        <div className="flex flex-row ">
-                            <span> {PositionStrings[Position]}</span>
-                        </div>
-                        <div className="flex">
-                            {Description} 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+            <div className="flex flex-col items-center gap-3">
+                <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl`}/>
+                <span className="flex flex-col font-bold text-center">{Name.split(' ').map(name => <div>{name}</div>)}</span> {/* Adjust margin-top as needed to position below image center */}
+            </div>);
 }
 
  
