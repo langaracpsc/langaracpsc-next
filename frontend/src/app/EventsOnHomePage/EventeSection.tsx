@@ -1,3 +1,7 @@
+/**
+ * Create by felipe123
+ */
+
 import { experimental_useEffectEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { SetCurrentPage } from "../slices/pageSlice";
@@ -11,75 +15,70 @@ import Conditional from "../Conditional";
 import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
 
-export class Range 
-{
+export class Range {
     Start: number;
-    
+
     End: number;
 
-    ToArray(): number[] 
-    {
+    ToArray(): number[] {
         const array: number[] = new Array<number>();
 
         for (let x = this.Start; x < this.End; x++)
-            array.push(x); 
+            array.push(x);
 
         return array;
     }
 
-    constructor(start: number, end: number)
-    {
-        this.Start = start; 
+    constructor(start: number, end: number) {
+        this.Start = start;
         this.End = end;
-    }    
-} 
+    }
+}
 
-export default function EventsPage()
-{
+export default function EventsSection() {
     const router = useRouter();
     const mainDispatch = useAppDispatch();
 
-    const event = useAppSelector(selectEvent); 
+    const event = useAppSelector(selectEvent);
 
     mainDispatch(SetCurrentPage("/events"));
 
-    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());  
+    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
     const [loading, setLoading] = useState(event.Events.length < 1);
 
     const [currentEvent, setCurrentEvent] = useState("");
 
-    const {isOpen, onOpen, onClose: closeModal, onOpenChange} = useDisclosure();
+    const { isOpen, onOpen, onClose: closeModal, onOpenChange } = useDisclosure();
 
     useEffect(() => {
         (async () => {
             console.log("Fetching events.");
-            if (event.Events.length < 1) 
-            {
+            if (event.Events.length < 1) {
                 const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
-                
+
                 mainDispatch(SetCalendarEvents(fetchedEvents));
-                setLoading(false); 
+                setLoading(false);
             }
         })();
     });
-    
+
     useEffect(() => {
-        if (event.CurrentEvent !== DefaultCalendarEvent) { 
+        if (event.CurrentEvent !== DefaultCalendarEvent) {
             onOpen();
         }
     }, [event.CurrentEvent, onOpen]);
 
     const onCloseHandler = () => {
-        closeModal(); 
+        closeModal();
         mainDispatch(SetCurrentEvent(DefaultCalendarEvent));
     };
 
     const getYearsSince = (year: number) => {
-        return new Range(year, new Date().getFullYear() + 1).ToArray();  
+        return new Range(year, new Date().getFullYear() + 1).ToArray();
     }
-    
-    const getTimeStamp = (time: Date) => { 
+
+    const getTimeStamp = (time: Date) => {
         const split = time.toTimeString().split(' ')[0];
 
         let [hour, minute] = split.substring(0, split.length - 3).split(":");
@@ -87,25 +86,22 @@ export default function EventsPage()
         let hourInt: number;
         let postFix: string = "AM";
 
-        if ((hourInt = Number.parseInt(hour)) > 12)
-        {
+        if ((hourInt = Number.parseInt(hour)) > 12) {
             hour = (hourInt - 12).toString();
             postFix = "PM";
         }
 
-        return `${hour}:${minute} ${postFix}`; 
+        return `${hour}:${minute} ${postFix}`;
     }
-//Use this for extra info on module
+    //Use this for extra info on module
     return (
         <>
-            
+
             <div className="bg-body-gray h-[90vh] max-[600px]:h-[80vh]">
-                <div className={"flex flex-col bg-body-gray items-center"}>
-                    <div className="flex flex-col mt-10">
-                        <div className={"text-[36px] font-bold"}>EVENTS</div>
-                    </div>
-                    
-                    <Modal isOpen={isOpen} onClose={onCloseHandler} onOpenChange={onOpenChange} className={"dark"} isDismissable={true}>  
+                <div className={"flex flex-row bg-body-gray w-screen content-center items-center"}>
+
+
+                    <Modal isOpen={isOpen} onClose={onCloseHandler} onOpenChange={onOpenChange} className={"dark"} isDismissable={true}>
                         <ModalContent>
                             {(onClose) => (
                                 <>
@@ -113,8 +109,8 @@ export default function EventsPage()
                                         <span className="text-2xl">{event.CurrentEvent.Title}</span>
                                     </ModalHeader>
                                     <ModalBody>
-                                        <div className="flex flex-col gap-2 max-[600px]:gap-0">
-                                            <div className={"flex flex-row gap-4 p-8"}>
+                                        <div className="flex flex-row gap-2 max-[600px]: gap-0">
+                                            <div className={"flex flex-col gap-4 p-8"}>
                                                 <img alt={"event-image"} src={event.CurrentEvent.Image} height={100} width={130} className={"rounded"} />
                                                 <div className="flex flex-col">
                                                     <IconLabel Label={event.CurrentEvent.Start.toDateString()}>
@@ -132,7 +128,7 @@ export default function EventsPage()
 
                                             <div className={"flex flex-col w-full flex-wrap items-center gap-3"}>
                                                 <span className="text-lg font-bold self-center">Description</span>
-                                                <div className={"text-sm overflow-x-auto max-h-screen"}>{(event.CurrentEvent.Description != null) ? <div dangerouslySetInnerHTML={{__html: event.CurrentEvent.Description }}></div> : "No description."}</div>
+                                                <div className={"text-sm overflow-x-auto max-h-screen"}>{(event.CurrentEvent.Description != null) ? <div dangerouslySetInnerHTML={{ __html: event.CurrentEvent.Description }}></div> : "No description."}</div>
                                             </div>
                                         </div>
                                     </ModalBody>
@@ -141,29 +137,23 @@ export default function EventsPage()
                                         <Button onClick={onCloseHandler}>Close</Button>
                                     </ModalFooter>
                                 </>
-                                )
+                            )
                             }
                         </ModalContent>
                     </Modal>
 
-                    <div className="mt-1 flex flex-col gap-1">
-                        <div className="mt-1 flex flex-col gap-1">
+                    <div className="mt-1 flex flex-col gap-3 justify-center items-center self-center">
+                        <div className="mt-1 flex flex-row content-between">
                             <Conditional Condition={!loading}>
-                                <div className="flex flex-col mt-1 self-start">
-                                    <Dropdown className="dark">
-                                        <DropdownTrigger className="bg-[#272626] text-white"><Button radius={"sm"}>{currentYear}</Button></DropdownTrigger>
-                                        <DropdownMenu onAction={(key: React.Key) => {setCurrentYear(key as number)}} variant="bordered" color="default">
-                                            {
-                                                getYearsSince(2022).reverse().map(year => <DropdownItem key={year}>{year}</DropdownItem>) 
-                                            }
-                                        </DropdownMenu>
-                                    </Dropdown>
+                                <div >
+                                    <div className={"text-[36px] font-bold"}>Future Events</div>
+                                    <a href="../events/page.tsx" className={"text-xl font-bold hover:text-lang-orange max-[600px]:text-lg select-none"}>See more events</a>
                                 </div>
                             </Conditional>
                         </div>
-                        <div className="mt-1 flex flex-col gap-1 overflow-y-auto max-h-screen h-[70vh] max-[600px]:h-[60vh]">
+                        <div className="mt-1 flex flex-row gap-1 align-center h-96 w-5/6">
                             <Conditional Condition={loading}>Loading</Conditional>
-                            <Events Events={[...event.Events].filter(event => event.Start.getFullYear() == currentYear)}/>
+                            <Events Events={[...event.Events].filter(event => event.Start.getFullYear() == currentYear)} />
                         </div>
                     </div>
                 </div>
@@ -171,6 +161,3 @@ export default function EventsPage()
         </>
     );
 } 
-
-
- 

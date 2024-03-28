@@ -13,6 +13,7 @@ import { fetchEventsAsync } from "./thunks/EventThunks";
 import { SetCurrentPage } from "./slices/pageSlice";
 import Footer from "./Footer";
 
+
 let InstanceCount: number = 0;
 
 // Global.SetupWindow();

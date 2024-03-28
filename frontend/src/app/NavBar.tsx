@@ -11,6 +11,7 @@ import { AppDispatch } from "./stores/store";
 import { waitForDebugger } from "inspector";
 import { Button } from "@nextui-org/react";
 import Conditional from "./Conditional";
+import SideBarDisplay from "./SideBarAppear";
 
 interface NavBarProps
 {
@@ -62,9 +63,11 @@ export default function NavBar({ Pages } : NavBarProps)
                     <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
                         {navButtons}
                         <Button onClick={() => router.push(formURL) } className="bg-lang-orange rounded text-white max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 font-bold">Register</Button>
+                    
                     </div>
+
                 </div>
-                <div></div>
+
             </div>
         </div>
     );
