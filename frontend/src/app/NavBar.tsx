@@ -9,7 +9,7 @@ import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
 import { useSelector } from "react-redux";
 import { AppDispatch } from "./stores/store";
 import { waitForDebugger } from "inspector";
-import { Button } from "@nextui-org/react";
+import { Button } from "@/components/ui/button";
 import Conditional from "./Conditional";
 import SocialIcons from "./SocialIcons";
 import Menu from "./Menu";
@@ -68,7 +68,7 @@ export default function NavBar({ Pages } : NavBarProps)
                         <div className="flex items-center gap-x-7">
                             <div className="flex items-center">
                                 <div className="text-2xl whitespace-nowrap shrink-0">Join Us:</div>
-                                <Button onClick={() => router.push(formURL)} className="text-lang-orange bg-transparent text-2xl font-bold hover:scale-110 transition duration-300 ease-in-out">Register</Button>
+                                <Button onClick={() => router.push(formURL)} className="text-lang-orange hover:bg-transparent bg-transparent text-2xl font-bold hover:scale-110 transition duration-300 ease-in-out">Register</Button>
                             </div>
                             <div className="flex items-center">
                                 <SocialIcons gap={3} />

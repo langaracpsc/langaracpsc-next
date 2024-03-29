@@ -6,10 +6,14 @@ import { fetchEventsAsync } from "../thunks/EventThunks";
 import { AppDispatch } from "../stores/store";
 import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
 import { Timer } from "../hacks/Timer";
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
+import { Dropdown, DropdownItem, DropdownTrigger, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 import Conditional from "../Conditional";
 import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
+import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
 
 export class Range 
 {
@@ -149,14 +153,14 @@ export default function EventsPage()
                         <div className="mt-1 flex flex-col gap-1">
                             <Conditional Condition={!loading}>
                                 <div className="flex flex-col mt-1 self-start">
-                                    <Dropdown className="dark relative z-10">
-                                        <DropdownTrigger className="bg-[#272626] text-white"><Button radius={"sm"} className="relative z-10">{currentYear}</Button></DropdownTrigger>
-                                        <DropdownMenu onAction={(key: React.Key) => {setCurrentYear(key as number)}} variant="bordered" color="default">
+                                    <Select onValueChange = {(key: string) => {setCurrentYear(Number.parseInt(key))}} className="dark border-0 relative z-10">
+                                        <SelectTrigger className="bg-[#272626] text-white border-0">{currentYear}</SelectTrigger>
+                                        <SelectContent className="bg-[#272626] text-white" color="dark">
                                             {
-                                                getYearsSince(2022).reverse().map(year => <DropdownItem key={year}>{year}</DropdownItem>) 
+                                                getYearsSince(2022).reverse().map(year => <SelectItem className="dark bg-[#272626] text-white" value={year.toString()} key={year}>{year}</SelectItem>) 
                                             }
-                                        </DropdownMenu>
-                                    </Dropdown>
+                                        </SelectContent>
+                                    </Select>
                                 </div>
                             </Conditional>
                         </div>
