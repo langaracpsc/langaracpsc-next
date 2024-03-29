@@ -5,24 +5,9 @@ import Events from "./Events";
 import { fetchEventsAsync } from "../thunks/EventThunks";
 import { AppDispatch } from "../stores/store";
 import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
-import { Timer } from "../hacks/Timer";
-import { Dropdown, DropdownItem, DropdownTrigger, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 import Conditional from "../Conditional";
-import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
 import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog";
 
 export class Range 
 {
@@ -62,8 +47,6 @@ export default function EventsPage()
 
     const [currentEvent, setCurrentEvent] = useState("");
 
-    const {isOpen, onOpen, onClose: closeModal, onOpenChange} = useDisclosure();
-
     useEffect(() => {
         (async () => {
             console.log("Fetching events.");
@@ -77,17 +60,6 @@ export default function EventsPage()
         })();
     });
     
-    useEffect(() => {
-        if (event.CurrentEvent !== DefaultCalendarEvent) { 
-            onOpen();
-        }
-    }, [event.CurrentEvent, onOpen]);
-
-    const onCloseHandler = () => {
-        closeModal(); 
-        mainDispatch(SetCurrentEvent(DefaultCalendarEvent));
-    };
-
     const getYearsSince = (year: number) => {
         return new Range(year, new Date().getFullYear() + 1).ToArray();  
     }

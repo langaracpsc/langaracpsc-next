@@ -1,5 +1,4 @@
 
-import { NextUIProvider } from '@nextui-org/react'
 import '/styles/globals.css'
 
 export const metadata = {

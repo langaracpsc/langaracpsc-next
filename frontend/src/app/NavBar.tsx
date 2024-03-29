@@ -42,7 +42,7 @@ export default function NavBar({ Pages } : NavBarProps)
 
     const formURL = "https://forms.gle/gPdqMB5ijafDMRAY8";
 
-    const onClickHandler  = (url: string) => {
+    const onClickHandler = (url: string) => {
         router.push(url);    
         mainDispatch(SetCurrentPage(url));
         setPage(currentPage);
