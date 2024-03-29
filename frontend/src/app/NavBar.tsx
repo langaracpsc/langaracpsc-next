@@ -11,6 +11,8 @@ import { AppDispatch } from "./stores/store";
 import { waitForDebugger } from "inspector";
 import { Button } from "@nextui-org/react";
 import Conditional from "./Conditional";
+import SocialIcons from "./SocialIcons";
+import Menu from "./Menu";
 import SideBarDisplay from "./SideBarAppear";
 
 interface NavBarProps
@@ -37,7 +39,8 @@ export default function NavBar({ Pages } : NavBarProps)
     const router = useRouter();
     const mainDispatch = useAppDispatch();
     const currentPage = useSelector(selectCurrentPage);
-    const [page, setPage] = useState(currentPage); 
+    const [page, setPage] = useState(currentPage);
+
     const formURL = "https://forms.gle/gPdqMB5ijafDMRAY8";
 
     const onClickHandler  = (url: string) => {
@@ -53,6 +56,28 @@ export default function NavBar({ Pages } : NavBarProps)
     }); 
 
     return (
+        <div>
+            <nav className="navbar w-full bg-black fixed top-0 left-0 right-0 z-10">
+                <div className="flex flex-row justify-between items-center mx-auto px-4 md:px-10">
+                    <div className="flex flex-row items-center justify-start">
+                        <img src="LCS.png" alt="club-logo" className="shrink-0 grow-0 w-32 h-auto select-none" onClick={() => router.push("/")}/>
+                        <div className="justify-center items-start lg:justify-start lg:flex hidden">
+                            {navButtons}
+                        </div>
+                    </div>
+                    <div className="register_socialicons lg:flex hidden justify-end items-center h-full">
+                        <div className="flex items-center gap-x-7">
+                            <div className="flex items-center">
+                                <div className="text-2xl whitespace-nowrap shrink-0">Join Us:</div>
+                                <Button onClick={() => router.push(formURL)} className="text-lang-orange bg-transparent text-2xl font-bold hover:scale-110 transition duration-300 ease-in-out">Register</Button>
+                            </div>
+                            <div className="flex items-center">
+                                <SocialIcons gap={3} />
+                            </div>
+                        </div>
+                    </div>
+                    <div className="dropdown lg:hidden">
+                        <Menu Buttons={navButtons}/>
         <div className="flex flex-row max-[600px]:grid max-[600px]:grid-rows-2  row-start-1 row-span-1 max-[600px]:justify-center">
             <div className="min-[600px]:basis-1/4 max-[600px]:row-start-1 flex-row shrink-0 grow-0 max-[600px]:justify-center flex items-center">
                 <img src="LCS.png" alt="club-logo" className="ml-5 flex-start-2 max-[600px]:ml-0 shrink-0 grow-0 h-full select-none" onClick={() => router.push("/")}/>
@@ -67,10 +92,10 @@ export default function NavBar({ Pages } : NavBarProps)
                     </div>
 
                 </div>
+            </nav>
 
             </div>
         </div>
     );
+   
 }
-
-

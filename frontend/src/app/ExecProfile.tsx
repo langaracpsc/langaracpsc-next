@@ -1,24 +1,26 @@
 import {Component} from "react";
 import Image from "next/image";
+import {useState, useEffect} from "react";
+import { init } from "next/dist/compiled/@vercel/og/satori";
 
 interface ExecProfileProps
 {
-    ID: number;
+    ID: string;
     
     Name: string;
     
     ImageBuffer: string;
     
-    Position: number;
+    Position: string;
 
     Description: string;
 }
 
 const PositionStrings: string[] = [
     "President",
-    "Vice Presdent",
-    "Vice Presdent Internal",
-    "Vice Presdent External",
+    "Vice President",
+    "Vice President Internal",
+    "Vice President External",
     "Tech Lead",
     "Assistant Tech Lead",
     "General Representative",
@@ -28,31 +30,49 @@ const PositionStrings: string[] = [
     "Secratory",
     "Directory of Media"
 ];
-
+ 
 export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
 { 
-    return (
-        <div className={"flex items-start ml-10 mr-10"}>
-            <div className="box-border bg-[#262626]  rounded">
-                <div className={"flex flex-row gap-3  text-lg max-[600px]:text-xs items-start"}>
-                    <div className={"flex flex-col items-start relative border-box h-100 w-10 rounded basis-44 max-[600px]:basis-1/4 shrink-0 p-0"}>
-                        <Image src={ImageBuffer} width={200} height={200} alt={Name}  
-                                className={"mt-0 self-start aspect-square rounded-sm  h-[200px] w-[200px] object-contain"}/>
+    let initialValue: number = 200;
+    
+    useEffect(() => {
+        if (window !== undefined) {
+            if (window.innerWidth <= 800)
+                initialValue = 100;
+        }
+    });
 
-                    </div>
-                            <span className={"font-bold"}>{Name}</span>
-                    <div className="flex flex-col gap-3 max-[600px]:items-center">
-                        <div className="flex flex-row ">
-                            <span> {PositionStrings[Position]}</span>
-                        </div>
-                        <div className="flex">
-                            {Description} 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    const [imageWidth, setImageWidth] = useState<number>(initialValue);
+    
+    useEffect(() => {
+        const handleResize = () => {
+            if (window !== undefined)
+            {
+                if (window.innerWidth <= 800)
+                    setImageWidth(100);
+                else
+                    setImageWidth(200);
+            }
+        };
+        
+        if (window !== undefined) 
+        {
+
+            window.addEventListener('resize', handleResize);
+            window.addEventListener('load', handleResize);
+        }
+
+        return () => {
+            if (window !== undefined)
+                window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+        
+    return (
+            <div className="flex flex-col items-center gap-3">
+                <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl`}/>
+                <span className="flex flex-col font-bold text-center">{Name.split(' ').map(name => <div key={name}>{name}</div>)}</span> {/* Adjust margin-top as needed to position below image center */}
+            </div>);
 }
 
  

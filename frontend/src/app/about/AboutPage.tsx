@@ -29,8 +29,8 @@ export default function AboutPage({} : AboutPageProps)
             {
                 const promise: UnknownAction = mainDispatch(loadProfilesAsync() as AppDispatch);
 
-                ((await promise) as unknown as ExecProfileObject[]).forEach((element: ExecProfileObject) => {
-                    mainDispatch(AddExecProfile(element)); 
+                ((await promise) as unknown as any[]).forEach((element) => {
+                    mainDispatch(AddExecProfile({ ...element, Position: { ID: element.Position.ID, Title: element.Position.Name} } as ExecProfileObject)); 
                 });
             }
 
@@ -38,25 +38,26 @@ export default function AboutPage({} : AboutPageProps)
         })();
     });
     
-    return (<div className={"flex flex-col gap-5 bg-body-gray grow"}>
-                <div className={"flex flex-col  gap-3 ml-5 mr-5 mt-10 items-center"}>
-                    <div className={"text-[36px] font-bold flex items-center"}>
-                        ABOUT US
+    return (
+            <div className={"flex flex-col gap-5 bg-body-gray grow"}>
+                <div className={"flex flex-col  gap-3 ml-5 mr-5 mt-10"}>
+                    <div className={"text-[36px] font-semibold text-start"}>
+                        About us
                     </div>
                     <div className={"text-lg max-[600px]:text-s font-light items-center"}>
-                        The Langara Computer Science Club is a student-led club dedicated to  providing a space for students interested in computer science. We provide a space to learn, create, network, and to have fun! We hold workshops, programming competitions, and other meetups.
+                        {"The Langara Computer Science Club is a student-led club dedicated to providing a space for students interested in computer science. We provide a space to learn, create, network, and to have fun! We hold workshops, programming competitions, and other meetups."}
                     </div>
                 </div>
                 <div className={"flex flex-col m-5 items-center"}>
-                    <div className={"text-[36px] font-bold flex max-[500px]:items-end max-[600px]: mt-10"}>
-                        EXECUTIVES
+                    <div className={"text-[36px] font-semibold flex max-[500px]:items-end max-[600px]: mt-10"}>
+                        Our Executives
                     </div>
-                    <div className={"text-lg max-[600px]:text-s font-light items-center"}>
-                        The Langara Computer Science club is run by a team of dedicated Langara students. We strive to create awesome opportunities and events and to represent the interests of the diverse student body.
-                    </div>
+                <div className={"text-lg max-[600px]:text-s font-light items-center text-center"}>
+                    {"The Langara Computer Science club is run by a team of dedicated Langara students. We strive to create awesome opportunities and events and to represent the interests of the diverse student body."}
                 </div>
-                <div className={"profileContainer mb-10"}>
-                    <div className={"flex flex-col ml-5 mr-5 max-[600px]:mx-0 gap-3 items-center"}>
+                </div>
+                <div className={"profileContainer"}>
+                    <div className={"flex flex-col max-[600px]:mx-0 gap-3 items-center"}>
                         <Conditional Condition={loading}>Loading</Conditional>
                         <ExecProfiles/> 
                     </div>
