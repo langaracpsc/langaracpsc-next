@@ -14,6 +14,15 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { DropdownMenuGroup } from "@radix-ui/react-dropdown-menu";
 import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "@/components/ui/dialog";
 
 export class Range 
 {
@@ -107,53 +116,12 @@ export default function EventsPage()
                     <div className="flex flex-col mt-10">
                         <div className={"text-[36px] font-bold"}>EVENTS</div>
                     </div>
-                    
-                    <Modal isOpen={isOpen} onClose={onCloseHandler} onOpenChange={onOpenChange} className={"dark"} isDismissable={true}>  
-                        <ModalContent>
-                            {(onClose) => (
-                                <>
-                                    <ModalHeader>
-                                        <span className="text-2xl">{event.CurrentEvent.Title}</span>
-                                    </ModalHeader>
-                                    <ModalBody>
-                                        <div className="flex flex-col gap-2 max-[600px]: gap-0">
-                                            <div className={"flex flex-row gap-4 p-8"}>
-                                                <img alt={"event-image"} src={event.CurrentEvent.Image} height={100} width={130} className={"rounded"} />
-                                                <div className="flex flex-col">
-                                                    <IconLabel Label={event.CurrentEvent.Start.toDateString()}>
-                                                        <svg fill="#ffffff" width="28px" height="28px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M19,4H17V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V12H20Zm0-9H4V7A1,1,0,0,1,5,6H7V7A1,1,0,0,0,9,7V6h6V7a1,1,0,0,0,2,0V6h2a1,1,0,0,1,1,1Z"></path></g></svg>
-                                                    </IconLabel>
-
-                                                    <IconLabel Label={`${getTimeStamp(event.CurrentEvent.Start)} - ${getTimeStamp(event.CurrentEvent.End)}`}>
-                                                        <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
-                                                    </IconLabel>
-
-                                                    <IconLabel Label={(event.CurrentEvent.Location != null) ? event.CurrentEvent.Location : "TBD"}>
-                                                        <svg width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> <path d="M12 12C13.1046 12 14 11.1046 14 10C14 8.89543 13.1046 8 12 8C10.8954 8 10 8.89543 10 10C10 11.1046 10.8954 12 12 12Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path> </g></svg>
-                                                    </IconLabel></div>
-                                            </div>
-
-                                            <div className={"flex flex-col w-full flex-wrap items-center gap-3"}>
-                                                <span className="text-lg font-bold self-center">Description</span>
-                                                <div className={"text-sm overflow-x-auto max-h-screen"}>{(event.CurrentEvent.Description != null) ? <div dangerouslySetInnerHTML={{__html: event.CurrentEvent.Description }}></div> : "No description."}</div>
-                                            </div>
-                                        </div>
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <Button onClick={() => { router.push(event.CurrentEvent.Link.Google); }}>Add to Calendar</Button>
-                                        <Button onClick={onCloseHandler}>Close</Button>
-                                    </ModalFooter>
-                                </>
-                                )
-                            }
-                        </ModalContent>
-                    </Modal>
 
                     <div className="mt-1 flex flex-col gap-1">
                         <div className="mt-1 flex flex-col gap-1">
                             <Conditional Condition={!loading}>
                                 <div className="flex flex-col mt-1 self-start">
-                                    <Select onValueChange = {(key: string) => {setCurrentYear(Number.parseInt(key))}} className="dark border-0 relative z-10">
+                                    <Select onValueChange = {(key: string) => {setCurrentYear(Number.parseInt(key))}}>
                                         <SelectTrigger className="bg-[#272626] text-white border-0">{currentYear}</SelectTrigger>
                                         <SelectContent className="bg-[#272626] text-white" color="dark">
                                             {
