@@ -56,7 +56,7 @@ export default function NavBar({ Pages } : NavBarProps)
 
     return (
         <div>
-            <nav className="navbar w-full bg-black fixed top-0 left-0 right-0 z-10">
+            <nav className="navbar w-full bg-black fixed top-0 left-0 right-0 z-20">
                 <div className="flex flex-row justify-between items-center mx-auto px-4 md:px-10">
                     <div className="flex flex-row items-center justify-start">
                         <img src="LCS.png" alt="club-logo" className="shrink-0 grow-0 w-32 h-auto select-none" onClick={() => router.push("/")}/>

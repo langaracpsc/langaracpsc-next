@@ -149,8 +149,8 @@ export default function EventsPage()
                         <div className="mt-1 flex flex-col gap-1">
                             <Conditional Condition={!loading}>
                                 <div className="flex flex-col mt-1 self-start">
-                                    <Dropdown className="dark">
-                                        <DropdownTrigger className="bg-[#272626] text-white"><Button radius={"sm"}>{currentYear}</Button></DropdownTrigger>
+                                    <Dropdown className="dark relative z-10">
+                                        <DropdownTrigger className="bg-[#272626] text-white"><Button radius={"sm"} className="relative z-10">{currentYear}</Button></DropdownTrigger>
                                         <DropdownMenu onAction={(key: React.Key) => {setCurrentYear(key as number)}} variant="bordered" color="default">
                                             {
                                                 getYearsSince(2022).reverse().map(year => <DropdownItem key={year}>{year}</DropdownItem>) 
