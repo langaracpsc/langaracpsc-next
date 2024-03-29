@@ -12,6 +12,8 @@ import { CalendarEvent, SetCalendarEvents, selectEvent } from "./slices/eventSli
 import { fetchEventsAsync } from "./thunks/EventThunks";
 import { SetCurrentPage } from "./slices/pageSlice";
 import Footer from "./Footer";
+import Image from "next/image"
+import codeSnippet from "../../public/code_snippet.png"
 
 
 let InstanceCount: number = 0;
@@ -61,7 +63,7 @@ export default function HomePage({} : HomePageProps)
         
     return (
         <>
-        <div className={"flex flex-row max-[600px]:flex-col-reverse bg-body-gray w-full h-full"}>
+        <div className={"flex flex-row max-[600px]:flex-col bg-body-gray w-full h-full"}>
             <div className={"grid grid-rows-[15%_60%_20%] max-[600px]:grid-rows-1 w-full h-full gap-3 max-[600px]: gap-1 max-[900px]:basis-1/3"}>
 
                 <div className={"flex row-start-2 flex-col row-span-1 text-7xl max-[900px]:text-5xl max-[600px]:text-3xl text-white-900 justify-center"}>
@@ -81,7 +83,7 @@ export default function HomePage({} : HomePageProps)
 
             <div className="grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full">
                 <div className="flex flex-row row-start-2 row-span-1 justify-center max-[600px]:mt-0">
-                    <img className="max-[600px]:h-auto max-[600px]:w-[100%] shrink-0" src="code_snippet.png"/>
+                    <Image src={codeSnippet} className={"max-[600px]:h-auto max-[600px]:w-[100%] shrink-0"} alt={"club-logo"}/>
                 </div>
             </div>
 

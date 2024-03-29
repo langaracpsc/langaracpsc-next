@@ -4,8 +4,8 @@ const nextConfig = {
     appDir: true,
   },
   env: {
-    APIURL: process.env.APIURL,
-    APIKEY: process.env.APIKEY,
+    APIURL: 'api.langaracs.tech',
+    APIKEY: '0tXxZRrOlIV9UOK8ZSr9FIl5A6Ng/xmgX8AsE69PtSlVbSIFET4RXiVYm/6ZBnk1vtgrcmbzzea0aQrGpoiJlg==',
     CALENDAR_API_KEY: process.env.CALENDAR_API_KEY,
     CALENDAR_ID: process.env.CALENDAR_ID,
     CALENDAR_BASE_URL: process.env.CALENDAR_BASE_URL,

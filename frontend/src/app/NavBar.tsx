@@ -13,7 +13,7 @@ import { Button } from "@nextui-org/react";
 import Conditional from "./Conditional";
 import SocialIcons from "./SocialIcons";
 import Menu from "./Menu";
-import SideBarDisplay from "./SideBarAppear";
+
 
 interface NavBarProps
 {
@@ -78,23 +78,10 @@ export default function NavBar({ Pages } : NavBarProps)
                     </div>
                     <div className="dropdown lg:hidden">
                         <Menu Buttons={navButtons}/>
-        <div className="flex flex-row max-[600px]:grid max-[600px]:grid-rows-2  row-start-1 row-span-1 max-[600px]:justify-center">
-            <div className="min-[600px]:basis-1/4 max-[600px]:row-start-1 flex-row shrink-0 grow-0 max-[600px]:justify-center flex items-center">
-                <img src="LCS.png" alt="club-logo" className="ml-5 flex-start-2 max-[600px]:ml-0 shrink-0 grow-0 h-full select-none" onClick={() => router.push("/")}/>
-            </div>
-            <div className="min-[600px]:basis-3/4 max-[600px]:grid max-[600px]:grid-template-cols[5%_90%_5%] min-[600px]:flex min-[600px]:justify-end min-[600px]:mr-8 h-full">
-                <div></div>
-                <div className={"col-start-2"}>
-                    <div className={"nav_button_container flex max-[500px]:gap-x-3 gap-x-7 mt-5 max-[500px]:mt-6"}>
-                        {navButtons}
-                        <Button onClick={() => router.push(formURL) } className="bg-lang-orange rounded text-white max-[600px]:text-[10px] max-[600px]:h-8 max-[600px]:w-15 h-10 font-bold">Register</Button>
-                    
                     </div>
 
                 </div>
             </nav>
-
-            </div>
         </div>
     );
    

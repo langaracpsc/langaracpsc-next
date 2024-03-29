@@ -14,6 +14,7 @@ import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Modal, M
 import Conditional from "../Conditional";
 import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
+import Image from "next/image"
 
 export class Range {
     Start: number;
@@ -97,10 +98,8 @@ export default function EventsSection() {
     return (
         <>
 
-            <div className="bg-body-gray h-[90vh] max-[600px]:h-[80vh]">
-                <div className={"flex flex-row bg-body-gray w-screen content-center items-center"}>
-
-
+            <div className="bg-body-gray h-[60vh] max-[600px]:h-[80vh]">
+                <div className={"flex flex-row bg-body-gray w-screen"}>
                     <Modal isOpen={isOpen} onClose={onCloseHandler} onOpenChange={onOpenChange} className={"dark"} isDismissable={true}>
                         <ModalContent>
                             {(onClose) => (
@@ -111,7 +110,7 @@ export default function EventsSection() {
                                     <ModalBody>
                                         <div className="flex flex-row gap-2 max-[600px]: gap-0">
                                             <div className={"flex flex-col gap-4 p-8"}>
-                                                <img alt={"event-image"} src={event.CurrentEvent.Image} height={100} width={130} className={"rounded"} />
+                                                <Image alt={"event-image"} src={event.CurrentEvent.Image} height={100} width={130} className={"rounded"} />
                                                 <div className="flex flex-col">
                                                     <IconLabel Label={event.CurrentEvent.Start.toDateString()}>
                                                         <svg fill="#ffffff" width="28px" height="28px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M19,4H17V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H5A3,3,0,0,0,2,7V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm1,15a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V12H20Zm0-9H4V7A1,1,0,0,1,5,6H7V7A1,1,0,0,0,9,7V6h6V7a1,1,0,0,0,2,0V6h2a1,1,0,0,1,1,1Z"></path></g></svg>
@@ -142,16 +141,16 @@ export default function EventsSection() {
                         </ModalContent>
                     </Modal>
 
-                    <div className="mt-1 flex flex-col gap-3 justify-center items-center self-center">
-                        <div className="mt-1 flex flex-row content-between">
+                    <div className=" flex flex-col justify-center items-center w-full ">
+                        <div className=" flex flex-row justify-center w-full items-center gap-24">
                             <Conditional Condition={!loading}>
-                                <div >
+                                
                                     <div className={"text-[36px] font-bold"}>Future Events</div>
                                     <a href="../events/page.tsx" className={"text-xl font-bold hover:text-lang-orange max-[600px]:text-lg select-none"}>See more events</a>
-                                </div>
+                                
                             </Conditional>
                         </div>
-                        <div className="mt-1 flex flex-row gap-1 align-center h-96 w-5/6">
+                        <div className="mt-1 flex flex-row gap-1 items-center content-center h-96 w-full">
                             <Conditional Condition={loading}>Loading</Conditional>
                             <Events Events={[...event.Events].filter(event => event.Start.getFullYear() == currentYear)} />
                         </div>

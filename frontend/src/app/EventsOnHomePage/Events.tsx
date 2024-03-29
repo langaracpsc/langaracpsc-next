@@ -22,7 +22,7 @@ export default function Events({Events} : EventsProps)
     let sortedArray =  sortDealing({Events}).slice(0,4)
 
     return ( 
-        <div className={"flex flex-row w-full max-[600px]:flex-row justify-center gap-3"}>
+        <div className={"flex flex-row items-baseline w-full max-[600px]:flex-row justify-center max-[600px]:gap-3"}>
                 {sortedArray.map(event => <EventInstance key={event.Title} Event={event} />)}
         </div>
     );
