@@ -49,7 +49,6 @@ export default function EventsPage()
 
     useEffect(() => {
         (async () => {
-            console.log("Fetching events.");
             if (event.Events.length < 1) 
             {
                 const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];

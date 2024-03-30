@@ -11,13 +11,11 @@ export default function Footer()
         register: "https://forms.gle/gPdqMB5ijafDMRAY8"
     };
 
-    // const year = useMemo(() =>  , []);
-
     const resourcesMap = new Map<string, string>([
         ["Course Planner", "https://planner.langaracs.tech/" ],
         ["Transfer Resources", "https://langaracs.notion.site/Transfer-Information-a0548da4b3084681868381310c604c34"],
         ["Course Resources", "https://langaracs.notion.site/Langara-CS-Resources-12b750af5ecc4eeb86315d3d9fd8f1ce?pvs=4"],
-        ["Feedback", forms.feedback],
+        ["Feedback", forms.feedback]
     ]);
     
     const linksMap = new Map<string, string>([
@@ -106,6 +104,5 @@ export default function Footer()
                 <div className="alignment_div opacity-0">I am not here</div>
             </div>
         </div>
-    </>
-    );
+    </>);
 }
