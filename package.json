@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
+    "class-variance-authority": "^0.7.0"
+  }
+}

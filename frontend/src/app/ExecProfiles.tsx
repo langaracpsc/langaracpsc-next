@@ -64,6 +64,7 @@ export default function ExecProfiles() {
         };
         }, []);
     // max-[800px]:grid max-[800px]:content-center max-[800px]:grid-flow-col max-[800px]:auto-cols-min max-[800px]:justify-items-center 
+    
     return (
         <div className="flex flex-col gap-5">
             {
