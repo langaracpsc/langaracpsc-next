@@ -77,7 +77,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
         <div className="flex flex-col items-center gap-3">
             <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl`}/>
             <div className="flex flex-col items-center text-center">
-                <div className="flex" style={{ maxWidth: "200px", justifyContent: "center" }}>
+                <div className="flex" style={{ justifyContent: "center" }}>
                     <div>
                             <Dialog.Root>
                                 <Dialog.Trigger className='font-bold'>{Name}</Dialog.Trigger>
