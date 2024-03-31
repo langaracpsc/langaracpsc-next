@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 import SocialIcons from "./SocialIcons";
@@ -90,7 +90,7 @@ export default function Footer()
                             Join Us
                         </div>
 
-                        <Button onClick={() => router.push(forms.register) } className="bg-lang-orange rounded text-white h-10 font-bold">Register</Button>
+                        <Button onClick={() => router.push(forms.register) } className="bg-lang-orange hover:bg-lang-orange rounded text-white h-10 font-bold">Register</Button>
                     </div>
                     <div className={"font-bold flex flex-row gap-3 items-center text-2xl"}>
                         <div>
