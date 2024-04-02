@@ -84,7 +84,8 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
                                 <Dialog.Portal>
                                     <Dialog.Overlay className="fixed inset-0 bg-black/60">
                                     <Dialog.Content className="fixed top-1/4 left-1/2 -translate-x-1/2 p-8" style={{border: "2px solid #F15A22", backgroundColor: "#171717"}}>
-                                        <ProfileModal 
+                                        <ProfileModal
+                                        ID={ID} 
                                         Name={Name}
                                         Position={Position}
                                         ImageBuffer={ImageBuffer}

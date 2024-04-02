@@ -9,6 +9,7 @@ import { AppDispatch } from "../stores/store";
 import { UnknownAction } from "@reduxjs/toolkit";
 import { SetCurrentPage } from "../slices/pageSlice";
 import Conditional from "../Conditional";
+
 interface AboutPageProps
 {}
 
