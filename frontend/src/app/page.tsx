@@ -8,7 +8,6 @@ import { Global } from "@/app/Global";
 import { ThemeProvider } from 'next-themes';
 import { Provider, ProviderProps } from 'react-redux'
 import { store } from './stores/store';
-import { NextUIProvider } from '@nextui-org/react';
 import Footer from './Footer';
 import EventsSection from './EventsOnHomePage/EventeSection';
 import { useEffect, useState, useRef } from 'react';

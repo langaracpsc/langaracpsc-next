@@ -6,7 +6,6 @@ import { fetchEventsAsync } from "../thunks/EventThunks";
 import { AppDispatch } from "../stores/store";
 import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
 import { Timer } from "../hacks/Timer";
-import { Dropdown, DropdownItem, DropdownTrigger, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from "@nextui-org/react";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 import Conditional from "../Conditional";
 import IconLabel from "../IconLabel";
@@ -62,7 +61,6 @@ export default function EventsPage()
 
     const [currentEvent, setCurrentEvent] = useState("");
 
-    const {isOpen, onOpen, onClose: closeModal, onOpenChange} = useDisclosure();
 
     useEffect(() => {
         (async () => {
@@ -77,14 +75,10 @@ export default function EventsPage()
         })();
     });
     
-    useEffect(() => {
-        if (event.CurrentEvent !== DefaultCalendarEvent) { 
-            onOpen();
-        }
-    }, [event.CurrentEvent, onOpen]);
+
 
     const onCloseHandler = () => {
-        closeModal(); 
+         
         mainDispatch(SetCurrentEvent(DefaultCalendarEvent));
     };
 

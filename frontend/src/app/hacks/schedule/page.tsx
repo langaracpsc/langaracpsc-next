@@ -1,4 +1,4 @@
-import { Header } from "../tos/Header";
+import { Header } from "./Header";
 import {Body} from "./Body";
  
 export default function Page()
