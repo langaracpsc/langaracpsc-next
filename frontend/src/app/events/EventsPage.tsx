@@ -5,23 +5,9 @@ import Events from "./Events";
 import { fetchEventsAsync } from "../thunks/EventThunks";
 import { AppDispatch } from "../stores/store";
 import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
-import { Timer } from "../hacks/Timer";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 import Conditional from "../Conditional";
-import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
-import Image from "next/image"
-import { Button } from "@/components/ui/button";
 import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-  } from "@/components/ui/dialog";
 
 export class Range 
 {
@@ -61,10 +47,8 @@ export default function EventsPage()
 
     const [currentEvent, setCurrentEvent] = useState("");
 
-
     useEffect(() => {
         (async () => {
-            console.log("Fetching events.");
             if (event.Events.length < 1) 
             {
                 const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
@@ -75,13 +59,6 @@ export default function EventsPage()
         })();
     });
     
-
-
-    const onCloseHandler = () => {
-         
-        mainDispatch(SetCurrentEvent(DefaultCalendarEvent));
-    };
-
     const getYearsSince = (year: number) => {
         return new Range(year, new Date().getFullYear() + 1).ToArray();  
     }

@@ -1,6 +1,5 @@
 
-
-
+import '/styles/globals.css'
 
 export const metadata = {
   title: "Langara Computer Science Club",
