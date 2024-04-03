@@ -21,7 +21,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-  } from "@/components/ui/dialog";
+} from "@/components/ui/dialog";
 
 
 export class Range {
@@ -99,31 +99,20 @@ export default function EventsSection() {
 
             <div className="bg-body-gray h-[60vh] max-[600px]:h-[80vh]">
                 <div className={"flex flex-row bg-body-gray w-screen"}>
-                <div className="mt-1 flex flex-col gap-1">
-                        <div className="mt-1 flex flex-col gap-1">
-                            <Conditional Condition={!loading}>
-                                <div className="flex flex-col mt-1 self-start">
-                                    <Select onValueChange = {(key: string) => {setCurrentYear(Number.parseInt(key))}}>
-                                        <SelectTrigger className="bg-[#272626] text-white border-0">{currentYear}</SelectTrigger>
-                                        <SelectContent className="bg-[#272626] text-white" color="dark">
-                                            {
-                                                getYearsSince(2022).reverse().map(year => <SelectItem className="dark bg-[#272626] text-white" value={year.toString()} key={year}>{year}</SelectItem>) 
-                                            }
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                            </Conditional>
-                        </div>
+                    <div className="mt-1 flex flex-col gap-1">
 
-                    </div>    
 
+                    </div>
+                    
                     <div className=" flex flex-col justify-center items-center w-full ">
-                        <div className=" flex flex-row justify-center w-full items-center gap-24">
+                        
+                        <div className=" flex flex-row justify-center w-full items-baseline gap-72">
                             <Conditional Condition={!loading}>
-                                
+
+                               
                                     <div className={"text-[36px] font-bold"}>Future Events</div>
-                                    <a href="../events/page.tsx" className={"text-xl font-bold hover:text-lang-orange max-[600px]:text-lg select-none"}>See more events</a>
-                                
+                                    <a href="../events" className={"text-xl font-bold hover:text-lang-orange max-[600px]:text-lg select-none"}>See more events</a>
+                              
                             </Conditional>
                         </div>
                         <div className="mt-1 flex flex-row gap-1 items-center content-center h-96 w-full">

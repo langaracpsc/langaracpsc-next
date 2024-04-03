@@ -13,8 +13,24 @@ import EventsSection from './EventsOnHomePage/EventeSection';
 import { useEffect, useState, useRef } from 'react';
 import AboutUsSection from './aboutus'
 
+import Decision from './EventsOnHomePage/Decision';
+
+
+
 
 export default function Home() {
+    const [isWideScreen, setIsWideScreen] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsWideScreen(window.innerWidth >= 768); // Adjust the breakpoint as needed
+    }
+
+    handleResize(); // Set initial state
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
 
     /**<SideBarDisplay /> */
@@ -26,7 +42,7 @@ export default function Home() {
         <Provider store={store}>
 
 
-            <div className='h-screen w-full'>
+            <div className='h-screen w-full bg-body-gray'>
 
 
                 <script defer data-domain="langaracs.tech" src="https://plausible.langaracs.tech/js/script.js"></script>
@@ -46,7 +62,8 @@ export default function Home() {
                     <HomePage />
 
 
-                    <EventsSection />
+                    <Decision />
+
 
 
                     <AboutUsSection />

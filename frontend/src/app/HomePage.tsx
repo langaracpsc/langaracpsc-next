@@ -83,7 +83,9 @@ export default function HomePage({} : HomePageProps)
 
             <div className="grid grid-rows-[20%_60%_20%] max-[600px]:grid-rows-1 w-full h-full">
                 <div className="flex flex-row row-start-2 row-span-1 justify-center max-[600px]:mt-0">
-                    <Image src={codeSnippet} className={"max-[600px]:h-auto max-[600px]:w-[100%] shrink-0"} alt={"club-logo"}/>
+                    
+                    <img className="max-[600px]:h-auto max-[600px]:w-[100%] shrink-0" src="code_snippet.png"/>
+                    
                 </div>
             </div>
 
