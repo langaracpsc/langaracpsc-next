@@ -71,30 +71,31 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
         };
     }, []);
 
-
         
     return (
         <div className="flex flex-col items-center gap-3">
-            <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl`}/>
             <div className="flex flex-col items-center text-center">
                 <div className="flex" style={{ justifyContent: "center"}}>
                     <div>
-                            <Dialog.Root>
-                                <Dialog.Trigger className='font-bold'>{Name}</Dialog.Trigger>
-                                <Dialog.Portal>
-                                    <Dialog.Overlay className="fixed inset-0 bg-black/60">
-                                    <Dialog.Content className="fixed top-1/4 left-1/2 -translate-x-1/2 p-8" style={{border: "2px solid #F15A22", backgroundColor: "#171717"}}>
+                        <Dialog.Root>
+                            <Dialog.Trigger className='font-bold flex flex-col items-center'>
+                                <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{ borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl`} />
+                                <div>{Name}</div>
+                            </Dialog.Trigger>
+                            <Dialog.Portal>
+                                <Dialog.Overlay className="fixed inset-0 bg-black/60">
+                                    <Dialog.Content className="fixed top-1/4 left-1/2 -translate-x-1/2 p-8" style={{ border: "2px solid #F15A22", backgroundColor: "#171717" }}>
                                         <ProfileModal
-                                        ID={ID} 
-                                        Name={Name}
-                                        Position={Position}
-                                        ImageBuffer={ImageBuffer}
-                                        Description={Description}
-                                        imageWidth={imageWidth}/>
+                                            ID={ID}
+                                            Name={Name}
+                                            Position={Position}
+                                            ImageBuffer={ImageBuffer}
+                                            Description={Description}
+                                            imageWidth={imageWidth} />
                                     </Dialog.Content>
-                                    </Dialog.Overlay>
-                                </Dialog.Portal>
-                            </Dialog.Root>
+                                </Dialog.Overlay>
+                            </Dialog.Portal>
+                        </Dialog.Root>
                         <p>{Position}</p>
                     </div>
                 </div>
