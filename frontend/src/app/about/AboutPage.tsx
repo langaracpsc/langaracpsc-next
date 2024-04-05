@@ -57,7 +57,7 @@ export default function AboutPage({} : AboutPageProps)
                     {"The Langara Computer Science club is run by a team of dedicated Langara students. We strive to create awesome opportunities and events and to represent the interests of the diverse student body."}
                 </div>
                 </div>
-                <div className={"profileContainer"}>
+                <div className={"profileContainer mb-3"}>
                     <div className={"flex flex-col max-[600px]:mx-0 gap-3 items-center"}>
                         <Conditional Condition={loading}>Loading</Conditional>
                         <ExecProfiles/> 
