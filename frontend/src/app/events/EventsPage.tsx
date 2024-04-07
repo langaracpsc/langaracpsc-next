@@ -79,7 +79,7 @@ export default function EventsPage()
 
         return `${hour}:${minute} ${postFix}`; 
     }
-
+//Use this for extra info on module
     return (
         <>
             <div className="bg-body-gray h-[90vh] max-[600px]:h-[80vh]">

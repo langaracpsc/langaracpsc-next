@@ -1,5 +1,8 @@
 import {useState} from "react";
 import {IconLabel} from "@/app/hacks/IconLabel";
+import Image from "next/image"
+import profile from "../../../public/LCS.png"
+
 
 export function Header()
 {
@@ -7,7 +10,8 @@ export function Header()
             <div></div>
             <div className="min-[600px]:basis-1/4 max-[600px]:row-start-1 flex flex-row shrink-0 grow-0 justify-center ">
                 <div></div>
-                <img src="LCS.png" alt="club-logo" className="flex-start-2  shrink-0 grow-0 h-[15vh] select-none self-center"/>
+                <Image src={profile} alt={"club-logo"} className={"flex-start-2  shrink-0 grow-0 h-[15vh] select-none self-center"}/>
+               
                 <div></div>
             </div>
             <div className="min-[600px]:basis-3/4 max-[600px]:grid max-[600px]:grid-template-cols[5%_90%_5%] min-[600px]:flex min-[600px]:justify-end min-[600px]:mr-8 h-full">

@@ -14,6 +14,7 @@ import Conditional from "./Conditional";
 import SocialIcons from "./SocialIcons";
 import Menu from "./Menu";
 
+
 interface NavBarProps
 {
     Pages: Map<string, string>;  
@@ -78,6 +79,7 @@ export default function NavBar({ Pages } : NavBarProps)
                     <div className="dropdown lg:hidden">
                         <Menu Buttons={navButtons}/>
                     </div>
+
                 </div>
             </nav>
         </div>
