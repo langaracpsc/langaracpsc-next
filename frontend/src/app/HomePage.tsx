@@ -14,6 +14,8 @@ import { SetCurrentPage } from "./slices/pageSlice";
 import Footer from "./Footer";
 import Image from "next/image"
 import codeSnippet from "../../public/code_snippet.png"
+import Decision from "./EventsOnHomePage/Decision";
+import AboutUsSection from "./aboutus";
 
 
 let InstanceCount: number = 0;
@@ -89,7 +91,11 @@ export default function HomePage({} : HomePageProps)
                 </div>
             </div>
 
+
         </div>
+        <Decision />
+
+        <AboutUsSection/>
     </>
 );
 }

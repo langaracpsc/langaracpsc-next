@@ -61,13 +61,6 @@ export default function Home() {
 
                     <HomePage />
 
-
-                    <Decision />
-
-
-
-                    <AboutUsSection />
-
                     <Footer />
                 </main>
 
