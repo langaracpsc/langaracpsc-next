@@ -45,7 +45,5 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.64"
-  },
-  "main": "index.js",
-  "license": "MIT"
+  }
 }
