@@ -1,5 +1,5 @@
 # Build step to leave behind any building artifacts / etc
-FROM node:21-alpine AS builder
+FROM node:21-alpine AS build
 USER node
 WORKDIR /app
 
