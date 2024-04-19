@@ -35,7 +35,7 @@ export default function ProfileModal ({Name, Position, ImageBuffer, Description,
     return (
                 <div className="content flex" style={{ flexDirection: isSmallScreen ? "column" : "row", padding: '20px', overflowY: 'auto', boxSizing: 'border-box', maxWidth: "60vw", maxHeight: "60vh"}}>
                 <div className="flex flex-col items-center gap-3">
-                    <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{borderRadius: "100%", minHeight: "20vb", minWidth: "20vb"}} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl`}/>
+                    <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{borderRadius: "100%", minHeight: "20vb", minWidth: "20vb"}} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl object-cover`}/>
                     <div className='profile-info flex text-center' style={{flexDirection: "column"}}>
                     
                         <h2 className='font-bold'>{Name}</h2>
