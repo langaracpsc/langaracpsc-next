@@ -31,7 +31,7 @@ export default function AboutPage({} : AboutPageProps)
                 const promise: UnknownAction = mainDispatch(loadProfilesAsync() as AppDispatch);
 
                 ((await promise) as unknown as any[]).forEach((element) => {
-                    mainDispatch(AddExecProfile({ ...element, Position: { ID: element.Position.ID, Title: element.Position.Name} } as ExecProfileObject)); 
+                    mainDispatch(AddExecProfile({ ...element} as ExecProfileObject)); 
                 });
             }
 

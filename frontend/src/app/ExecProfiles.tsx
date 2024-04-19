@@ -6,8 +6,7 @@ import { selectProfile, ExecProfileObject } from './slices/execProfileSlice';
 export default function ExecProfiles() {
     const profiles = useAppSelector(selectProfile);
 
-    // TODO: don't hardcode the value of 1000
-    const profilesSorted = [...profiles].sort((a, b) => (a.Position.ID - b.Position.ID)).slice(0, 1000);
+    const profilesSorted = profiles;
     
     const [profileSections, setProfileSections] = useState<ExecProfileObject[][]>([]);
 
@@ -74,7 +73,7 @@ export default function ExecProfiles() {
                             profiles.map(profile => (
                                 <ExecProfile
                                     key={profile.ID}
-                                    Position={profile.Position.Title}
+                                    Position={profile.Position}
                                     ID={profile.ID}
                                     Name={profile.Name}
                                     ImageBuffer= {(profile.ImageBuffer != null) ? `https://api3.langaracs.tech/executives/image/${profile.ImageBuffer}` : "https://via.placeholder.com/200x200"}

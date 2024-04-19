@@ -16,7 +16,7 @@ export interface ExecProfileObject
 
     ImageBuffer: string;
 
-    Position: ExecPosition; 
+    Position: Array<string>; 
 
     Description: string;
 } 

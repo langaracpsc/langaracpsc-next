@@ -14,7 +14,7 @@ interface ExecProfileProps
     
     ImageBuffer: string;
     
-    Position: string;
+    Position: Array<string>;
 
     Description: string;
 }
@@ -90,7 +90,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
                                         <ProfileModal
                                             ID={ID}
                                             Name={Name}
-                                            Position={Position}
+                                            Position={Position.join(" & ")}
                                             ImageBuffer={ImageBuffer}
                                             Description={Description}
                                             imageWidth={imageWidth} />
@@ -98,7 +98,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
                                 </Dialog.Overlay>
                             </Dialog.Portal>
                         </Dialog.Root>
-                        <p>{Position}</p>
+                        <p>{Position.join(" & ")}</p>
                     </div>
                 </div>
             </div>
