@@ -14,7 +14,7 @@ interface ExecProfileProps
     
     ImageBuffer: string;
     
-    Position: string;
+    Position: Array<string>;
 
     Description: string;
 }
@@ -30,12 +30,13 @@ const PositionStrings: string[] = [
     "Director of Public Relations",
     "Director of Finance",
     "Director of Events",
-    "Secratory",
-    "Directory of Media"
+    "Secretary",
+    "Director of Media"
 ];
  
 export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
 { 
+    // no clue what this value represents
     let initialValue: number = 200;
     
     useEffect(() => {
@@ -60,7 +61,6 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
         
         if (window !== undefined) 
         {
-
             window.addEventListener('resize', handleResize);
             window.addEventListener('load', handleResize);
         }
@@ -79,8 +79,10 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
                     <div>
                         <Dialog.Root>
                             <Dialog.Trigger className='font-bold flex flex-col items-center'>
-                                <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{ borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl`} />
+                                
+                                <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{ borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl object-cover transition duration-300 ease-in-out hover:scale-105 `}/>
                                 <div>{Name}</div>
+                                
                             </Dialog.Trigger>
                             <Dialog.Portal>
                                 <Dialog.Overlay className="fixed inset-0 bg-black/60">
@@ -88,7 +90,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
                                         <ProfileModal
                                             ID={ID}
                                             Name={Name}
-                                            Position={Position}
+                                            Position={Position.join(" & ")}
                                             ImageBuffer={ImageBuffer}
                                             Description={Description}
                                             imageWidth={imageWidth} />
@@ -96,7 +98,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
                                 </Dialog.Overlay>
                             </Dialog.Portal>
                         </Dialog.Root>
-                        <p>{Position}</p>
+                        <p>{Position.join(" & ")}</p>
                     </div>
                 </div>
             </div>

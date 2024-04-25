@@ -6,7 +6,7 @@ import { selectProfile, ExecProfileObject } from './slices/execProfileSlice';
 export default function ExecProfiles() {
     const profiles = useAppSelector(selectProfile);
 
-    const profilesSorted = [...profiles].sort((a, b) => (a.Position.ID - b.Position.ID)).slice(0, 12);
+    const profilesSorted = profiles;
     
     const [profileSections, setProfileSections] = useState<ExecProfileObject[][]>([]);
 
@@ -68,15 +68,15 @@ export default function ExecProfiles() {
         <div className="flex flex-col gap-5">
             {
                 profileSections.map(profiles => (
-                    <div className={"flex flex-row gap-32 max-[800px]:gap-10"} key={profileSections.indexOf(profiles)}>
+                    <div className={"flex flex-row gap-32 max-[800px]:gap-10 justify-around"} key={profileSections.indexOf(profiles)}>
                         {
                             profiles.map(profile => (
                                 <ExecProfile
                                     key={profile.ID}
-                                    Position={profile.Position.Title}
+                                    Position={profile.Position}
                                     ID={profile.ID}
                                     Name={profile.Name}
-                                    ImageBuffer={`https://${process.env.APIURL}/${profile.ImageBuffer}`}
+                                    ImageBuffer= {(profile.ImageBuffer != null) ? `https://api3.langaracs.tech/executives/image/${profile.ImageBuffer}` : "https://via.placeholder.com/200x200"}
                                     Description={profile.Description} />
                             ))
                         }
