@@ -56,10 +56,6 @@ export default function EventsSection() {
 
     const [loading, setLoading] = useState(event.Events.length < 1);
 
-    const [currentEvent, setCurrentEvent] = useState("");
-
-
-
     useEffect(() => {
         (async () => {
             console.log("Fetching events.");
@@ -71,7 +67,6 @@ export default function EventsSection() {
             }
         })();
     });
-
 
 
     const getYearsSince = (year: number) => {
@@ -110,7 +105,7 @@ export default function EventsSection() {
                             <Conditional Condition={!loading}>
 
                                
-                                    <div className={"text-[36px] font-bold"}>Future Events</div>
+                                    <div className={"text-[36px] font-bold"}>Events</div>
                                     <a href="../events" className={"text-xl font-bold hover:text-lang-orange max-[600px]:text-lg select-none"}>See more events</a>
                               
                             </Conditional>
