@@ -20,7 +20,7 @@ const nextConfig = {
       }, 
       {
         protocol: "https",
-        hostname: "api.langaracs.tech",
+        hostname: "api.langaracs.ca",
         pathname: "/Images/**"
       },
       {
@@ -29,7 +29,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "api3.langaracs.tech",
+        hostname: "api3.langaracs.ca",
         pathname: "/executives/image/**"
       },
     ]
