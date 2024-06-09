@@ -45,7 +45,7 @@ export default function Home() {
             <div className='h-screen w-full bg-body-gray'>
 
 
-                <script defer data-domain="langaracs.tech" src="https://plausible.langaracs.tech/js/script.js"></script>
+                <script defer data-domain="langaracs.ca" src="https://plausible.langaracs.ca/js/script.js"></script>
 
 
 

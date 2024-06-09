@@ -76,7 +76,7 @@ export default function ExecProfiles() {
                                     Position={profile.Position}
                                     ID={profile.ID}
                                     Name={profile.Name}
-                                    ImageBuffer= {(profile.ImageBuffer != null) ? `https://api3.langaracs.tech/executives/image/${profile.ImageBuffer}` : "https://via.placeholder.com/200x200"}
+                                    ImageBuffer= {(profile.ImageBuffer != null) ? `https://api3.langaracs.ca/executives/image/${profile.ImageBuffer}` : "https://via.placeholder.com/200x200"}
                                     Description={profile.Description} />
                             ))
                         }

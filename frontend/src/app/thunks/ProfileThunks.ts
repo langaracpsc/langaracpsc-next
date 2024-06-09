@@ -3,7 +3,7 @@ import { AppDispatch, RootState } from "../stores/store";
 import { ExecProfileObject } from "../slices/execProfileSlice";
 
 export const loadProfilesAsync = () => async (state: RootState, dispatch: AppDispatch): Promise<ExecProfileObject[]> => {
-    const response = (await (await fetch(`https://api3.langaracs.tech/executives/active`, {
+    const response = (await (await fetch(`https://api3.langaracs.ca/executives/active`, {
         method: "GET",
         headers: {
             "apikey": `${process.env.APIKEY}`
