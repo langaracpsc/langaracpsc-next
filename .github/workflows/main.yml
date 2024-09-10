@@ -8,7 +8,7 @@ on:
 jobs:
       
   docker:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
         
       - name: Checkout
@@ -43,7 +43,7 @@ jobs:
       - name: Deploy docker package on LCSC server
         uses: fjogeleit/http-request-action@v1
         with:
-          url: 'https://watchtower.langaracs.tech/v1/update'
+          url: 'https://watchtower.langaracs.ca/v1/update'
           method: 'GET'
           bearerToken: ${{ secrets.WATCHTOWER_HTTP_API_TOKEN }}
           timeout: 180000

@@ -12,7 +12,7 @@ export default function Footer()
     };
 
     const resourcesMap = new Map<string, string>([
-        ["Course Planner", "https://planner.langaracs.tech/" ],
+        ["Course Planner", "https://planner.langaracs.ca/" ],
         ["Transfer Resources", "https://langaracs.notion.site/Transfer-Information-a0548da4b3084681868381310c604c34"],
         ["Course Resources", "https://langaracs.notion.site/Langara-CS-Resources-12b750af5ecc4eeb86315d3d9fd8f1ce?pvs=4"],
         ["Feedback", forms.feedback]
