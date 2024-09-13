@@ -87,28 +87,6 @@ export default function EventsPage() {
                         <EventsLuma />
 
                     </div>
-
-                    {/*will delete in next commit unless told otherwise */}
-                    <div className="mt-1 flex flex-col gap-1">
-                        <div className="mt-1 flex flex-col gap-1">
-                            {/* <Conditional Condition={!loading}> */}
-                            <div className="flex flex-col mt-1 self-start">
-                                <Select onValueChange={(key: string) => { setCurrentYear(Number.parseInt(key)) }}>
-                                    <SelectTrigger className="bg-[#272626] text-white border-0">{currentYear}</SelectTrigger>
-                                    <SelectContent className="bg-[#272626] text-white" color="dark">
-                                        {
-                                            getYearsSince(2022).reverse().map(year => <SelectItem className="dark bg-[#272626] text-white" value={year.toString()} key={year}>{year}</SelectItem>)
-                                        }
-                                    </SelectContent>
-                                </Select>
-                            </div>
-                            {/* </Conditional> */}
-                        </div>
-                        {/* <div className="mt-1 flex flex-col gap-1 overflow-y-auto max-h-screen h-[70vh] max-[600px]:h-[60vh]">
-                            <Conditional Condition={loading}>Loading</Conditional>
-                            <Events Events={[...event.Events].filter(event => event.Start.getFullYear() == currentYear)}/>
-                        </div> */}
-                    </div>
                 </div>
             </div>
         </>
