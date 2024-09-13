@@ -2,7 +2,7 @@
 
 import React, { Component, useContext, useState } from "react";
 import NavButton from "./NavButton";
-import {Global, Vector2D} from "@/app/Global";
+import { Global, Vector2D } from "@/app/Global";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "./hooks/hooks";
 import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
@@ -15,19 +15,16 @@ import SocialIcons from "./SocialIcons";
 import Menu from "./Menu";
 
 
-interface NavBarProps
-{
-    Pages: Map<string, string>;  
+interface NavBarProps {
+    Pages: Map<string, string>;
 }
 
-interface NavBarState
-{
+interface NavBarState {
     ButtonGap?: number;
     TopMargin?: number;
 }
 
-export default function NavBar({ Pages } : NavBarProps) 
-{
+export default function NavBar({ Pages }: NavBarProps) {
     <div className={"gap-x-2"}></div>;
     <div className={"gap-x-3"}></div>;
     <div className={"gap-x-5"}></div>;
@@ -41,26 +38,26 @@ export default function NavBar({ Pages } : NavBarProps)
     const currentPage = useSelector(selectCurrentPage);
     const [page, setPage] = useState(currentPage);
 
-    const formURL = "https://forms.gle/gPdqMB5ijafDMRAY8";
+    const formURL = "https://lu.ma/g2q0djtw";
 
     const onClickHandler = (url: string) => {
-        router.push(url);    
+        router.push(url);
         mainDispatch(SetCurrentPage(url));
         setPage(currentPage);
     };
 
     const navButtons: Array<JSX.Element> = new Array<JSX.Element>();
-    
+
     Pages.forEach((value, key, pageMap) => {
-        navButtons.push(<NavButton Label={key} key={key} Activated={currentPage == value} EndPoint={value} OnClick={onClickHandler}/>);
-    }); 
+        navButtons.push(<NavButton Label={key} key={key} Activated={currentPage == value} EndPoint={value} OnClick={onClickHandler} />);
+    });
 
     return (
         <div>
             <nav className="navbar w-full bg-black fixed top-0 left-0 right-0 z-20">
                 <div className="flex flex-row justify-between items-center mx-auto px-4 md:px-10">
                     <div className="flex flex-row items-center justify-start">
-                        <img src="LCS.png" alt="club-logo" className="shrink-0 grow-0 w-32 h-auto select-none" onClick={() => router.push("/")}/>
+                        <img src="LCS.png" alt="club-logo" className="shrink-0 grow-0 w-32 h-auto select-none" onClick={() => router.push("/")} />
                         <div className="justify-center items-start lg:justify-start lg:flex hidden">
                             {navButtons}
                         </div>
@@ -77,12 +74,12 @@ export default function NavBar({ Pages } : NavBarProps)
                         </div>
                     </div>
                     <div className="dropdown lg:hidden">
-                        <Menu Buttons={navButtons}/>
+                        <Menu Buttons={navButtons} />
                     </div>
 
                 </div>
             </nav>
         </div>
     );
-   
+
 }

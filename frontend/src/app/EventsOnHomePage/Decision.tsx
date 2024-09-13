@@ -19,16 +19,18 @@ function Decision() {
   return (
     <div className=' bg-body-gray'>
       {isWideScreen ? (
-        
+
         <EventsSection />
-        
-        
+
+
       ) : (
 
         <div className='flex w-full items-center justify-center h-96 '>
+          {/* carouselMy might be broken */}
           <CarouselMy />
+
         </div>
-       
+
       )}
     </div>
   );

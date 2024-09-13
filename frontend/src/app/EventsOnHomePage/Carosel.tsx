@@ -14,9 +14,9 @@ import { experimental_useEffectEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { SetCurrentPage } from "../slices/pageSlice";
 
-import { fetchEventsAsync } from "../thunks/EventThunks";
+// import { fetchEventsAsync } from "../thunks/EventThunks";
 import { AppDispatch } from "../stores/store";
-import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
+// import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
 import { Timer } from "../hacks/Timer";
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
 import Conditional from "../Conditional";
@@ -27,11 +27,9 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
 import EventInstance from "./EventForCarousel"
 
-interface EventsProps {
-  Events: CalendarEvent[];
-
-
-}
+// interface EventsProps {
+//   // Events: CalendarEvent[];
+// }
 
 export class Range {
   Start: number;
@@ -58,29 +56,29 @@ export function CarouselMy() {
   const router = useRouter();
   const mainDispatch = useAppDispatch();
 
-  const event = useAppSelector(selectEvent);
+  // const event = useAppSelector(selectEvent);
 
   mainDispatch(SetCurrentPage("/events"));
 
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
-  const [loading, setLoading] = useState(event.Events.length < 1);
+  // const [loading, setLoading] = useState(event.Events.length < 1);
 
   const [currentEvent, setCurrentEvent] = useState("");
 
 
 
-  useEffect(() => {
-    (async () => {
-      console.log("Fetching events.");
-      if (event.Events.length < 1) {
-        const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
+  // useEffect(() => {
+  //   (async () => {
+  //     console.log("Fetching events.");
+  //     if (event.Events.length < 1) {
+  //       const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
 
-        mainDispatch(SetCalendarEvents(fetchedEvents));
-        setLoading(false);
-      }
-    })();
-  });
+  //       mainDispatch(SetCalendarEvents(fetchedEvents));
+  //       setLoading(false);
+  //     }
+  //   })();
+  // });
 
 
 
@@ -139,26 +137,26 @@ export function CarouselMy() {
 
 
 
-      <Conditional Condition={!loading}>
+      {/* <Conditional Condition={!loading}>
         <Conditional Condition={loading}>Loading</Conditional>
         <Carousel setApi={setApi} className="w-full max-w-xs" >
-          <CarouselContent>
+          <CarouselContent> */}
 
             {/* <Events Events={[...event.Events].filter(event => event.Start.getFullYear() == currentYear)} /> */}
 
             {
-              [...event.Events]
-                .filter(event => event.Start.getFullYear() == currentYear)
-                .sort((a, b) => b.Start.getTime() - a.Start.getTime())
-                .slice(0, 4)
-                .map((event, index) => (
-                  <CarouselItem key={index}>
-                    <EventInstance key={event.Title} Event={event} />
-                  </CarouselItem>
-                ))
+              // [...event.Events]
+              //   .filter(event => event.Start.getFullYear() == currentYear)
+              //   .sort((a, b) => b.Start.getTime() - a.Start.getTime())
+              //   .slice(0, 4)
+              //   .map((event, index) => (
+              //     <CarouselItem key={index}>
+              //       <EventInstance key={event.Title} Event={event} />
+              //     </CarouselItem>
+              //   ))
             }
 
-
+{/* 
           </CarouselContent>
           <div className="py-2 text-center text-sm text-muted-foreground">
             <a className={"text-xl font-bold hover:text-lang-orange max-[600px]:text-lg select-none"} href="./events">More Events Here</a>
@@ -167,7 +165,7 @@ export function CarouselMy() {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-      </Conditional>
+      </Conditional> */}
 
     </>
 
