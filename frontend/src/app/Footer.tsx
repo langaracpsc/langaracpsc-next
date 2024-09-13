@@ -35,9 +35,9 @@ export default function Footer() {
 
         if (resources.length < 1) {
             resourcesMap.forEach((value: string, key: string) => {
-                resourcesTemp.push(<>
-                    <a href={value} className="hover:text-lang-orange">{key}</a>
-                </>);
+                resourcesTemp.push(
+                    <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
+                );
             });
         }
 
@@ -49,9 +49,9 @@ export default function Footer() {
 
         if (links.length < 1)
             linksMap.forEach((value: string, key: string) => {
-                linksTemp.push(<>
+                linksTemp.push(
                     <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
-                </>);
+                );
             });
 
         return linksTemp;
