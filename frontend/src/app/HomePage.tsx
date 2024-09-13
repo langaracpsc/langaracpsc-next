@@ -8,8 +8,6 @@ import { AddExecProfile, ExecProfileObject, selectProfile } from "./slices/execP
 import { AppDispatch, RootState } from "./stores/store";
 import { loadProfilesAsync } from "./thunks/ProfileThunks";
 import { UnknownAction } from "@reduxjs/toolkit";
-// import { CalendarEvent, SetCalendarEvents, selectEvent } from "./slices/eventSlice";
-// import { fetchEventsAsync } from "./thunks/EventThunks";
 import { SetCurrentPage } from "./slices/pageSlice";
 import Footer from "./Footer";
 import Image from "next/image"
@@ -25,7 +23,6 @@ interface HomePageProps {
 
 export default function HomePage({ }: HomePageProps) {
     const execProfiles = useAppSelector(selectProfile);
-    // const event = useAppSelector(selectEvent);
     const mainDispatch = useAppDispatch();
 
     mainDispatch(SetCurrentPage("/"));
@@ -41,17 +38,6 @@ export default function HomePage({ }: HomePageProps) {
             }
         })();
     });
-
-    // useEffect(() => {
-    //     (async () => {
-    //         if (event.Events.length < 1) 
-    //         {
-    //             const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
-
-    //             mainDispatch(SetCalendarEvents(fetchedEvents));
-    //         }
-    //     })();
-    // });
 
     let css: string = "", flexContainer: string = "flex flex-row max-[600px]:justify-center max-[600px]:mx-0 ml-[10%]";
     let size: number = 5;

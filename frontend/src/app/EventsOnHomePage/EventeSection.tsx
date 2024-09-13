@@ -1,28 +1,6 @@
-import { experimental_useEffectEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { SetCurrentPage } from "../slices/pageSlice";
-import Events from "./Events";
-import { fetchEventsAsync } from "../thunks/EventThunks";
-import { AppDispatch } from "../stores/store";
-// import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
-import { Timer } from "../hacks/Timer";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
-import Conditional from "../Conditional";
-import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
-import Image from "next/image"
-import { Button } from "@/components/ui/button";
-import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
-
 
 export class Range {
     Start: number;
@@ -48,15 +26,7 @@ export default function EventsSection() {
     const router = useRouter();
     const mainDispatch = useAppDispatch();
 
-    // const event = useAppSelector(selectEvent);
-
     mainDispatch(SetCurrentPage("/events"));
-
-    // const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-
-    // const [loading, setLoading] = useState(event.Events.length < 1);
-
-    //Use this to change the height, width etc, of the iframes
 
     const iframeStyle = {
         border: '1px solid black',
@@ -65,19 +35,6 @@ export default function EventsSection() {
         height: `760px`,
         width: '500px'
     };
-
-    // useEffect(() => {
-    //     (async () => {
-    //         console.log("Fetching events.");
-    //         if (event.Events.length < 1) {
-    //             const fetchedEvents: CalendarEvent[] = (await mainDispatch(fetchEventsAsync() as AppDispatch)) as unknown as CalendarEvent[];
-
-    //             mainDispatch(SetCalendarEvents(fetchedEvents));
-    //             setLoading(false);
-    //         }
-    //     })();
-    // });
-
 
     const getYearsSince = (year: number) => {
         return new Range(year, new Date().getFullYear() + 1).ToArray();
@@ -141,11 +98,6 @@ export default function EventsSection() {
                         </div>
                         <div className={"text-xl font-bold max-[600px]:text-lg select-none"}>or </div>
                         <div><a href="https://lhacks.langaracs.ca/" className={"text-xl font-bold hover:text-lang-orange max-[600px]:text-lg select-none"}>Check out the hackthon website</a></div>
-
-                        {/* <div className="mt-1 flex flex-row gap-1 items-center content-center h-96 w-full"> */}
-                        {/* <Conditional Condition={loading}>Loading</Conditional>
-                            <Events Events={[...event.Events].filter(event => event.Start.getFullYear() == currentYear)} /> */}
-                        {/* </div> */}
                     </div>
                 </div>
             </div>
