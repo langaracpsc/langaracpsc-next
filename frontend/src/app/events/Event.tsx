@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../hooks/hooks";
-import IconLabel from "../IconLabel";
-import { CalendarEvent, SetCurrentEvent, selectEvent } from "../slices/eventSlice";
+import { useAppDispatch } from "../../redux/hooks/hooks";
+import IconLabel from "../shared_components/IconLabel";
+import { CalendarEvent, SetCurrentEvent, selectEvent } from "../../redux/slices/eventSlice";
 
 import { Button } from "@/components/ui/button";
 import {

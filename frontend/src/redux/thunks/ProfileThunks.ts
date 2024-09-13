@@ -1,4 +1,4 @@
-import ExecProfile from "../ExecProfile";
+import ExecProfile from "../../app/about/ExecProfile";
 import { AppDispatch, RootState } from "../stores/store";
 import { ExecProfileObject } from "../slices/execProfileSlice";
 

@@ -2,13 +2,13 @@
 
 import { UnknownAction } from "@reduxjs/toolkit";
 import { useEffect, useState } from "react";
-import Conditional from "../Conditional";
-import ExecProfiles from "../ExecProfiles";
-import { useAppDispatch, useAppSelector } from "../hooks/hooks";
-import { AddExecProfile, ExecProfileObject, selectProfile } from "../slices/execProfileSlice";
-import { SetCurrentPage } from "../slices/pageSlice";
-import { AppDispatch } from "../stores/store";
-import { loadProfilesAsync } from "../thunks/ProfileThunks";
+import Conditional from "../shared_components/Conditional";
+import ExecProfiles from "./ExecProfiles";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks/hooks";
+import { AddExecProfile, ExecProfileObject, selectProfile } from "../../redux/slices/execProfileSlice";
+import { SetCurrentPage } from "../../redux/slices/pageSlice";
+import { AppDispatch } from "../../redux/stores/store";
+import { loadProfilesAsync } from "../../redux/thunks/ProfileThunks";
 
 interface AboutPageProps
 {}

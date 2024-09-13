@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CarouselMy } from './Carosel';
+import { CarouselMy } from './Carousel';
 import EventsSection from './EventeSection';
 
 function Decision() {

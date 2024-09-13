@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "./hooks/hooks";
-import Menu from "./Menu";
+import { useAppDispatch } from "../../../redux/hooks/hooks";
+import Menu from "../Menu";
 import NavButton from "./NavButton";
-import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
-import SocialIcons from "./SocialIcons";
+import { SetCurrentPage, selectCurrentPage } from "../../../redux/slices/pageSlice";
+import SocialIcons from "../SocialIcons";
 
 
 interface NavBarProps {

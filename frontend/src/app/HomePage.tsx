@@ -2,13 +2,13 @@
 
 import { UnknownAction } from "@reduxjs/toolkit";
 import { useEffect } from "react";
-import Decision from "./EventsOnHomePage/Decision";
-import AboutUsSection from "./aboutus";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
-import { AddExecProfile, ExecProfileObject, selectProfile } from "./slices/execProfileSlice";
-import { SetCurrentPage } from "./slices/pageSlice";
-import { AppDispatch } from "./stores/store";
-import { loadProfilesAsync } from "./thunks/ProfileThunks";
+import Decision from "./events/EventsOnHomePage/Decision";
+import ClubSummary from "./ClubSummary";
+import { useAppDispatch, useAppSelector } from "../redux/hooks/hooks";
+import { AddExecProfile, ExecProfileObject, selectProfile } from "../redux/slices/execProfileSlice";
+import { SetCurrentPage } from "../redux/slices/pageSlice";
+import { AppDispatch } from "../redux/stores/store";
+import { loadProfilesAsync } from "../redux/thunks/ProfileThunks";
 
 
 let InstanceCount: number = 0;
@@ -74,7 +74,7 @@ export default function HomePage({ }: HomePageProps) {
             </div>
             <Decision />
 
-            <AboutUsSection />
+            <ClubSummary />
         </>
     );
 }

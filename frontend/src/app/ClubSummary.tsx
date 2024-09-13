@@ -2,7 +2,7 @@
 
 
 
-const AboutUsSection = function () {
+const ClubSummary = function () {
 
     return (
 
@@ -21,4 +21,4 @@ const AboutUsSection = function () {
 
 }
 
-export default AboutUsSection
+export default ClubSummary

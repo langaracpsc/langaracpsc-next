@@ -1,4 +1,4 @@
-import SocialIcons from "@/app/SocialIcons";
+import SocialIcons from "@/app/shared_components/SocialIcons";
 
 export function Body()
 {

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import React, { useMemo, useState } from "react";
-import SocialIcons from "./SocialIcons";
+import SocialIcons from "../SocialIcons";
 
 export default function Footer() {
     const forms = {

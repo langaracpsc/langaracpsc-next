@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
-import { useAppDispatch } from "../hooks/hooks";
-import { SetCurrentPage } from "../slices/pageSlice";
+import { useAppDispatch } from "../../redux/hooks/hooks";
+import { SetCurrentPage } from "../../redux/slices/pageSlice";
 
 export default function EventsSection() {
     const router = useRouter();

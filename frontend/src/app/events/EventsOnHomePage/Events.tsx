@@ -1,4 +1,4 @@
-import { CalendarEvent } from "../slices/eventSlice";
+import { CalendarEvent } from "../../../redux/slices/eventSlice";
 import EventInstance from "./Event";
 
 interface EventsProps

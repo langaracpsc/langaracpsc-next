@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
-import Footer from './Footer';
+import Footer from './shared_components/footer/Footer';
 import HomePage from './HomePage';
-import NavBar from './NavBar';
-import { store } from './stores/store';
+import NavBar from './shared_components/header/NavBar';
+import { store } from '../redux/stores/store';
 
 
 

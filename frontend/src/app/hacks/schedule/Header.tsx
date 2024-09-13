@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {IconLabel} from "@/app/hacks/IconLabel";
+import {IconLabel} from "../IconLabel";
 
 export function Header()
 {

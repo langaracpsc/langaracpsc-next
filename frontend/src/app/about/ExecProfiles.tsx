@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ExecProfile from "./ExecProfile";
-import { useAppSelector } from './hooks/hooks';
-import { ExecProfileObject, selectProfile } from './slices/execProfileSlice';
+import { useAppSelector } from '../../redux/hooks/hooks';
+import { ExecProfileObject, selectProfile } from '../../redux/slices/execProfileSlice';
 
 export default function ExecProfiles() {
     const profiles = useAppSelector(selectProfile);

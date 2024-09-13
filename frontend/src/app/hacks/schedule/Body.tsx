@@ -1,5 +1,5 @@
-import {Timer} from "@/app/hacks/Timer";
-import SocialIcons from "@/app/SocialIcons";
+import {Timer} from "../Timer";
+import SocialIcons from "@/app/shared_components/SocialIcons";
 
 export function Body()
 {

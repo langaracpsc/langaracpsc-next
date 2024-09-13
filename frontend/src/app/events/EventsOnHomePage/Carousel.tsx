@@ -5,8 +5,8 @@ import {
 } from "@/components/ui/carousel";
 
 import { useState } from "react";
-import { useAppDispatch } from "../hooks/hooks";
-import { SetCurrentPage } from "../slices/pageSlice";
+import { useAppDispatch } from "../../../redux/hooks/hooks";
+import { SetCurrentPage } from "../../../redux/slices/pageSlice";
 
 // import { fetchEventsAsync } from "../thunks/EventThunks";
 // import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";

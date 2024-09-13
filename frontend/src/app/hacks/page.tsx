@@ -1,5 +1,5 @@
 import {Header} from "./Header";
-import {Body} from "@/app/hacks/Body";
+import {Body} from "../hacks/Body";
 
 export default function Page()
 {

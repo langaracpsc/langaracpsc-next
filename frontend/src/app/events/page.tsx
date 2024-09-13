@@ -1,9 +1,9 @@
 "use client";
 
 import { Provider } from "react-redux";
-import Footer from "../Footer";
-import NavBar from "../NavBar";
-import { store } from "../stores/store";
+import Footer from "../shared_components/footer/Footer";
+import NavBar from "../shared_components/header/NavBar";
+import { store } from "../../redux/stores/store";
 import EventsPage from "./EventsPage";
 
 export default function Page() 
