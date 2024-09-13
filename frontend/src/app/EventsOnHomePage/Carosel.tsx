@@ -1,31 +1,16 @@
-import * as React from "react"
+import * as React from "react";
 
-import { Card, CardContent } from "@/components/ui/card"
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel"
+  type CarouselApi
+} from "@/components/ui/carousel";
 
-import { experimental_useEffectEvent, useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { useState } from "react";
+import { useAppDispatch } from "../hooks/hooks";
 import { SetCurrentPage } from "../slices/pageSlice";
 
 // import { fetchEventsAsync } from "../thunks/EventThunks";
-import { AppDispatch } from "../stores/store";
 // import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
-import { Timer } from "../hacks/Timer";
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent } from "@/components/ui/dropdown-menu";
-import Conditional from "../Conditional";
-import IconLabel from "../IconLabel";
 import { useRouter } from "next/navigation";
-import Image from "next/image"
-import { Button } from "@/components/ui/button";
-import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
-import EventInstance from "./EventForCarousel"
 
 // interface EventsProps {
 //   // Events: CalendarEvent[];

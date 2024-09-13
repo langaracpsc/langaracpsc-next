@@ -1,8 +1,7 @@
-import {Component} from "react";
-import Image from "next/image";
-import {useState, useEffect} from "react";
-import ProfileModal from "./ProfileModal";
 import * as Dialog from "@radix-ui/react-dialog";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import ProfileModal from "./ProfileModal";
 
 
 interface ExecProfileProps

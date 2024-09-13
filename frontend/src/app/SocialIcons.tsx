@@ -1,7 +1,6 @@
 "use client";
 
 import { SocialIcon } from "react-social-icons";
-import { Component } from "react";
 
 interface SocialIconsProps {
     height?: number,

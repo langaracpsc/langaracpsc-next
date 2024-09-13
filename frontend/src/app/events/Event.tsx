@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { CalendarEvent, SetCurrentEvent, selectEvent } from "../slices/eventSlice";
-import IconLabel from "../IconLabel";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../hooks/hooks";
-import { useState } from "react";
+import IconLabel from "../IconLabel";
+import { CalendarEvent, SetCurrentEvent, selectEvent } from "../slices/eventSlice";
 
+import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogClose,
@@ -14,8 +15,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-  } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 
 interface EventProps

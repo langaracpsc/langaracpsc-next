@@ -1,7 +1,6 @@
-import { defaultHead } from 'next/head';
-import React, { useState, useEffect } from 'react';
-import Image from "next/image";
 import * as Dialog from "@radix-ui/react-dialog";
+import Image from "next/image";
+import { useEffect, useState } from 'react';
 
 interface ProfileModalProps {
     ID: String;

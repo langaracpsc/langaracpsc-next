@@ -1,6 +1,5 @@
-import { AppDispatch, RootState } from "../stores/store";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { CalendarEvent } from "./eventSlice";
+import { AppDispatch, RootState } from "../stores/store";
 interface ExecPosition 
 {
     ID: number;

@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { CalendarEvent, SetCurrentEvent, selectEvent } from "../slices/eventSlice";
-import IconLabel from "../IconLabel";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../hooks/hooks";
-import { useState } from "react";
+import IconLabel from "../IconLabel";
+import { CalendarEvent, SetCurrentEvent, selectEvent } from "../slices/eventSlice";
 
-
-
+import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogClose,
@@ -17,21 +16,11 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 import router from "next/router";
 
 
 
-import { Card, CardContent } from "@/components/ui/card"
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-    type CarouselApi,
-} from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card";
 
 
 

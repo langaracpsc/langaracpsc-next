@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import EventsSection from './EventeSection';
+import { useEffect, useState } from 'react';
 import { CarouselMy } from './Carosel';
+import EventsSection from './EventeSection';
 
 function Decision() {
   const [isWideScreen, setIsWideScreen] = useState(false);

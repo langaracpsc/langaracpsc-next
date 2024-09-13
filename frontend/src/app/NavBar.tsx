@@ -1,18 +1,14 @@
 "use client";
 
-import React, { Component, useContext, useState } from "react";
-import NavButton from "./NavButton";
-import { Global, Vector2D } from "@/app/Global";
-import { useRouter } from "next/navigation";
-import { useAppDispatch } from "./hooks/hooks";
-import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
-import { useSelector } from "react-redux";
-import { AppDispatch } from "./stores/store";
-import { waitForDebugger } from "inspector";
 import { Button } from "@/components/ui/button";
-import Conditional from "./Conditional";
-import SocialIcons from "./SocialIcons";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "./hooks/hooks";
 import Menu from "./Menu";
+import NavButton from "./NavButton";
+import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
+import SocialIcons from "./SocialIcons";
 
 
 interface NavBarProps {

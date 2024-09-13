@@ -1,7 +1,5 @@
-import {useState} from "react";
-import {IconLabel} from "@/app/hacks/IconLabel";
-import Image from "next/image"
-import profile from "../../../public/LCS.png"
+import Image from "next/image";
+import profile from "../../../public/LCS.png";
 
 
 export function Header()

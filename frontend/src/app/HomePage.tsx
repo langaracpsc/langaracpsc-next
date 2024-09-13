@@ -1,19 +1,14 @@
 "use client";
 
-import { Component, useEffect } from "react";
-import { Global, Vector2D } from "@/app/Global";
-import SocialIcons from "@/app/SocialIcons";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
-import { AddExecProfile, ExecProfileObject, selectProfile } from "./slices/execProfileSlice";
-import { AppDispatch, RootState } from "./stores/store";
-import { loadProfilesAsync } from "./thunks/ProfileThunks";
 import { UnknownAction } from "@reduxjs/toolkit";
-import { SetCurrentPage } from "./slices/pageSlice";
-import Footer from "./Footer";
-import Image from "next/image"
-import codeSnippet from "../../public/code_snippet.png"
+import { useEffect } from "react";
 import Decision from "./EventsOnHomePage/Decision";
 import AboutUsSection from "./aboutus";
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
+import { AddExecProfile, ExecProfileObject, selectProfile } from "./slices/execProfileSlice";
+import { SetCurrentPage } from "./slices/pageSlice";
+import { AppDispatch } from "./stores/store";
+import { loadProfilesAsync } from "./thunks/ProfileThunks";
 
 
 let InstanceCount: number = 0;

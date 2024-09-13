@@ -1,12 +1,10 @@
-import React, { useState, FC } from 'react';
-import * as FaIcons from 'react-icons/fa';
-import SocialIcons from './SocialIcons';
-import NavButton from './NavButton';
 import { useRouter } from "next/navigation";
+import { useState } from 'react';
+import * as FaIcons from 'react-icons/fa';
+import { useSelector } from "react-redux";
 import { useAppDispatch } from "./hooks/hooks";
 import { SetCurrentPage, selectCurrentPage } from "./slices/pageSlice";
-import { useSelector } from "react-redux";
-import { AppDispatch } from "./stores/store";
+import SocialIcons from './SocialIcons';
 
 interface MenuProps
 {

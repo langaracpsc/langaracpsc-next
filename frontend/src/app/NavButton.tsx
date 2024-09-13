@@ -1,10 +1,5 @@
 "use client";
 
-import {Component} from "react";
-import {Global} from "@/app/Global";
-import {redirect} from "next/navigation";
-import { useAppSelector } from "./hooks/hooks";
-import { selectCurrentPage } from "./slices/pageSlice";
 
 interface NavButtonProps 
 {

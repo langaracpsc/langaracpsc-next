@@ -1,13 +1,9 @@
-import { experimental_useEffectEvent, useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/hooks";
+import { useState } from "react";
+import { useAppDispatch } from "../hooks/hooks";
 import { SetCurrentPage } from "../slices/pageSlice";
-import Events from "./Events";
 // import { fetchEventsAsync } from "../thunks/EventThunks";
-import { AppDispatch } from "../stores/store";
 // import { CalendarEvent, DefaultCalendarEvent, SetCalendarEvents, SetCurrentEvent, SetFetchIntervalStarted, selectEvent } from "../slices/eventSlice";
-import Conditional from "../Conditional";
 import { useRouter } from "next/navigation";
-import { Select, SelectItem, SelectTrigger, SelectContent } from "@/components/ui/select";
 import EventsLuma from './EventsLuma';
 
 export class Range {

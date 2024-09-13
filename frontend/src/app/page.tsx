@@ -1,19 +1,12 @@
 "use client";
 
-import Image from 'next/image'
-import NavBar from './NavBar';
-import { Component } from "react";
-import HomePage from './HomePage';
-import { Global } from "@/app/Global";
-import { ThemeProvider } from 'next-themes';
-import { Provider, ProviderProps } from 'react-redux'
-import { store } from './stores/store';
+import { useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
 import Footer from './Footer';
-import EventsSection from './EventsOnHomePage/EventeSection';
-import { useEffect, useState, useRef } from 'react';
-import AboutUsSection from './aboutus'
+import HomePage from './HomePage';
+import NavBar from './NavBar';
+import { store } from './stores/store';
 
-import Decision from './EventsOnHomePage/Decision';
 
 
 

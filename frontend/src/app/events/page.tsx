@@ -1,10 +1,10 @@
 "use client";
 
 import { Provider } from "react-redux";
+import Footer from "../Footer";
 import NavBar from "../NavBar";
 import { store } from "../stores/store";
 import EventsPage from "./EventsPage";
-import Footer from "../Footer";
 
 export default function Page() 
 {
