@@ -24,7 +24,8 @@ const nextConfig = {
         pathname: "/executives/image/**"
       },
     ]
-  }
+  },
+  output: 'standalone'
 }
 
 module.exports = nextConfig

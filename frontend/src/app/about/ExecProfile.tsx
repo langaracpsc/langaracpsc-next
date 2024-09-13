@@ -17,20 +17,20 @@ interface ExecProfileProps
     Description: string;
 }
 
-const PositionStrings: string[] = [
-    "President",
-    "Vice President",
-    "Vice President Internal",
-    "Vice President External",
-    "Tech Lead",
-    "Assistant Tech Lead",
-    "General Representative",
-    "Director of Public Relations",
-    "Director of Finance",
-    "Director of Events",
-    "Secretary",
-    "Director of Media"
-];
+// const PositionStrings: string[] = [
+//     "President",
+//     "Vice President",
+//     "Vice President Internal",
+//     "Vice President External",
+//     "Tech Lead",
+//     "Assistant Tech Lead",
+//     "General Representative",
+//     "Director of Public Relations",
+//     "Director of Finance",
+//     "Director of Events",
+//     "Secretary",
+//     "Director of Media"
+// ];
  
 export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
 { 
@@ -42,7 +42,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
             if (window.innerWidth <= 800)
                 initialValue = 100;
         }
-    });
+    }); 
 
     const [imageWidth, setImageWidth] = useState<number>(initialValue);
     

@@ -38,7 +38,7 @@ docker build -t langaracpscnext:latest .
 Start the container:
 
 ```bash
-docker run -p 3000:3000 -v $(pwd)/src:/app/src langaracpscnext:latest
+docker run -p 3000:3000 langaracpscnext:latest
 ```
 
 Access the Langara Computer Science Club site at [http://localhost:3000](http://localhost:3000).
