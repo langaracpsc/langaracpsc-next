@@ -24,33 +24,6 @@ docker-compose --version
 
 Clone the repository to your local machine:
 
-```bash
-git clone https://github.com/langaracpsc/LangaraCPSC.WebAPI.git
-cd LangaraCPSC.WebAPI
-```
-
-## Configuration
-
-1. Create a `.env.local` file in the project root:
-
-```bash
-touch .env.local
-```
-
-2. Add the following content to `.env.local`:
-
-```ini
-APIURL=<your API URL>
-APIKEY=<your API key>
-```
-
-Replace `<your API URL>` and `<your API key>` with the actual values provided by the API provider.
-
-3. Add `.env.local` to your `.gitignore` file to prevent accidental commits:
-
-```bash
-echo ".env.local" >> .gitignore
-```
 
 ## Building the Docker Image
 
@@ -82,8 +55,5 @@ Here are some common issues and their solutions:
    - Check if the container is running: `docker ps`
    - Inspect container logs: `docker logs <container_id>`
 
-3. **Error: 404 Not Found**
-   - Verify `APIURL` and `APIKEY` in `.env.local`
-   - Ensure the API server is accessible from your network
 
 For additional support, please open an issue on the GitHub repository or contact the Langara CPSC Club administrators.
