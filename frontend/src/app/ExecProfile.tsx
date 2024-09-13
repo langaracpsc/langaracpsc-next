@@ -1,7 +1,6 @@
 import {Component} from "react";
 import Image from "next/image";
 import {useState, useEffect} from "react";
-import { init } from "next/dist/compiled/@vercel/og/satori";
 import ProfileModal from "./ProfileModal";
 import * as Dialog from "@radix-ui/react-dialog";
 
