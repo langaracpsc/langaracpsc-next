@@ -3,7 +3,7 @@
 import { UnknownAction } from "@reduxjs/toolkit";
 import { useEffect } from "react";
 import Decision from "./events/EventsOnHomePage/Decision";
-import ClubSummary from "./ClubSummary";
+import ClubSummary from "./shared_components/ClubSummary";
 import { useAppDispatch, useAppSelector } from "../redux/hooks/hooks";
 import { AddExecProfile, ExecProfileObject, selectProfile } from "../redux/slices/execProfileSlice";
 import { SetCurrentPage } from "../redux/slices/pageSlice";
@@ -74,7 +74,7 @@ export default function HomePage({ }: HomePageProps) {
             </div>
             <Decision />
 
-            <ClubSummary />
+            <ClubSummary/>
         </>
     );
 }
