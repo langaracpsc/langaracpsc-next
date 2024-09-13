@@ -16,7 +16,7 @@ const ClubSummary = function () {
                 <a className="w-fit h-fit hover:text-lang-orange" href="./about">Meet our team</a>
             </div>
             <div className="w-4/5"><p className="break-normal"></p>
-
+                <span>The Langara Computer Science Club is a student-led club dedicated to providing a space for students interested in computer science. We provide a space to learn, create, network, and to have fun! We hold workshops, programming competitions, socials, and other meetups.</span>
             </div>
         </div>
 
