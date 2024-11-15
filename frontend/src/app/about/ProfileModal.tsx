@@ -1,6 +1,8 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import Image from "next/image";
 import { useEffect, useState } from 'react';
+import { DialogTitle } from "@radix-ui/react-dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface ProfileModalProps {
     ID: String;
@@ -32,7 +34,11 @@ export default function ProfileModal ({Name, Position, ImageBuffer, Description,
     }, []);
 
     return (
-                <div className="content flex" style={{ flexDirection: isSmallScreen ? "column" : "row", padding: '20px', overflowY: 'auto', boxSizing: 'border-box', maxWidth: "60vw", maxHeight: "60vh"}}>
+        <Dialog.Content>
+            <VisuallyHidden>
+                <DialogTitle>{Name}</DialogTitle>
+            </VisuallyHidden>
+            <div className="content flex" style={{ flexDirection: isSmallScreen ? "column" : "row", padding: '20px', overflowY: 'auto', boxSizing: 'border-box', maxWidth: "60vw", maxHeight: "60vh"}}>
                 <div className="flex flex-col items-center gap-3">
                     <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{borderRadius: "100%", minHeight: "20vb", minWidth: "20vb"}} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl object-cover`}/>
                     <div className='profile-info flex text-center' style={{flexDirection: "column"}}>
@@ -48,5 +54,6 @@ export default function ProfileModal ({Name, Position, ImageBuffer, Description,
                 </div>
                 <Dialog.Close className='close-modal' style={{ position: 'absolute', top: 10, right: 10, padding: '5px 7px', borderRadius: '4px' }}>Close</Dialog.Close>
             </div>
+        </Dialog.Content>
     );
 };

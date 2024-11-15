@@ -2,13 +2,13 @@
 
 import { UnknownAction } from "@reduxjs/toolkit";
 import { useEffect } from "react";
-import Decision from "./events/EventsOnHomePage/Decision";
-import ClubSummary from "./shared_components/ClubSummary";
+// import Decision from "./events/EventsOnHomePage/Decision";
+// import ClubSummary from "./shared_components/ClubSummary";
 import { useAppDispatch, useAppSelector } from "../redux/hooks/hooks";
 import { AddExecProfile, ExecProfileObject, selectProfile } from "../redux/slices/execProfileSlice";
 import { SetCurrentPage } from "../redux/slices/pageSlice";
 import { AppDispatch } from "../redux/stores/store";
-import { loadProfilesAsync } from "../redux/thunks/ProfileThunks";
+// import { loadProfilesAsync } from "../redux/thunks/ProfileThunks";
 
 
 let InstanceCount: number = 0;
@@ -17,22 +17,22 @@ interface HomePageProps {
 }
 
 export default function HomePage({ }: HomePageProps) {
-    const execProfiles = useAppSelector(selectProfile);
+    // const execProfiles = useAppSelector(selectProfile);
     const mainDispatch = useAppDispatch();
 
     mainDispatch(SetCurrentPage("/"));
 
-    useEffect(() => {
-        (async () => {
-            if (execProfiles.length < 1) {
-                const promise: UnknownAction = (mainDispatch(loadProfilesAsync() as AppDispatch));
+    // useEffect(() => {
+    //     (async () => {
+    //         if (execProfiles.length < 1) {
+    //             const promise: UnknownAction = (mainDispatch(loadProfilesAsync() as AppDispatch));
 
-                ((await promise) as unknown as ExecProfileObject[]).forEach((element: ExecProfileObject) => {
-                    mainDispatch(AddExecProfile(element));
-                });
-            }
-        })();
-    });
+    //             ((await promise) as unknown as ExecProfileObject[]).forEach((element: ExecProfileObject) => {
+    //                 mainDispatch(AddExecProfile(element));
+    //             });
+    //         }
+    //     })();
+    // });
 
     let css: string = "", flexContainer: string = "flex flex-row max-[600px]:justify-center max-[600px]:mx-0 ml-[10%]";
     let size: number = 5;
@@ -72,9 +72,9 @@ export default function HomePage({ }: HomePageProps) {
 
 
             </div>
-            <Decision />
+            {/* <Decision /> */}
 
-            <ClubSummary/>
+            {/* <ClubSummary/> */}
         </>
     );
 }

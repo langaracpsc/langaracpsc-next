@@ -1,28 +1,20 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-interface NavButtonProps 
-{
+interface NavButtonProps {
     Label: string;
-
     EndPoint: string;
-
     Activated: boolean;
-
-    OnClick: (url: string) => void;
+    onNavigate: (url: string) => void;
 }
-    
-export default function NavButton({ Label, EndPoint, Activated, OnClick } : NavButtonProps): JSX.Element {
-    const color: string = Activated ? "white" : "lang-orange";
 
+export default function NavButton({ Label, EndPoint, Activated, onNavigate }: NavButtonProps) {
     return (
-        <>
-        <button 
-        className="bg-transparent text-3xl font-semibold px-3 h-10 select-none transition duration-300 ease-in-out hover:scale-110 hover:bg-transparent hover:text-lang-orange max-sm:text-lg"
-        onClick={() => {OnClick(EndPoint);}}>
-            {Label}
-        </button>
-        </>
+        <Link href={EndPoint} className={`text-xl font-bold mx-2 px-4 py-2 transition duration-300
+            "text-lang-orange" hover:scale-110`}>
+                {Label}
+        </Link>
     );
 }
-    

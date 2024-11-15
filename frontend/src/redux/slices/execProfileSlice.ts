@@ -1,52 +1,36 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { AppDispatch, RootState } from "../stores/store";
-interface ExecPosition 
-{
-    ID: number;
+// execProfileSlice.ts
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { loadProfilesAsync } from '../thunks/ProfileThunks';
 
-    Title: string;
+export interface ExecProfileObject {
+  ID: string;
+  Position: string;
+  Name: string;
+  ImageBuffer: string | null;
+  Description: string;
 }
 
-export interface ExecProfileObject
-{
-    ID: string;
+const initialState: ExecProfileObject[] = [];
 
-    Name: string;
-
-    ImageBuffer: string;
-
-    Position: Array<string>; 
-
-    Description: string;
-} 
-
-export interface ExecProfileState
-{
-    Profiles: ExecProfileObject[];
-} 
-
-const initialState: ExecProfileState = {
-    Profiles: []
-};
-
-
-const fetchEvents = () => async (state: RootState, dipatch: AppDispatch) => {
-    const response = await fetch("", {
-        method: "GET"
+const execProfileSlice = createSlice({
+  name: 'execProfiles',
+  initialState,
+  reducers: {
+    AddExecProfile: (state, action: PayloadAction<ExecProfileObject>) => {
+      const exists = state.some((profile) => profile.ID === action.payload.ID);
+      if (!exists) {
+        state.push(action.payload);
+      }
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(loadProfilesAsync.fulfilled, (state, action) => {
+      // Replace the entire state with new profiles (avoids duplicates)
+      return action.payload;
     });
-};
-
-export const execProfileSlice = createSlice(
-{
-    name: "execProfile",
-    initialState,
-    reducers:{ 
-        AddExecProfile: (state, action: PayloadAction<ExecProfileObject>) => {
-            return {...state, Profiles: [...state.Profiles, action.payload]}; 
-        } 
-    }
+  },
 });
 
-export const {AddExecProfile} = execProfileSlice.actions;
-export const selectProfile = (state: RootState) => state.execProfiles.Profiles;
+export const { AddExecProfile } = execProfileSlice.actions;
+export const selectProfile = (state: any) => state.execProfiles;
 export default execProfileSlice.reducer;

@@ -1,88 +1,56 @@
-import { useEffect, useState } from "react";
-import ExecProfile from "./ExecProfile";
-import { useAppSelector } from '../../redux/hooks/hooks';
-import { ExecProfileObject, selectProfile } from '../../redux/slices/execProfileSlice';
+import { useEffect, useState } from 'react';
+import ExecProfile from './ExecProfile';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks';
+import { selectProfile } from '../../redux/slices/execProfileSlice';
+import { loadProfilesAsync } from '../../redux/thunks/ProfileThunks';
 
 export default function ExecProfiles() {
-    const profiles = useAppSelector(selectProfile);
+  const dispatch = useAppDispatch();
+  const profiles = useAppSelector(selectProfile);
+  const [loading, setLoading] = useState(true);
+  const [hasFetched, setHasFetched] = useState(false); // Prevents multiple fetches
 
-    const profilesSorted = profiles;
-    
-    const [profileSections, setProfileSections] = useState<ExecProfileObject[][]>([]);
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      if (!hasFetched) {
+        setHasFetched(true); // Set flag to true to prevent re-fetching
+        // console.log("Fetching profiles...");
+        const resultAction = await dispatch(loadProfilesAsync());
 
-    let initialValue: number = 3;
-
-    useEffect(() => {
-        if (window !== undefined) {
-            if (window.innerWidth <= 800)
-                initialValue = 2;
+        if (loadProfilesAsync.fulfilled.match(resultAction)) {
+        //   console.log("Profiles fetched:", resultAction.payload);
+        } else {
+        //   console.error("Failed to fetch profiles");
         }
-    });
-
-    const [cols, setCols] = useState<number>(initialValue);
-
-    const updateSections = () => {
-        const sections = [];
-
-        for (let x = 0;  x < profilesSorted.length / cols; x++)
-            sections.push(profilesSorted.slice(x * cols, x * cols + cols));
-
-        setProfileSections(sections);
+        setLoading(false);
+      }
     };
 
-    useEffect(() => {
-        if (profileSections.length < 1)
-            updateSections();
-    });
+    fetchProfiles();
+  }, [dispatch, hasFetched]);
 
-    useEffect(() => {
-        const handleResize = () => {
-            if (window !== undefined) 
-            {
-                if (window.innerWidth <= 800)
-                {
-                    setCols(2);
-                    updateSections();
-                }
-                else
-                {
-                    setCols(3);
-                    updateSections();
-                }
-            }
-        };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-        if (window !== undefined) 
-        {
-            window.addEventListener('load', handleResize);
-            window.addEventListener('resize', handleResize);
-        }
+//   console.log("Profiles to display:", profiles);
 
-        return () => {
-            if (window !== undefined)
-                window.removeEventListener('resize', handleResize);
-        };
-        }, []);
-    // max-[800px]:grid max-[800px]:content-center max-[800px]:grid-flow-col max-[800px]:auto-cols-min max-[800px]:justify-items-center 
-    return (
-        <div className="flex flex-col gap-5">
-            {
-                profileSections.map(profiles => (
-                    <div className={"flex flex-row gap-32 max-[800px]:gap-10 justify-around"} key={profileSections.indexOf(profiles)}>
-                        {
-                            profiles.map(profile => (
-                                <ExecProfile
-                                    key={profile.ID}
-                                    Position={profile.Position}
-                                    ID={profile.ID}
-                                    Name={profile.Name}
-                                    ImageBuffer= {(profile.ImageBuffer != null) ? `https://api3.langaracs.ca/executives/image/${profile.ImageBuffer}` : "https://via.placeholder.com/200x200"}
-                                    Description={profile.Description} />
-                            ))
-                        }
-                    </div>
-                    ))
-            }
-        </div>
-    );
+  return (
+    <div className="flex flex-wrap gap-20 justify-center">
+      {profiles.map((profile: { ID: string; Position: string[]; Name: string; ImageBuffer?: string; Description: string; }) => (
+        <ExecProfile
+          key={profile.ID}
+          Position={profile.Position}
+          ID={profile.ID}
+          Name={profile.Name}
+          ImageBuffer={
+            profile.ImageBuffer
+              ? `https://api3.langaracs.ca/executives/image/${profile.ImageBuffer}`
+              : 'https://via.placeholder.com/200x200'
+          }
+          Description={profile.Description}
+        />
+      ))}
+    </div>
+  );
 }
