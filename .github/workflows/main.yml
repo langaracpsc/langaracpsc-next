@@ -27,11 +27,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          build-args: |
-            APIURL=${{ secrets.APIURL }}
-            APIKEY=${{ secrets.APIKEY }}
           context: frontend
           file: frontend/Dockerfile
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           platforms: linux/arm64
           push: true
           tags: ghcr.io/langaracpsc/langaracpsc-next:latest
