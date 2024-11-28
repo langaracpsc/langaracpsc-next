@@ -19,16 +19,16 @@ interface EventItemProps {
 export default function EventItem({ event }: EventItemProps) {
     const imageUrl = event.thumbnail 
         ? `https://${event.thumbnail}` 
-        : 'https://via.placeholder.com/400x200';
+        : '/lcs.png';
 
     return (
-        <div key={event.id} className="rounded border-2 bg-gray w-64">
+        <div key={event.id} className="rounded  border-2 bg-gray w-64">
             <Image 
                 src={imageUrl} 
                 alt={event.event_name} 
                 width={400}
                 height={200}
-                className='w-[400px] h-[200px] object-cover'
+                className='w-[400px] h-[200px] rounded object-cover'
             />
 
             <div className="p-2">
@@ -37,13 +37,13 @@ export default function EventItem({ event }: EventItemProps) {
                 <p className="text-xs">{event.location}</p>
             </div>
 
-            {/* {event.registration_link && (
+            {event.registration_link && (
                 <Link href={event.registration_link} target="_blank" rel="noopener noreferrer">
-                    <button className="w-full bg-blue-500 text-white ">
+                    <button className="w-[100px] p-2 ml-2 mb-2 border-2 rounded bg-blue-500 text-white ">
                         Register
                     </button>
                 </Link>
-            )} */}
+            )}
         </div>
     );
 } 

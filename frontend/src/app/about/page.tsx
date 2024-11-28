@@ -9,6 +9,7 @@ export default function Page()
             <NavBar/>
             <div className="p-[20px] pt-5 max-w-6xl mx-auto "> 
                 <AboutPage/>
+                
             </div>
             <Footer />
         </main>

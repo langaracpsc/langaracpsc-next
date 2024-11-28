@@ -67,7 +67,7 @@ export default async function ExecProfiles() {
                 ImageBuffer={
                   exec.profile_picture
                     ? `https://${exec.profile_picture}`
-                    : 'https://via.placeholder.com/200x200'
+                    : '/blank_profile.jpg'
                 }
                 Description={exec.bio || ''}
               />
@@ -80,7 +80,7 @@ export default async function ExecProfiles() {
       {sortedRetiredYears.map(year => (
         <div key={year} className="mt-10">
           <h2 className="text-2xl font-semibold pb-5">Retired Executives - {year}</h2>
-          <div className=" flex flex-wrap flex-row gap-5">
+          <div className="flex flex-wrap flex-row gap-5">
             {groupedRetiredExecutives[year].map((exec) => (
               <ExecProfile
                 key={exec.student_id}
@@ -90,7 +90,7 @@ export default async function ExecProfiles() {
                 ImageBuffer={
                   exec.profile_picture
                     ? `https://${exec.profile_picture}`
-                    : 'https://via.placeholder.com/200x200'
+                    : '/blank_profile.jpg'
                 }
                 Description={exec.bio || ''}
               />
@@ -99,6 +99,12 @@ export default async function ExecProfiles() {
         </div>
       ))}
       <br></br>
+
+    
     </div>
+
+    
   );
+
+  
 }

@@ -25,6 +25,7 @@ export default function AboutPage({ }: AboutPageProps) {
                 <ExecProfiles />
             </div>
 
+            <span className="text-left">{`Are you a former executive? Please reach out through our email if you would like anything changed <3`}</span>
         </div>
     );
 }

@@ -25,7 +25,7 @@ export default function NavBar() {
                 <div className="flex flex-row justify-between items-center mx-auto px-4 md:px-10">
                     <div className="flex flex-row items-center justify-start">
                         <Link href="/">
-                            <img src="LCS.png" alt="club-logo" className="shrink-0 grow-0 w-16 h-20 cursor-pointer select-none" />
+                            <img src="LCS.png" alt="club-logo" className="shrink-0 grow-0 w-16 h-20 cursor-pointer select-none object-cover" />
                         </Link>
                         <div className="justify-center items-start lg:justify-start lg:flex hidden">
                             {navButtons}
