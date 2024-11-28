@@ -35,6 +35,7 @@ export default function NavBar() {
                     </div>
                 </div>
             </nav>
+            <div style={{ height: '80px' }} />
         </div>
     );
 }

@@ -20,7 +20,7 @@ interface ProfileModalProps {
 export default function ProfileModal({Name, Position, ImageBuffer, Description, imageWidth}: ProfileModalProps) {
     return (
         // TODO: FIX modal description text doesn't scroll
-        <Dialog.Content className="relative max-w-[90vw] md:max-w-[60vw] max-h-[90vh] md:max-h-[60vh] overflow-y-scroll p-5">
+        <Dialog.Content className="relative max-w-[90vw] md:max-w-[80vw] max-h-[90vh] md:max-h-[70vh] overflow-y-scroll p-5">
             <VisuallyHidden>
                 <DialogTitle>{Name}</DialogTitle>
             </VisuallyHidden>
@@ -42,7 +42,7 @@ export default function ProfileModal({Name, Position, ImageBuffer, Description, 
                 </div> 
 
                 {/* Description Section */}
-                <div className="flex flex-col flex-1">
+                <div className="flex flex-col flex-1 w-[30vw]">
                     <h3 className="font-bold text-lg mb-2  min-w-36">Description</h3>
                     <p className="text-white">{Description}</p>
                 </div>

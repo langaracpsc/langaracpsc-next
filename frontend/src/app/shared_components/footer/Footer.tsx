@@ -9,10 +9,10 @@ export default function Footer() {
     };
 
     const resourcesMap = new Map<string, string>([
-        ["Course Planner", "https://planner.langaracs.ca/"],
-        ["Transfer Resources", "https://langaracs.notion.site/Transfer-Information-a0548da4b3084681868381310c604c34"],
-        ["Course Resources", "https://langaracs.notion.site/Langara-CS-Resources-12b750af5ecc4eeb86315d3d9fd8f1ce?pvs=4"],
-        ["Feedback", "https://forms.gle/jaYbdo6KWbGFvJJG8"]
+        ["Langara Course Planner", "https://planner.langaracs.ca/"],
+        // ["Transfer Resources", "https://langaracs.notion.site/Transfer-Information-a0548da4b3084681868381310c604c34"],
+        // ["Course Resources", "https://langaracs.notion.site/Langara-CS-Resources-12b750af5ecc4eeb86315d3d9fd8f1ce?pvs=4"],
+        ["General Feedback Form", "https://forms.gle/jaYbdo6KWbGFvJJG8"]
     ]);
 
     const linksMap = new Map<string, string>([
@@ -20,15 +20,37 @@ export default function Footer() {
     ]);
 
     const resources = Array.from(resourcesMap).map(([key, value]) => (
-        <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
+        <Link key={key} href={value} target="_blank" className="hover:text-lang-orange">{key}</Link>
     ));
 
     const links = Array.from(linksMap).map(([key, value]) => (
-        <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
+        <Link key={key} href={value} target="_blank" className="hover:text-lang-orange">{key}</Link>
     ));
 
     return (
         <>
+
+        <footer className="bg-[#1E1E1E] px-10 py-5 min-h-40">
+
+            <div className="flex justify-between">
+
+                <div className="text-left flex flex-col">
+                    <p className="text-lg font-semibold pb-2">Quick Links:</p>
+                    {resources}
+                </div>
+
+
+                <div className="text-right">
+                    <SocialIcons height={40} width={40} gap={0} />
+                </div>
+            </div>
+            
+        </footer>
+
+        
+        {/* Look at the horror that the footer used to be... */}
+            
+        {/* </footer> 
             <footer className="bg-[#1E1E1E] mt-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 bg-[#1E1E1E] p-5">
                     <div className="flex flex-row mt-3 ml-3 justify-evenly md:justify-normal">
@@ -55,7 +77,7 @@ export default function Footer() {
                         <div className="alignment_div opacity-0">I am not here</div>
                     </div>
                 </div>
-            </footer>
+            </footer> */}
         </>
     );
 }
