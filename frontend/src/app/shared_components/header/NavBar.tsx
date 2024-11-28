@@ -1,46 +1,23 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../redux/hooks/hooks";
 import Menu from "../Menu";
 import NavButton from "./NavButton";
-import { SetCurrentPage, selectCurrentPage } from "../../../redux/slices/pageSlice";
-import SocialIcons from "../SocialIcons";
-
 
 export default function NavBar() {
-
     const Pages = new Map<string, string>([
         ["Home", "/"],
         ["About", "/about"],
-        ["Events", "https://lu.ma/lcsc"]
-    ])
+        ["Events", "/events"]
+    ]);
 
-    const mainDispatch = useAppDispatch();
-    const currentPage = useSelector(selectCurrentPage);
-
-    // Set the current page when navigating
-    const handlePageChange = (url: string) => {
-        mainDispatch(SetCurrentPage(url));
-    };
-
-    const navButtons: Array<JSX.Element> = [];
-
-    Pages.forEach((value, key) => {
-        navButtons.push(
-            <NavButton
-                Label={key}
-                key={key}
-                Activated={currentPage === value}
-                EndPoint={value}
-                onNavigate={handlePageChange}
-            />
-        );
-    });
-
-    const formURL = "https://lu.ma/g2q0djtw";
+    const navButtons = Array.from(Pages).map(([key, value]) => (
+        <NavButton
+            Label={key}
+            key={key}
+            EndPoint={value}
+        />
+    ));
 
     return (
         <div>
@@ -55,21 +32,7 @@ export default function NavBar() {
                         </div>
                     </div>
                     <div className="lg:flex hidden justify-end items-center h-full">
-                        
                         <div className="flex items-center gap-x-7">
-                            
-                            {/* <div className="flex items-center">
-                                <div className="text-2xl whitespace-nowrap shrink-0">Join Us:</div>
-                                <Link href={formURL}>
-                                    <Button className="text-lang-orange hover:bg-transparent bg-transparent text-2xl font-bold hover:scale-110 transition duration-300 ease-in-out">
-                                        Signup
-                                    </Button>
-                                </Link>
-                            </div> */}
-                            
-                            {/* <div className="flex items-center">
-                                <SocialIcons gap={3} />
-                            </div> */}
                         </div>
                     </div>
                     <div className="dropdown lg:hidden">

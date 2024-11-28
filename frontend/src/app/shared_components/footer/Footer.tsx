@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import React, { useMemo, useState } from "react";
+import React from "react";
 import SocialIcons from "../SocialIcons";
 import Link from "next/link";
 
@@ -21,38 +20,13 @@ export default function Footer() {
         ["Rules", "https://langaracs.notion.site/LCSC-Rules-393da1457d784fa19c98d1d3c32ae829?pvs=4"]
     ]);
 
-    const [resources, setResources] = useState<React.ReactNode[]>([]);
+    const resources = Array.from(resourcesMap).map(([key, value]) => (
+        <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
+    ));
 
-    const [links, setLinks] = useState<React.ReactNode[]>([]);
-
-    const router = useRouter();
-
-    const resourcesMemo = useMemo(() => {
-        const resourcesTemp: Array<React.ReactNode> = [];
-
-        if (resources.length < 1) {
-            resourcesMap.forEach((value: string, key: string) => {
-                resourcesTemp.push(
-                    <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
-                );
-            });
-        }
-
-        return resourcesTemp;
-    }, [resourcesMap]);
-
-    const linksMemo = useMemo(() => {
-        const linksTemp: Array<React.ReactNode> = [];
-
-        if (links.length < 1)
-            linksMap.forEach((value: string, key: string) => {
-                linksTemp.push(
-                    <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
-                );
-            });
-
-        return linksTemp;
-    }, [linksMap]);
+    const links = Array.from(linksMap).map(([key, value]) => (
+        <a key={key} href={value} className="hover:text-lang-orange">{key}</a>
+    ));
 
     return (
         <>
@@ -63,40 +37,26 @@ export default function Footer() {
                             <div className="flex flex-col">
                                 <div className={"font-bold text-3xl"}>Resources</div>
                                 <div className={"flex flex-col text-sm gap-3 mt-3"}>
-                                    {resourcesMemo}
+                                    {resources}
                                 </div>
-                                {/* <div className="opacity-0 md:opacity-100 mt-10 text-xs">Copyright © {new Date(Date.now()).getFullYear()} Langara Computer Science Club</div> */}
                             </div>
                         </div>
-                        {/* <div className="flex flex-row">
-                            <div className="flex flex-col">
-                                <div className={"font-bold text-3xl"}>Links</div>
-                                <div className={"flex flex-col text-sm gap-3 mt-3"}>
-                                    {linksMemo}
-                                </div>
-                            </div>
-                        </div> */}
                     </div>
                     <div className="flex flex-row md:flex-col justify-evenly">
                         <div className={"flex flex-col gap-2 items-center md:items-end md:mt-3 md:mr-3"}>
                             <div className={"font-bold flex flex-row gap-3 items-center"}>
-                                {/* <div className="font-bold text-3xl">
-                                    Become a
-                                </div> */}
-
-                                <Link href={forms.register} target="_blank"><Button className="bg-lang-orange hover:bg-lang-orange rounded text-white h-10 font-bold">Become a Member.</Button></Link>
+                                <Link href={forms.register} target="_blank">
+                                    <Button className="bg-lang-orange hover:bg-lang-orange rounded text-white h-10 font-bold">Become a Member.</Button>
+                                </Link>
                             </div>
                             <div className={"font-bold flex flex-row gap-3 items-center text-2xl"}>
-                            
                                 <SocialIcons height={40} width={40} gap={2} />
                             </div>
-                            {/* <div className="underline text-xl">
-                                <a href="#top">Go to top of the website</a>
-                            </div> */}
                         </div>
                         <div className="alignment_div opacity-0">I am not here</div>
                     </div>
                 </div>
             </footer>
-        </>);
+        </>
+    );
 }

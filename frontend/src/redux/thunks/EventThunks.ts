@@ -1,24 +1,20 @@
-import { CalendarEvent } from "../slices/eventSlice";
-import { AppDispatch, RootState } from "../stores/store";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Event } from '../slices/eventSlice';
 
-export const fetchEventsAsync = () => async (state: RootState, dispatch: AppDispatch): Promise<CalendarEvent[]> => {
-    const response = await (await (fetch(`https://${process.env.APIURL}/Event/ListAll`, 
-                                            {
-                                                method: "GET",
-                                                headers: {
-                                                    "apikey": `${process.env.APIKEY}`
-                                                } 
-                                            }))).json();
+export const loadEventsAsync = createAsyncThunk(
+    'events/load',
+    async (): Promise<Event[]> => {
+        const response = await fetch(`https://api3.langaracs.ca/events/all`);
+        const data = await response.json();
 
-    return response["Payload"].map((item: any) => { 
-        return {
-            Title: item.Title,
-            Start: new Date(item.Start),
-            End: new Date(item.End),
-            Description: item.Description,
-            Location: item.Location,
-            Image: (item.Image != null) ? `https://${process.env.APIURL}/${item.Image}` : "https://via.placeholder.com/800x800",
-            Link: { Google: item.Link.Google, Apple: item.Link.Apple }
-        } as CalendarEvent;
-     });
-}; 
+        return data.map((item: any) => ({
+            Title: item.event_name,
+            Start: new Date(item.event_start_date),
+            End: new Date(item.event_end_date),
+            Description: item.event_date,
+            Location: item.location,
+            Image: item.thumbnail ? `https://api3.langaracs.ca/executives/image/${item.thumbnail}` : "https://via.placeholder.com/800x800",
+            Link: { Google: item.registration_link, Apple: null }
+        }));
+    }
+);

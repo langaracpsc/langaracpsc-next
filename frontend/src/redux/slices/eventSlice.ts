@@ -1,78 +1,42 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../stores/store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { loadEventsAsync } from '../thunks/EventThunks';
 
-export interface CalendarEvent
-{
-    Title: string;
-    
-    Start: Date;
-
-    End: Date;
-
-    Description: string;
-
-    Location: string;
-
-    Image: string;
-    
-    Link: {
-        Google: string,
-        Apple: string
-    };
+export interface Event {
+    event_name: string;
+    event_date: string;
+    event_start_date: string;
+    event_end_date: string;
+    location: string;
+    thumbnail: string;
+    registration_link: string;
+    id: string;
+    last_edited_time: string;
 }
 
-
-export interface CalendarEventState
-{
-    Events: CalendarEvent[];
-
-    FetchIntervalStarted: boolean;
-
-    CurrentEvent: CalendarEvent;
+interface EventState {
+    events: Event[];
 }
 
-export const DefaultCalendarEvent: CalendarEvent= {
-    Title: "",
-    Start: new Date(0),
-    End: new Date(0),
-    Description: "",
-    Location: "",
-    Image: "",
-    Link: {
-        Google: "",
-        Apple: ""
-    }
-} ;
-
-const initialState: CalendarEventState = {
-    Events: [], 
-    FetchIntervalStarted: false,
-    CurrentEvent: DefaultCalendarEvent 
+const initialState: EventState = {
+    events: [],
 };
 
-const eventSlice = createSlice({  
-    name: "eventSlice", 
-    initialState, 
+const eventSlice = createSlice({
+    name: 'events',
+    initialState,
     reducers: {
-        AddCalenderEvent: (state, action: PayloadAction<CalendarEvent>) => { 
-                return { ...state, Events: [...state.Events, action.payload] };
-            },
-
-        SetCalendarEvents: (state, action: PayloadAction<CalendarEvent[]>) => {
-            return { ...state, Events: action.payload };            
+        SetEvents: (state, action: PayloadAction<Event[]>) => {
+            state.events = action.payload;
         },
-
-        SetFetchIntervalStarted: (state, action: PayloadAction<boolean>) => {
-            return { ...state, FetchIntervalStarted: action.payload };
-        },
-
-        SetCurrentEvent: (state, action: PayloadAction<CalendarEvent>) => {
-            return { ...state, CurrentEvent: action.payload };           
-        }
-    }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(loadEventsAsync.fulfilled, (state, action: PayloadAction<Event[]>) => {
+            state.events = action.payload; // Update the events with the fetched data
+        });
+    },
 });
 
-export const {AddCalenderEvent, SetCalendarEvents, SetFetchIntervalStarted, SetCurrentEvent} = eventSlice.actions;
-export const selectEvent = (state: RootState) => state.events;
+export const { SetEvents } = eventSlice.actions;
+export const selectEvents = (state: any) => state.events.events; // Adjust based on your state structure
 export default eventSlice.reducer;
 

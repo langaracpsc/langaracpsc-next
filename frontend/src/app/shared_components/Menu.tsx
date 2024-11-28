@@ -1,9 +1,6 @@
 import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
-import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../redux/hooks/hooks";
-import { SetCurrentPage, selectCurrentPage } from "../../redux/slices/pageSlice";
 import SocialIcons from './SocialIcons';
 
 interface MenuProps
@@ -15,16 +12,11 @@ export default function Menu({ Buttons } : MenuProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     
     const router = useRouter();
-    const mainDispatch = useAppDispatch();
-    const currentPage = useSelector(selectCurrentPage);
-    const [page, setPage] = useState(currentPage); 
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
     const onClickHandler  = (url: string) => {
         router.push(url);    
-        mainDispatch(SetCurrentPage(url));
-        setPage(currentPage);
     };
 
     const navButtons: Array<JSX.Element> = new Array<JSX.Element>();

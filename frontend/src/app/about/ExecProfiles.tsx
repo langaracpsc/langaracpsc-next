@@ -1,56 +1,104 @@
 import { useEffect, useState } from 'react';
 import ExecProfile from './ExecProfile';
-import { useAppSelector, useAppDispatch } from '../../redux/hooks/hooks';
-import { selectProfile } from '../../redux/slices/execProfileSlice';
-import { loadProfilesAsync } from '../../redux/thunks/ProfileThunks';
 
-export default function ExecProfiles() {
-  const dispatch = useAppDispatch();
-  const profiles = useAppSelector(selectProfile);
-  const [loading, setLoading] = useState(true);
-  const [hasFetched, setHasFetched] = useState(false); // Prevents multiple fetches
+interface Executive {
+  student_id: string;
+  roles: string[];
+  name: string;
+  profile_picture: string | null;
+  current_status: string;
+  bio: string;
+  last_term: string;
+}
 
-  useEffect(() => {
-    const fetchProfiles = async () => {
-      if (!hasFetched) {
-        setHasFetched(true); // Set flag to true to prevent re-fetching
-        // console.log("Fetching profiles...");
-        const resultAction = await dispatch(loadProfilesAsync());
+async function getExecutives() {
+  const res = await fetch('https://api3.langaracs.ca/executives/all');
+  const executives = await res.json();
+  return executives;
+}
 
-        if (loadProfilesAsync.fulfilled.match(resultAction)) {
-        //   console.log("Profiles fetched:", resultAction.payload);
-        } else {
-        //   console.error("Failed to fetch profiles");
-        }
-        setLoading(false);
-      }
-    };
+export default async function ExecProfiles() {
+  const executives: Executive[] = await getExecutives();
 
-    fetchProfiles();
-  }, [dispatch, hasFetched]);
+  // Separate executives into current and retired
+  const currentExecutives = executives.filter(exec => exec.current_status !== 'Retired');
+  const retiredExecutives = executives.filter(exec => exec.current_status === 'Retired');
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // Group current executives by year
+  const groupedCurrentExecutives = currentExecutives.reduce((acc: Record<string, Executive[]>, exec) => {
+    const year = exec.last_term ? exec.last_term.split(' ')[0] : 'Unknown';
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(exec);
+    return acc;
+  }, {});
 
-//   console.log("Profiles to display:", profiles);
+  // Group retired executives by year
+  const groupedRetiredExecutives = retiredExecutives.reduce((acc: Record<string, Executive[]>, exec) => {
+    const year = exec.last_term ? exec.last_term.split(' ')[0] : 'Unknown';
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(exec);
+    return acc;
+  }, {});
+
+  // Sort years for retired executives
+  const sortedRetiredYears = Object.keys(groupedRetiredExecutives).sort((a, b) => {
+    if (a === 'current') return -1;
+    if (b === 'current') return 1;
+    return Number(b) - Number(a);
+  });
 
   return (
-    <div className="flex flex-wrap gap-20 justify-center">
-      {profiles.map((profile: { ID: string; Position: string[]; Name: string; ImageBuffer?: string; Description: string; }) => (
-        <ExecProfile
-          key={profile.ID}
-          Position={profile.Position}
-          ID={profile.ID}
-          Name={profile.Name}
-          ImageBuffer={
-            profile.ImageBuffer
-              ? `https://api3.langaracs.ca/executives/image/${profile.ImageBuffer}`
-              : 'https://via.placeholder.com/200x200'
-          }
-          Description={profile.Description}
-        />
+    <div className="flex flex-wrap flex-row gap-20 justify-center">
+      {/* Block for current executives grouped by year */}
+      {Object.keys(groupedCurrentExecutives).map(year => (
+        <div key={year} className="flex-row gap-5">
+          {/* <h2 className="text-2xl font-semibold pb-5">Current Executives</h2> */}
+          <div className=" flex flex-wrap flex-row gap-5">
+            {groupedCurrentExecutives[year].map((exec) => (
+              <ExecProfile
+                key={exec.student_id}
+                ID={exec.student_id}
+                Position={exec.roles}
+                Name={exec.name}
+                ImageBuffer={
+                  exec.profile_picture
+                    ? `https://${exec.profile_picture}`
+                    : 'https://via.placeholder.com/200x200'
+                }
+                Description={exec.bio || ''}
+              />
+            ))}
+          </div>
+        </div>
       ))}
+
+      {/* Block for retired executives grouped by year */}
+      {sortedRetiredYears.map(year => (
+        <div key={year} className="mt-10">
+          <h2 className="text-2xl font-semibold pb-5">Retired Executives - {year}</h2>
+          <div className=" flex flex-wrap flex-row gap-5">
+            {groupedRetiredExecutives[year].map((exec) => (
+              <ExecProfile
+                key={exec.student_id}
+                ID={exec.student_id}
+                Position={exec.roles}
+                Name={exec.name}
+                ImageBuffer={
+                  exec.profile_picture
+                    ? `https://${exec.profile_picture}`
+                    : 'https://via.placeholder.com/200x200'
+                }
+                Description={exec.bio || ''}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
+      <br></br>
     </div>
   );
 }

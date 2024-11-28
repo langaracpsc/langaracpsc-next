@@ -4,16 +4,11 @@ const nextConfig = {
   }, 
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "langaracpsc.github.io",
-        pathname: "/assets"
-      }, 
-      {
-        protocol: "https",
-        hostname: "api.langaracs.ca",
-        pathname: "/Images/**"
-      },
+      // {
+      //   protocol: "https",
+      //   hostname: "langaracpsc.github.io",
+      //   pathname: "/assets"
+      // }, 
       {
         protocol: "https",
         hostname: "via.placeholder.com"
@@ -21,7 +16,12 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "api3.langaracs.ca",
-        pathname: "/executives/image/**"
+        pathname: "/executives/images/**"
+      },
+      {
+        protocol: "https",
+        hostname: "api3.langaracs.ca",
+        pathname: "/events/images/**"
       },
     ]
   },

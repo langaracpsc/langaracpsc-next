@@ -35,50 +35,50 @@ interface ExecProfileProps
 export default function ExecProfile({ID, Name, ImageBuffer, Position, Description} : ExecProfileProps)
 { 
     // no clue what this value represents
-    let initialValue: number = 200;
+    let ImageWidth: number = 200;
     
-    useEffect(() => {
-        if (window !== undefined) {
-            if (window.innerWidth <= 800)
-                initialValue = 100;
-        }
-    }); 
+    // useEffect(() => {
+    //     if (window !== undefined) {
+    //         if (window.innerWidth <= 800)
+    //             initialValue = 100;
+    //     }
+    // }); 
 
-    const [imageWidth, setImageWidth] = useState<number>(initialValue);
+    // const [imageWidth, setImageWidth] = useState<number>(initialValue);
     
-    useEffect(() => {
-        const handleResize = () => {
-            if (window !== undefined)
-            {
-                if (window.innerWidth <= 800)
-                    setImageWidth(100);
-                else
-                    setImageWidth(200);
-            }
-        };
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //         if (window !== undefined)
+    //         {
+    //             if (window.innerWidth <= 800)
+    //                 setImageWidth(100);
+    //             else
+    //                 setImageWidth(200);
+    //         }
+    //     };
         
-        if (window !== undefined) 
-        {
-            window.addEventListener('resize', handleResize);
-            window.addEventListener('load', handleResize);
-        }
+    //     if (window !== undefined) 
+    //     {
+    //         window.addEventListener('resize', handleResize);
+    //         window.addEventListener('load', handleResize);
+    //     }
 
-        return () => {
-            if (window !== undefined)
-                window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    //     return () => {
+    //         if (window !== undefined)
+    //             window.removeEventListener('resize', handleResize);
+    //     };
+    // }, []);
 
         
     return (
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3 max-w-[200px]">
             <div className="flex flex-col items-center text-center">
                 <div className="flex" style={{ justifyContent: "center"}}>
                     <div>
                         <Dialog.Root>
                             <Dialog.Trigger className='font-bold flex flex-col items-center'>
                                 
-                                <Image src={ImageBuffer} width={imageWidth} height={imageWidth} alt={Name} style={{ borderRadius: "100%", height: imageWidth, width: imageWidth }} className={`w-[${imageWidth}px] h-[${imageWidth}px] aspect-square rounded-2xl object-cover transition duration-300 ease-in-out hover:scale-105 `}/>
+                                <Image src={ImageBuffer} width={200} height={200} alt={Name} style={{ borderRadius: "100%", height: 200, width: 200 }} className={`w-[${200}px] h-[${200}px] aspect-square rounded-2xl object-cover transition duration-300 ease-in-out hover:scale-105 `}/>
                                 <div>{Name}</div>
                                 
                             </Dialog.Trigger>
@@ -91,7 +91,7 @@ export default function ExecProfile({ID, Name, ImageBuffer, Position, Descriptio
                                             Position={Position.join(" & ")}
                                             ImageBuffer={ImageBuffer}
                                             Description={Description}
-                                            imageWidth={imageWidth} />
+                                            imageWidth={200} />
                                     </Dialog.Content>
                                 </Dialog.Overlay>
                             </Dialog.Portal>
