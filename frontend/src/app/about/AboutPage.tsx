@@ -1,9 +1,7 @@
-
 import ExecProfiles from "./ExecProfiles";
 
-interface AboutPageProps { }
 
-export default function AboutPage({ }: AboutPageProps) {
+export default function AboutPage() {
 
     return (
         <div className={"flex flex-col gap-5  grow pl-5"}>

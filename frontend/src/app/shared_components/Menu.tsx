@@ -1,4 +1,3 @@
-import { useRouter } from "next/navigation";
 import { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import SocialIcons from './SocialIcons';
@@ -11,13 +10,9 @@ interface MenuProps
 export default function Menu({ Buttons } : MenuProps) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     
-    const router = useRouter();
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    const onClickHandler  = (url: string) => {
-        router.push(url);    
-    };
 
     const navButtons: Array<JSX.Element> = new Array<JSX.Element>();
 

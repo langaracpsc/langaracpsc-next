@@ -1,24 +1,21 @@
 "use client";
 
-import { useEffect, useState } from 'react';
 import Footer from './shared_components/footer/Footer';
 import HomePage from './HomePage';
 import NavBar from './shared_components/header/NavBar';
-import Events from './events/page'; // Import the Events component
 
 export default function Home() {
-    const [isWideScreen, setIsWideScreen] = useState(false);
 
-    useEffect(() => {
-        function handleResize() {
-            setIsWideScreen(window.innerWidth >= 768); // Adjust the breakpoint as needed
-        }
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setIsWideScreen(window.innerWidth >= 768); // Adjust the breakpoint as needed
+    //     }
 
-        handleResize(); // Set initial state
+    //     handleResize(); // Set initial state
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    //     window.addEventListener('resize', handleResize);
+    //     return () => window.removeEventListener('resize', handleResize);
+    // }, []);
 
     return (
         <div className='h-screen w-full bg-body-gray'>
@@ -26,8 +23,6 @@ export default function Home() {
                 <NavBar />
                 <HomePage />
                 <Footer />
-                {/* You can render the Events component here if needed */}
-                {/* <Events /> */}
             </main>
         </div>
     );
