@@ -4,7 +4,7 @@ import PlausibleProvider from 'next-plausible'
 
 export const metadata = {
   title: "Langara Computer Science Club",
-  description: "Website for Langara Computer Science Club.",
+  description: "The official website of the Langara Computer Science Club.",
 }
 
 export default function RootLayout({

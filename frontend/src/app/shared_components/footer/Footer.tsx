@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
 import SocialIcons from "../SocialIcons";
 import Link from "next/link";
 

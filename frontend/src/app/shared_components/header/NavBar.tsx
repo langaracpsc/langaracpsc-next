@@ -5,19 +5,14 @@ import Menu from "../Menu";
 import NavButton from "./NavButton";
 
 export default function NavBar() {
-    const Pages = new Map<string, string>([
-        ["Home", "/"],
-        ["About", "/about"],
-        ["Events", "/events"]
-    ]);
-
-    const navButtons = Array.from(Pages).map(([key, value]) => (
-        <NavButton
-            Label={key}
-            key={key}
-            EndPoint={value}
-        />
-    ));
+    const navButtons = (
+        <>
+            <NavButton Label="Home" key="Home" EndPoint="/" />
+            <NavButton Label="About" key="About" EndPoint="/about" />
+            <NavButton Label="Events" key="Events" EndPoint="/events" />
+            <NavButton Label="Resources" key="Resources" EndPoint="/resources" />
+        </>
+    );
 
     return (
         <div>
@@ -36,7 +31,7 @@ export default function NavBar() {
                         </div>
                     </div>
                     <div className="dropdown lg:hidden">
-                        <Menu Buttons={navButtons} />
+                        <Menu Buttons={Array.isArray(navButtons) ? navButtons : [navButtons]} />
                     </div>
                 </div>
             </nav>
