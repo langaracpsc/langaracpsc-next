@@ -19,7 +19,7 @@ interface EventItemProps {
 export default function EventItem({ event }: EventItemProps) {
     const imageUrl = event.thumbnail 
         ? `https://${event.thumbnail}` 
-        : '/lcs.png';
+        : '/LCS.png';
 
     return (
         <div key={event.id} className="rounded  border-2 bg-gray w-64">
