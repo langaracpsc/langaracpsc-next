@@ -1,7 +1,7 @@
 import ExecProfile from './ExecProfile';
 
 interface Executive {
-  student_id: string;
+  id: string;
   roles: string[];
   name: string;
   profile_picture: string | null;
@@ -59,8 +59,8 @@ export default async function ExecProfiles() {
           <div className=" flex flex-wrap flex-row gap-5 justify-center">
             {groupedCurrentExecutives[year].map((exec) => (
               <ExecProfile
-                key={exec.student_id}
-                ID={exec.student_id}
+                key={exec.id}
+                ID={exec.id}
                 Position={exec.roles}
                 Name={exec.name}
                 ImageBuffer={
@@ -82,8 +82,8 @@ export default async function ExecProfiles() {
           <div className="flex flex-wrap flex-row gap-5 justify-center">
             {groupedRetiredExecutives[year].map((exec) => (
               <ExecProfile
-                key={exec.student_id}
-                ID={exec.student_id}
+                key={exec.id}
+                ID={exec.id}
                 Position={exec.roles}
                 Name={exec.name}
                 ImageBuffer={
