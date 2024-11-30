@@ -15,7 +15,6 @@ export default function AboutPage() {
             <br></br>
 
 
-            <h3 className="text-3xl font-semibold">Our Executives:</h3>
 
             <div className={"flex flex-col max-[600px]:mx-0 gap-3 items-center"}>
                 {/* TODO: don't assume API always works. */}
