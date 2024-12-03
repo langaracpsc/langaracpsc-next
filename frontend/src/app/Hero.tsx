@@ -8,17 +8,23 @@ import hero3 from '../../public/hero_images/langara3.png'
 import hero4 from '../../public/hero_images/langara4.png'
 import hero5 from '../../public/hero_images/langara5.png'
 
+
+async function WAKEUP() {
+    await fetch(`https://example.com`);
+    return;
+}
+
 // otherwise next.js will cache the total route result and it will not be random
 export const dynamic = 'force-dynamic';
 
 let imageCounter = 0;
 
 export default function Hero() {
+    WAKEUP()
     const images = [hero1, hero2, hero3, hero4, hero5]
 
     const selectedImage = images[imageCounter % images.length];
     imageCounter++;
-    // const randomImage = images[Math.floor(Math.random() * 5)]
 
     return (
         <div className="relative w-[100vw] h-[90vh]">
@@ -26,6 +32,7 @@ export default function Hero() {
                 <Image
                     priority
                     placeholder='blur'
+                    unoptimized
                     src={selectedImage}
                     fill={true}
                     alt="Image of Langara College campus."
