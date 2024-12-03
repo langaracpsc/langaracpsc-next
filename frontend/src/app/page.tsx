@@ -37,11 +37,16 @@ export default function Home() {
 
 
                     <div className='w-full border-white border-2 p-5 rounded-md flex flex-col gap-4'>
-                        <p className="text-2xl font-semibold    ">Langara Hacks 2024</p>
-                        <p className='text-lg'>Langara Hacks is our annual hackathon that is held in September of each year in person at Langara College. We welcome participants from all skill levels to attend, and last year we welcomed over a hundred participants from schools all over BC. You can find more information at the hackathon website: </p>
-                        <Link href="https://lhacks.langaracs.ca" target="_blank">
-                            <p className="w-fit px-5 border-white bg-lang-orange font-semibold hover:bg-lang-orange rounded p-2 text-center">Langara Hacks 2024</p>
-                        </Link>
+                        <p className="text-2xl font-semibold">Langara Hacks!</p>
+                        <p className='text-lg'>Langara Hacks! is our annual hackathon that is held in September of each year in person at Langara College. We welcome participants from all skill levels to attend, and last year we welcomed over a hundred participants from schools all over BC. You can find more information at the hackathon website: </p>
+                        <div className='flex flex-row gap-3'>
+                            <Link href="https://lhacks.langaracs.ca" target="_blank">
+                                <p className="w-fit px-5 border-white bg-lang-orange font-semibold hover:bg-lang-orange rounded p-2 text-center">Langara Hacks! 2024</p>
+                            </Link>
+                            <Link href="https://lhacks2024.devpost.com/project-gallery" target="_blank">
+                                <p className="w-fit px-5 border-white bg-lang-orange font-semibold hover:bg-lang-orange rounded p-2 text-center">LH! 2024 Project Gallery</p>
+                            </Link>
+                        </div>
                     </div>
 
                     <div className='w-full border-white border-2 p-5 rounded-md flex flex-col gap-4'>
