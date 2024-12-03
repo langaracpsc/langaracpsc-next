@@ -21,8 +21,18 @@ export default function EventItem({ event }: EventItemProps) {
         ? `https://${event.thumbnail}` 
         : '/LCS.png';
 
-    // const componentWidth = event.thumbnail ? 'min-w-[400px]' : '';
+        /*
+        Some notes about this component:
 
+        You can do a lot of things on an event page. You can filter, you can highlight events, you can have fancy effects
+        I would love to have a view where stuff like the hackathon is 2x or 3x bigger than smaller socials
+
+        even better if this could scale automatically, but its pretty difficult to do with css and even js
+        unfortunately i also don't have enough time to implement it to my standards so this is ok
+        */
+
+
+        
     return (
         <div key={event.id} className={`w-fit min-w-[300px] max-w-[500px] h-[220px] relative rounded flex-1 border-2 bg-gray hover:scale-105 transform transition-transform duration-150`}>
             
