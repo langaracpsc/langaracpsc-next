@@ -1,13 +1,17 @@
 import ExecProfile from './ExecProfile';
 
-interface Executive {
+export interface Executive {
   id: string;
   roles: string[];
   name: string;
+  pronouns: string;
   profile_picture: string | null;
   current_status: string;
   bio: string;
+  first_term: string;
   last_term: string;
+  social_media_links: { [key: string]: string }
+
 }
 
 async function getExecutives() {
@@ -55,21 +59,10 @@ export default async function ExecProfiles() {
       {/* Block for current executives grouped by year */}
       {Object.keys(groupedCurrentExecutives).map(year => (
         <div key={year} className="flex-row gap-5">
-          <h2 className="text-3xl font-semibold pb-5">Current Executives:</h2>
+          <h2 className="text-3xl pb-5">Current Executives:</h2>
           <div className=" flex flex-wrap flex-row gap-5 justify-center">
             {groupedCurrentExecutives[year].map((exec) => (
-              <ExecProfile
-                key={exec.id}
-                ID={exec.id}
-                Position={exec.roles}
-                Name={exec.name}
-                ImageBuffer={
-                  exec.profile_picture
-                    ? `https://${exec.profile_picture}`
-                    : '/blank_profile.jpg'
-                }
-                Description={exec.bio || ''}
-              />
+              <ExecProfile {...exec}/>
             ))}
           </div>
         </div>
@@ -78,21 +71,10 @@ export default async function ExecProfiles() {
       {/* Block for retired executives grouped by year */}
       {sortedRetiredYears.map(year => (
         <div key={year} className="mt-40">
-          <h2 className="text-2xl font-semibold pb-5">Retired Executives - {year}:</h2>
+          <h2 className="text-2xl pb-5">Retired Executives - {year}:</h2>
           <div className="flex flex-wrap flex-row gap-5 justify-center">
             {groupedRetiredExecutives[year].map((exec) => (
-              <ExecProfile
-                key={exec.id}
-                ID={exec.id}
-                Position={exec.roles}
-                Name={exec.name}
-                ImageBuffer={
-                  exec.profile_picture
-                    ? `https://${exec.profile_picture}`
-                    : '/blank_profile.jpg'
-                }
-                Description={exec.bio || ''}
-              />
+              <ExecProfile {...exec}/>
             ))}
           </div>
         </div>
