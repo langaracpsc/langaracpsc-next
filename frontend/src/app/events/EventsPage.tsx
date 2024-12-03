@@ -13,8 +13,8 @@ interface Event {
 
 async function getEvents() {
     const res = await fetch(`https://api3.langaracs.ca/events/all`, { cache: 'no-store' });
-    const events = await res.json();
-    return events;
+    let events = await res.json();
+    return events['events'];
 }
 
 export default async function EventsPage() {

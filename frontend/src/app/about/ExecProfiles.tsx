@@ -17,7 +17,7 @@ export interface Executive {
 async function getExecutives() {
   const res = await fetch('https://api3.langaracs.ca/executives/all');
   const executives = await res.json();
-  return executives;
+  return executives['executives'];
 }
 
 export default async function ExecProfiles() {
@@ -57,16 +57,16 @@ export default async function ExecProfiles() {
   return (
     <div className="flex flex-wrap flex-row gap-20 justify-center">
       {/* Block for current executives grouped by year */}
-      {Object.keys(groupedCurrentExecutives).map(year => (
-        <div key={year} className="flex-row gap-5">
+
+        <div className="flex-row gap-5">
           <h2 className="text-3xl pb-5">Current Executives:</h2>
+
           <div className=" flex flex-wrap flex-row gap-5 justify-center">
-            {groupedCurrentExecutives[year].map((exec) => (
-              <ExecProfile {...exec}/>
+            {Object.values(groupedCurrentExecutives).flat().map((exec, index) => (
+              <ExecProfile key={index} {...exec} />
             ))}
           </div>
         </div>
-      ))}
 
       {/* Block for retired executives grouped by year */}
       {sortedRetiredYears.map(year => (
@@ -74,18 +74,18 @@ export default async function ExecProfiles() {
           <h2 className="text-2xl pb-5">Retired Executives - {year}:</h2>
           <div className="flex flex-wrap flex-row gap-5 justify-center">
             {groupedRetiredExecutives[year].map((exec) => (
-              <ExecProfile {...exec}/>
+              <ExecProfile {...exec} />
             ))}
           </div>
         </div>
       ))}
       <br></br>
 
-    
+
     </div>
 
-    
+
   );
 
-  
+
 }
