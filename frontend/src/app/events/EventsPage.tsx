@@ -47,7 +47,8 @@ export default async function EventsPage() {
     return (
         <div className="events-page flex flex-col gap-5">
             <h1 className="text-3xl font-bold">Upcoming Events:</h1>
-            <div className="upcoming-events flex flex-wrap gap-5">
+
+            <div className="upcoming-events flex flex-wrap gap-5 items-center">
                 {upcomingEvents.length > 0 ? (
                     upcomingEvents.map((event: Event) => (
                         <EventItem key={event.id} event={event} />
@@ -59,7 +60,7 @@ export default async function EventsPage() {
             
             <h1 className="text-3xl pt-10 font-bold">Past Events:</h1>
             {sortedYears.map(year => (
-                <div key={year}>
+                <div key={year} className=' items-center'>
                     <h2 className="text-2xl font-bold pt-4 pb-[5px]">{year}:</h2>
                     <div className="past-events flex flex-wrap gap-5">
                         {pastEvents[year].map((event: Event) => (

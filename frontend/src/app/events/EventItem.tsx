@@ -21,25 +21,31 @@ export default function EventItem({ event }: EventItemProps) {
         ? `https://${event.thumbnail}` 
         : '/LCS.png';
 
-    return (
-        <div key={event.id} className="rounded  border-2 bg-gray w-64">
-            <Image 
-                src={imageUrl} 
-                alt={event.event_name} 
-                width={400}
-                height={200}
-                className='w-[400px] h-[200px] rounded object-cover'
-            />
+    // const componentWidth = event.thumbnail ? 'min-w-[400px]' : '';
 
-            <div className="p-2">
-                <h2 className="text-xl pb-1">{event.event_name}</h2>
-                <p className="text-xs">{event.event_date}</p>
-                <p className="text-xs">{event.location}</p>
+    return (
+        <div key={event.id} className={`w-fit min-w-[300px] max-w-[500px] h-[220px] relative rounded flex-1 border-2 bg-gray hover:scale-105 transform transition-transform duration-150`}>
+            
+            <div className=' max-w-[220px] min-w-[180px] h-[0] z-[-1]'>
+                <Image 
+                    src={imageUrl} 
+                    alt={event.event_name} 
+                    fill={true}
+                    className='rounded object-cover brightness-[.3]'
+                />
+            </div>
+           
+
+            <div className="max-w-[220px] min-w-full relative p-2 z-10 backdrop-brightness-[.5] pointer-events-none">
+                <h2 className="text-xl pb-1 pointer-events-auto w-fit">{event.event_name}</h2>
+                <p className="text-xs pointer-events-auto w-fit">{event.event_date}</p>
+                <p className="text-xs pointer-events-auto w-fit">{event.location}</p>
             </div>
 
             {event.registration_link && (
                 <Link href={event.registration_link} target="_blank" rel="noopener noreferrer">
-                    <button className="w-[100px] p-2 ml-2 mb-2 border-2 rounded bg-blue-500 text-white ">
+                    {/* annoyingly this isn't quite centered */}
+                    <button className="w-[100px] p-2 ml-2 mb-2 border-2 rounded bg-blue-800 text-white relative z-10 top-[85px] hover:scale-110 transform transition-transform duration-150">
                         Register
                     </button>
                 </Link>
