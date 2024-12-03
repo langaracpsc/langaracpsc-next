@@ -26,11 +26,11 @@ export default function Hero() {
             </div>
 
 
-            <div className="relative flex flex-col justify-center w-[100vw] h-[90vh] ">
-                <div className='text-7xl text-left ml-5 md:ml-page_padding_md pt-[40px]'>  {/* 40px is half the height of navbar*/}
-                    <p className="text-lang-orange">Langara</p>
-                    <p className="">Computer</p>
-                    <p className="">Science Club</p>
+            <div className="relative flex flex-col justify-center w-[100vw] h-[90vh] pointer-events-none">
+                <div className='text-7xl text-left ml-5 md:ml-page_padding_md pt-[40px] w-fit'>  {/* 40px is half the height of navbar*/}
+                    <p className="text-lang-orange w-fit pointer-events-auto">Langara</p>
+                    <p className="w-fit pointer-events-auto">Computer</p>
+                    <p className="w-fit pointer-events-auto">Science Club</p>
                 </div>
             </div>
         </div>
