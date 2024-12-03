@@ -22,6 +22,7 @@ export default function NavBar({ hasHeight = true }) {
                     <div className="flex flex-row items-center justify-start">
                         <Link href="/">
                             <Image
+                                priority
                                 src="/LCS.png"
                                 alt="LCSC Logo"
                                 width={100}
