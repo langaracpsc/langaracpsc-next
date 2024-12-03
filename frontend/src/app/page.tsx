@@ -1,7 +1,8 @@
-"use client";
+// "use client"; 
+// using SSR in Intro
 
 import Footer from './shared_components/footer/Footer';
-import Intro from './Intro';
+import Hero from './Hero';
 import NavBar from './shared_components/header/NavBar';
 import ExcitingStuff from './ExcitingStuff';
 import Link from 'next/link';
@@ -14,7 +15,7 @@ export default function Home() {
 
 
             <div className="flex flex-col gap-5">
-                <Intro />
+                <Hero />
 
                 {/* TODO: create a component that shows upcoming events here. */}
 

@@ -1,25 +1,33 @@
-"use client";
+// "use client";
 
 import Image from 'next/image';
 
-export default function Intro() {
+import hero1 from '../../public/hero_images/langara1.png'
+import hero2 from '../../public/hero_images/langara2.png'
+import hero3 from '../../public/hero_images/langara3.png'
+import hero4 from '../../public/hero_images/langara4.png'
+import hero5 from '../../public/hero_images/langara5.png'
+
+export default function Hero() {
+    const images = [hero1, hero2, hero3, hero4, hero5]
+    const randomImage = images[Math.floor(Math.random() * 5)]
+
     return (
         <div className="relative w-[100vw] h-[90vh]">
             <div className="z-index: -1">
                 <Image
                     priority
-                    src="/hero_images/langara5.png"
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="center"
-                    alt="Hero image of Langara College campus."
-                    className="brightness-[.3]"
+                    placeholder='blur'
+                    src={randomImage}
+                    fill={true}
+                    alt="Image of Langara College campus."
+                    className="brightness-[.3] object-cover"
                 />
             </div>
 
 
             <div className="relative flex flex-col justify-center w-[100vw] h-[90vh] ">
-                <div className='text-7xl text-left ml-40'>
+                <div className='text-7xl text-left ml-5 md:ml-40 pt-[40px]'>  {/* 40px is half the height of navbar*/}
                     <p className="text-lang-orange">Langara</p>
                     <p className="">Computer</p>
                     <p className="">Science Club</p>
