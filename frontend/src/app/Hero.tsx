@@ -8,6 +8,9 @@ import hero3 from '../../public/hero_images/langara3.png'
 import hero4 from '../../public/hero_images/langara4.png'
 import hero5 from '../../public/hero_images/langara5.png'
 
+// otherwise next.js will cache the total route result and it will not be random
+export const dynamic = 'force-dynamic';
+
 export default function Hero() {
     const images = [hero1, hero2, hero3, hero4, hero5]
     const randomImage = images[Math.floor(Math.random() * 5)]
