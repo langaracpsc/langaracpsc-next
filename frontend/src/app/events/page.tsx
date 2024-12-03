@@ -4,9 +4,9 @@ import Footer from "../shared_components/footer/Footer";
 
 export default function Page() {
     return (
-        <main className="grid grid-rows-[10vh_1fr] bg-body-gray  max-[600px]:grid-rows-[20vh_1fr] overflow-hidden">
+        <main className="bg-body-gray">
             <NavBar/>
-            <div className="p-[20px] pt-5 max-w-6xl mx-auto"> 
+            <div className="p-5 md:px-page_padding_md"> 
                 
                 <EventsPage />
             </div>

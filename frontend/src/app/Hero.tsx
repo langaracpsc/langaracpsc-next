@@ -27,7 +27,7 @@ export default function Hero() {
 
 
             <div className="relative flex flex-col justify-center w-[100vw] h-[90vh] ">
-                <div className='text-7xl text-left ml-5 md:ml-40 pt-[40px]'>  {/* 40px is half the height of navbar*/}
+                <div className='text-7xl text-left ml-5 md:ml-page_padding_md pt-[40px]'>  {/* 40px is half the height of navbar*/}
                     <p className="text-lang-orange">Langara</p>
                     <p className="">Computer</p>
                     <p className="">Science Club</p>

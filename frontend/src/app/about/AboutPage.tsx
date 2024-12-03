@@ -4,7 +4,7 @@ import ExecProfiles from "./ExecProfiles";
 export default function AboutPage() {
 
     return (
-        <div className={"flex flex-col gap-5  grow pl-5"}>
+        <div className={"flex flex-col gap-5  grow"}>
 
             <h1 className="text-3xl font-semibold">About us:</h1>
 

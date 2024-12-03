@@ -30,7 +30,7 @@ export default function Footer() {
     return (
         <>
 
-        <footer className="bg-[#1E1E1E] px-10 py-5 min-h-40">
+        <footer className="bg-[#1E1E1E] p-5 md:px-page_padding_md py-5 min-h-40">
 
             <div className="flex justify-between">
 

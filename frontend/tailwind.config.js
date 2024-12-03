@@ -32,6 +32,7 @@ module.exports = {
         '-16': '-4rem',
         '-20': '-5rem',
         '-24': '-6rem',
+        'page_padding_md': '100px',
       }
     },
   },
