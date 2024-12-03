@@ -4,7 +4,7 @@ import Link from "next/link";
 import Menu from "../Menu";
 import NavButton from "./NavButton";
 
-export default function NavBar() {
+export default function NavBar({ hasHeight = true }) {
     const navButtons = (
         <>
             <NavButton Label="Home" key="Home" EndPoint="/" />
@@ -35,7 +35,7 @@ export default function NavBar() {
                     </div>
                 </div>
             </nav>
-            <div style={{ height: '80px' }} />
+            {hasHeight && <div style={{ height: '80px' }} />}
         </div>
     );
 }

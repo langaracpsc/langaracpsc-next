@@ -10,8 +10,10 @@ export default function Home() {
 
     return (
         <main className="flex flex-col h-screen w-full bg-body-gray overflow-y-visible overflow-x-hidden">
-            <NavBar />
-            <div className="flex flex-col gap-5 my-5">
+            <NavBar hasHeight={false}/>
+
+
+            <div className="flex flex-col gap-5">
                 <Intro />
 
                 {/* TODO: create a component that shows upcoming events here. */}
