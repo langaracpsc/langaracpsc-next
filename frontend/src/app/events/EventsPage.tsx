@@ -1,8 +1,10 @@
 import EventItem from './EventItem';
 
+// Note that all of these can be null (except for id)
 interface Event {
     event_name: string;
     event_date: string;
+    semester: string
     event_start_date: string;
     event_end_date: string;
     location: string;
@@ -29,10 +31,10 @@ export default async function EventsPage() {
             return dateToCheck <= currentDate && !isNaN(dateToCheck.getTime());
         })
         .reduce((acc: { [key: string]: Event[] }, event) => {
-            const dateToUse = event.event_end_date || event.event_start_date || event.event_date;
-            const year = new Date(dateToUse).getFullYear();
-            if (!acc[year]) acc[year] = [];
-            acc[year].push(event);
+            const s = event.semester
+            if (!acc[s]) acc[s] = [];
+
+            acc[s].push(event);
             return acc;
         }, {});
 
@@ -60,11 +62,11 @@ export default async function EventsPage() {
             </div>
             
             <h1 className="text-3xl pt-10 font-bold">Past Events:</h1>
-            {sortedYears.map(year => (
-                <div key={year} className=' items-center'>
-                    <h2 className="text-2xl font-bold pt-4 pb-[5px]">{year}:</h2>
+            {sortedYears.map(term => (
+                <div key={term} className=' items-center'>
+                    <h2 className="text-2xl font-bold pt-4 pb-[5px]">{term}:</h2>
                     <div className="past-events flex flex-wrap gap-5">
-                        {pastEvents[year].map((event: Event) => (
+                        {pastEvents[term].map((event: Event) => (
                             <EventItem key={event.id} past={true} event={event} />
                         ))}
                     </div>
