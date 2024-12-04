@@ -31,7 +31,7 @@ export default async function Hero() {
                 <Image
                     priority
                     placeholder='blur'
-                    unoptimized
+                    // unoptimized
                     src={selectedImage}
                     fill={true}
                     alt="Image of Langara College campus."
