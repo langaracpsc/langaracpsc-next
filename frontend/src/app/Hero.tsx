@@ -1,6 +1,7 @@
 // "use client";
 
 import Image from 'next/image';
+import { cookies } from 'next/headers'
 
 import hero1 from '../../public/hero_images/langara1.png'
 import hero2 from '../../public/hero_images/langara2.png'
@@ -9,18 +10,16 @@ import hero4 from '../../public/hero_images/langara4.png'
 import hero5 from '../../public/hero_images/langara5.png'
 
 
-async function WAKEUP() {
-    await fetch(`https://example.com`);
-    return;
-}
 
 // otherwise next.js will cache the total route result and it will not be random
 export const dynamic = 'force-dynamic';
 
 let imageCounter = 0;
 
-export default function Hero() {
-    WAKEUP()
+export default async function Hero() {
+    const cookieStore = await cookies()
+    const theme = cookieStore.get('theme')
+    
     const images = [hero1, hero2, hero3, hero4, hero5]
 
     const selectedImage = images[imageCounter % images.length];
