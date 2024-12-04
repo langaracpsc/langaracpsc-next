@@ -61,7 +61,7 @@ export default async function ExecProfiles() {
         <div className="flex-row gap-5">
           <h2 className="text-3xl pb-5">Current Executives:</h2>
 
-          <div className=" flex flex-wrap flex-row gap-5 justify-center">
+          <div className=" flex flex-wrap flex-row gap-8 justify-center">
             {Object.values(groupedCurrentExecutives).flat().map((exec, index) => (
               <ExecProfile key={index} {...exec} />
             ))}
@@ -72,7 +72,7 @@ export default async function ExecProfiles() {
       {sortedRetiredYears.map(year => (
         <div key={year} className="mt-40">
           <h2 className="text-2xl pb-5">Retired Executives - {year}:</h2>
-          <div className="flex flex-wrap flex-row gap-5 justify-center">
+          <div key={year} className="flex flex-wrap flex-row gap-8 justify-center">
             {groupedRetiredExecutives[year].map((exec) => (
               <ExecProfile {...exec} />
             ))}

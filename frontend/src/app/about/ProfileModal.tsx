@@ -28,7 +28,8 @@ export default function ProfileModal({ id, roles, name, pronouns, profile_pictur
                         <h2 className="font-bold text-xl">{name}</h2>
                         <p className="text-gray-200">{roles.join(" & ")}</p>
                     </div>
-                    {Object.entries(social_media_links).map(([platform, url]) => (
+                    {/* These links aren't clickable for some reason... what the hell is this component?? */}
+                    {/* {Object.entries(social_media_links).map(([platform, url]) => (
                         <SocialIcon
                             key={url}
                             url={url}
@@ -39,7 +40,7 @@ export default function ProfileModal({ id, roles, name, pronouns, profile_pictur
                             rel="noopener noreferrer"
                             className="transition duration-300 transform hover:scale-125"
                         />
-                    ))}
+                    ))} */}
                 </div>
 
 
