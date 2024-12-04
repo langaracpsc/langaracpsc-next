@@ -35,7 +35,7 @@ export default async function Hero() {
                     src={selectedImage}
                     fill={true}
                     alt="Image of Langara College campus."
-                    className="brightness-[.3] object-cover"
+                    className="brightness-50 object-cover"
                 />
             </div>
 

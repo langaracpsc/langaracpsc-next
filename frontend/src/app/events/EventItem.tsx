@@ -47,12 +47,12 @@ export default function EventItem({ event, past = false }: EventItemProps) {
                     alt={event.event_name}
                     fill={true}
                     sizes="(max-width: 768px) 800px, (max-width: 1200px) 800px, 800px"
-                    className='rounded object-cover brightness-[.3]'
+                    className='rounded object-cover brightness-50'
                 />
             </div>
 
 
-            <div className="fixed max-w-[220px] min-w-full p-2 z-10 backdrop-brightness-[.5] pointer-events-none top-[0px]">
+            <div className="fixed max-w-[220px] min-w-full p-2 z-10 backdrop-brightness-50 pointer-events-none top-[0px]">
                 <h2 className="text-xl pb-1 pointer-events-auto w-fit">{event.event_name}</h2>
                 <p className="text-xs pointer-events-auto w-fit">{event.event_date}</p>
                 <p className="text-xs pointer-events-auto w-fit">{event.location}</p>
