@@ -8,6 +8,7 @@ interface Event {
     location: string;
     thumbnail: string;
     registration_link: string;
+    information_link: string;
     id: string;
 }
 
@@ -64,7 +65,7 @@ export default async function EventsPage() {
                     <h2 className="text-2xl font-bold pt-4 pb-[5px]">{year}:</h2>
                     <div className="past-events flex flex-wrap gap-5">
                         {pastEvents[year].map((event: Event) => (
-                            <EventItem key={event.id} event={event} />
+                            <EventItem key={event.id} past={true} event={event} />
                         ))}
                     </div>
                 </div>
