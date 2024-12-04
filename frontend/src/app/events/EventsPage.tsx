@@ -31,6 +31,7 @@ export default async function EventsPage() {
             return dateToCheck <= currentDate && !isNaN(dateToCheck.getTime());
         })
         .reduce((acc: { [key: string]: Event[] }, event) => {
+
             const s = event.semester
             if (!acc[s]) acc[s] = [];
 
@@ -62,11 +63,11 @@ export default async function EventsPage() {
             </div>
             
             <h1 className="text-3xl pt-10 font-bold">Past Events:</h1>
-            {sortedYears.map(term => (
-                <div key={term} className=' items-center'>
-                    <h2 className="text-2xl font-bold pt-4 pb-[5px]">{term}:</h2>
+            {sortedYears.map(year => (
+                <div key={year} className=' items-center'>
+                    <h2 className="text-2xl font-bold pt-4 pb-[5px]">{year}:</h2>
                     <div className="past-events flex flex-wrap gap-5">
-                        {pastEvents[term].map((event: Event) => (
+                        {pastEvents[year].map((event: Event) => (
                             <EventItem key={event.id} past={true} event={event} />
                         ))}
                     </div>
