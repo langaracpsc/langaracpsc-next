@@ -62,6 +62,9 @@ export default async function EventsPage() {
                 )}
             </div>
             
+            {/* Yes, the variable is called year when in reality it is terms/semesters */}
+            {/* I used cursor to generate the code and don't have the inclination to rewrite it properly */}
+            {/* Deal with it <3 */}
             <h1 className="text-3xl pt-10 font-bold">Past Events:</h1>
             {sortedYears.map(year => (
                 <div key={year} className=' items-center'>
