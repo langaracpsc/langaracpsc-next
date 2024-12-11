@@ -27,16 +27,6 @@ export default async function ExecProfiles() {
   const currentExecutives = executives.filter(exec => exec.current_status !== 'Retired');
   const retiredExecutives = executives.filter(exec => exec.current_status === 'Retired');
 
-  // Group current executives by year
-  const groupedCurrentExecutives = currentExecutives.reduce((acc: Record<string, Executive[]>, exec) => {
-    const year = exec.last_term ? exec.last_term.split(' ')[0] : 'Unknown';
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(exec);
-    return acc;
-  }, {});
-
   // Group retired executives by year
   const groupedRetiredExecutives = retiredExecutives.reduce((acc: Record<string, Executive[]>, exec) => {
     const year = exec.last_term ? exec.last_term.split(' ')[0] : 'Unknown';
@@ -62,7 +52,7 @@ export default async function ExecProfiles() {
           <h2 className="text-3xl pb-5">Current Executives:</h2>
 
           <div className=" flex flex-wrap flex-row gap-8 justify-center">
-            {Object.values(groupedCurrentExecutives).flat().map((exec, index) => (
+            {Object.values(currentExecutives).flat().map((exec, index) => (
               <ExecProfile key={index} {...exec} />
             ))}
           </div>
@@ -72,7 +62,7 @@ export default async function ExecProfiles() {
       {sortedRetiredYears.map(year => (
         <div key={year} className="mt-40">
           <h2 className="text-2xl pb-5">Retired Executives - {year}:</h2>
-          <div key={year} className="flex flex-wrap flex-row gap-8 justify-center">
+          <div className="flex flex-wrap flex-row gap-8 justify-center">
             {groupedRetiredExecutives[year].map((exec) => (
               <ExecProfile {...exec} />
             ))}
