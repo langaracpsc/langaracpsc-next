@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic' // otherwise next caches the fetch request
+
 import ExecProfile from './ExecProfile';
 
 export interface Executive {
