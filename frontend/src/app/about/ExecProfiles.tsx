@@ -50,15 +50,15 @@ export default async function ExecProfiles() {
     <div className="flex flex-wrap flex-row gap-20 justify-center">
       {/* Block for current executives grouped by year */}
 
-        <div className="flex-row gap-5">
-          <h2 className="text-3xl pb-5">Current Executives:</h2>
+      <div className="flex-row gap-5">
+        <h2 className="text-3xl pb-5">Current Executives:</h2>
 
-          <div className=" flex flex-wrap flex-row gap-8 justify-center">
-            {Object.values(currentExecutives).flat().map((exec, index) => (
-              <ExecProfile key={index} {...exec} />
-            ))}
-          </div>
+        <div className=" flex flex-wrap flex-row gap-8 justify-center">
+          {Object.values(currentExecutives).flat().map((exec, index) => (
+            <ExecProfile key={index} {...exec} />
+          ))}
         </div>
+      </div>
 
       {/* Block for retired executives grouped by year */}
       {sortedRetiredYears.map(year => (
@@ -66,7 +66,7 @@ export default async function ExecProfiles() {
           <h2 className="text-2xl pb-5">Retired Executives - {year}:</h2>
           <div className="flex flex-wrap flex-row gap-8 justify-center">
             {groupedRetiredExecutives[year].map((exec) => (
-              <ExecProfile {...exec} />
+              <ExecProfile key={exec.id} {...exec} />
             ))}
           </div>
         </div>
