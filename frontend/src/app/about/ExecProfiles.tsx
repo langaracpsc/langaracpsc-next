@@ -1,5 +1,6 @@
 export const dynamic = 'force-dynamic' // otherwise next caches the fetch request
 
+import { unstable_noStore as noStore } from "next/cache";
 import ExecProfile from './ExecProfile';
 
 export interface Executive {
@@ -17,6 +18,7 @@ export interface Executive {
 }
 
 async function getExecutives() {
+  noStore()
   const res = await fetch('https://api3.langaracs.ca/executives/all');
   const executives = await res.json();
   return executives['executives'];
